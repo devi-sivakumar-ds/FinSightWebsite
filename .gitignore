@@ -23,6 +23,9 @@ dist/
 build/
 .cache/
 
+# Extracted video reference intermediates
+assets/finsight-video-frames/frame-*.png
+assets/finsight-video-frames/*.webp
+
 S_index.html
 M_index.html
-

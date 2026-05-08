@@ -274,6 +274,34 @@ const glObserver = new IntersectionObserver((entries) => {
 
 glCards.forEach(card => glObserver.observe(card));
 
+// ── FinSight Product Phone Animation ──
+(function() {
+  const demo = document.getElementById('finsightFrameDemo');
+  const frames = content.meet?.app?.frames || [];
+  if (!demo || !frames.length) return;
+
+  frames.forEach((frame, index) => {
+    const img = document.createElement('img');
+    img.className = `finsight-frame${index === 0 ? ' active' : ''}`;
+    img.src = frame.src;
+    img.alt = frame.alt || '';
+    if (index > 0) img.loading = 'lazy';
+    demo.appendChild(img);
+  });
+
+  const frameEls = demo.querySelectorAll('.finsight-frame');
+  let current = 0;
+  const duration = 2200;
+
+  function nextState() {
+    frameEls[current].classList.remove('active');
+    current = (current + 1) % frameEls.length;
+    frameEls[current].classList.add('active');
+  }
+
+  setInterval(nextState, duration);
+})();
+
 // ── Quote Marquees ──
 (function() {
   const rows = content.quotes?.rows || [];

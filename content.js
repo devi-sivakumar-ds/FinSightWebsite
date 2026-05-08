@@ -134,6 +134,22 @@ window.FINSIGHT_CONTENT = {
   meet: {
     heading: 'Meet FinSight.',
     subtitle: 'Voice-first banking, built for BLV users.',
+    app: {
+      frames: [
+        { src: 'assets/finsight-video-frames/screen-01.jpg', alt: 'FinSight welcome screen' },
+        { src: 'assets/finsight-video-frames/screen-02-home.jpg', alt: 'FinSight home screen with voice banking tasks' },
+        { src: 'assets/finsight-video-frames/screen-02.jpg', alt: 'FinSight deposit check overview' },
+        { src: 'assets/finsight-video-frames/screen-03.jpg', alt: 'FinSight account selection screen' },
+        { src: 'assets/finsight-video-frames/screen-04.jpg', alt: 'FinSight daily deposit limit screen' },
+        { src: 'assets/finsight-video-frames/screen-05.jpg', alt: 'FinSight check capture rotation guidance' },
+        { src: 'assets/finsight-video-frames/screen-06.jpg', alt: 'FinSight check capture positioning guidance' },
+        { src: 'assets/finsight-video-frames/screen-07.jpg', alt: 'FinSight captured check details screen' },
+        { src: 'assets/finsight-video-frames/screen-08.jpg', alt: 'FinSight deposit confirmation screen' },
+        { src: 'assets/finsight-video-frames/screen-09.jpg', alt: 'FinSight received check confirmation screen' },
+        { src: 'assets/finsight-video-frames/screen-01.jpg', alt: 'FinSight welcome screen' },
+        { src: 'assets/finsight-video-frames/screen-10.jpg', alt: 'FinSight settings screen' },
+      ],
+    },
   },
 
   bridge: {
