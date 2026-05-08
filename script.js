@@ -1,4 +1,7 @@
 const content = window.FINSIGHT_CONTENT || {};
+if (!window.FINSIGHT_CONTENT) {
+  console.warn('FinSight content.js did not load. Check that content.js is committed and published next to index.html.');
+}
 
 function getContent(path) {
   return path.split('.').reduce((value, key) => {
