@@ -17,11 +17,19 @@ const previousButton = document.getElementById('previous-button');
 const nextButton = document.getElementById('next-button');
 const replayButton = document.getElementById('replay-button');
 const speechWarning = document.getElementById('speech-warning');
+const speedLabelEl = document.getElementById('speed-label');
+const verbosityLabelEl = document.getElementById('verbosity-label');
+const speedControlEl = document.getElementById('speed-control');
+const verbosityControlEl = document.getElementById('verbosity-control');
 
 let activeIndex = 0;
 let isPlaying = false;
 let utterance = null;
 let cardEls = [];
+let currentSpeed = 1;
+let currentVerbosity = 'medium';
+let speedButtonEls = [];
+let verbosityButtonEls = [];
 
 const speech = 'speechSynthesis' in window ? window.speechSynthesis : null;
 
@@ -32,8 +40,11 @@ function setStaticContent() {
   introEl.textContent = voiceContent.intro || '';
 
   const actions = voiceContent.actions || {};
+  const settings = voiceContent.settings || {};
   playLabel.textContent = actions.play || 'Play';
   replayButton.textContent = actions.replay || 'Replay';
+  speedLabelEl.textContent = settings.speedLabel || 'Speed';
+  verbosityLabelEl.textContent = settings.verbosityLabel || 'Verbosity';
   document.querySelector('[data-action-label="exit"]').textContent = actions.exit || 'Standard site';
 
   if (!speech && speechWarning) {
@@ -42,6 +53,90 @@ function setStaticContent() {
     playButton.disabled = true;
     replayButton.disabled = true;
   }
+}
+
+function getNarration(section) {
+  if (!section) return '';
+  if (currentVerbosity === 'low') return section.summary || section.narration || '';
+  if (currentVerbosity === 'high') return section.narrationHigh || section.narration || section.summary || '';
+  return section.narration || section.summary || '';
+}
+
+function renderSettings() {
+  const settings = voiceContent.settings || {};
+  const speeds = settings.speeds || [
+    { label: 'Slow', value: 0.5 },
+    { label: 'Normal', value: 1 },
+    { label: 'Fast', value: 1.5 },
+  ];
+  const verbosity = settings.verbosity || [
+    { label: 'Low', value: 'low' },
+    { label: 'Medium', value: 'medium' },
+    { label: 'High', value: 'high' },
+  ];
+
+  speedControlEl.innerHTML = '';
+  speedButtonEls = speeds.map(option => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'segment-button';
+    button.textContent = option.label;
+    button.setAttribute('aria-pressed', String(Number(option.value) === currentSpeed));
+    button.addEventListener('click', () => setSpeed(Number(option.value)));
+    speedControlEl.appendChild(button);
+    return button;
+  });
+
+  verbosityControlEl.innerHTML = '';
+  verbosityButtonEls = verbosity.map(option => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'segment-button';
+    button.textContent = option.label;
+    button.setAttribute('aria-pressed', String(option.value === currentVerbosity));
+    button.addEventListener('click', () => setVerbosity(option.value));
+    verbosityControlEl.appendChild(button);
+    return button;
+  });
+
+  updateSettingButtons();
+}
+
+function updateSettingButtons() {
+  const settings = voiceContent.settings || {};
+  const speeds = settings.speeds || [];
+  const verbosity = settings.verbosity || [];
+
+  speedButtonEls.forEach((button, index) => {
+    const active = Number(speeds[index]?.value) === currentSpeed;
+    button.classList.toggle('is-active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+
+  verbosityButtonEls.forEach((button, index) => {
+    const active = verbosity[index]?.value === currentVerbosity;
+    button.classList.toggle('is-active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+}
+
+function restartIfPlaying() {
+  if (!isPlaying) return;
+  pause();
+  play();
+}
+
+function setSpeed(speed) {
+  currentSpeed = speed;
+  updateSettingButtons();
+  restartIfPlaying();
+}
+
+function setVerbosity(verbosity) {
+  currentVerbosity = verbosity;
+  updateSettingButtons();
+  updateActiveSection();
+  restartIfPlaying();
 }
 
 function renderSections() {
@@ -70,7 +165,7 @@ function updateActiveSection({ scroll = false } = {}) {
   if (!section) return;
 
   transcriptHeadingEl.textContent = section.title || '';
-  transcriptTextEl.textContent = section.narration || '';
+  transcriptTextEl.textContent = getNarration(section);
   statusKickerEl.textContent = section.kicker || '';
   statusTitleEl.textContent = section.title || '';
   statusProgressEl.textContent = `${activeIndex + 1} of ${sections.length}`;
@@ -99,10 +194,10 @@ function speakCurrent() {
   if (!speech || !sections[activeIndex]) return;
 
   speech.cancel();
-  utterance = new SpeechSynthesisUtterance(sections[activeIndex].narration || '');
+  utterance = new SpeechSynthesisUtterance(getNarration(sections[activeIndex]));
   const voice = getPreferredVoice();
   if (voice) utterance.voice = voice;
-  utterance.rate = 0.9;
+  utterance.rate = currentSpeed;
   utterance.pitch = 1;
 
   utterance.onend = () => {
@@ -208,5 +303,6 @@ if (speech) {
 }
 
 setStaticContent();
+renderSettings();
 renderSections();
 updateActiveSection();
