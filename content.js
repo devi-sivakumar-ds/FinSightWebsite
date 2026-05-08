@@ -8,7 +8,7 @@ window.FINSIGHT_CONTENT = {
   hero: {
     headlinePrefix: 'Banking built for your',
     cyclingWords: ['Independence', 'Confidence', 'Autonomy'],
-    subtitle: 'Voice-first mobile banking, built for BLV users.',
+    subtitle: 'Audio-first mobile banking, built for BLV users.',
   },
 
   challenge: {
