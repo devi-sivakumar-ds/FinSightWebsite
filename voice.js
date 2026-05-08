@@ -10,6 +10,7 @@ const transcriptTextEl = document.getElementById('transcript-text');
 const statusKickerEl = document.getElementById('status-kicker');
 const statusTitleEl = document.getElementById('status-title');
 const statusProgressEl = document.getElementById('status-progress');
+const progressTrackEl = document.getElementById('progress-track');
 const progressFillEl = document.getElementById('progress-fill');
 const playButton = document.getElementById('play-button');
 const playLabel = document.getElementById('play-label');
@@ -30,8 +31,19 @@ let currentSpeed = 1;
 let currentVerbosity = 'medium';
 let speedButtonEls = [];
 let verbosityButtonEls = [];
+let speedOptions = [];
+let verbosityOptions = [];
 
 const speech = 'speechSynthesis' in window ? window.speechSynthesis : null;
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
 
 function setStaticContent() {
   document.title = voiceContent.pageTitle || 'FinSight Voice Guide';
@@ -64,37 +76,43 @@ function getNarration(section) {
 
 function renderSettings() {
   const settings = voiceContent.settings || {};
-  const speeds = settings.speeds || [
+  speedOptions = settings.speeds || [
     { label: 'Slow', value: 0.5 },
     { label: 'Normal', value: 1 },
     { label: 'Fast', value: 1.5 },
   ];
-  const verbosity = settings.verbosity || [
+  verbosityOptions = settings.verbosity || [
     { label: 'Low', value: 'low' },
     { label: 'Medium', value: 'medium' },
     { label: 'High', value: 'high' },
   ];
 
   speedControlEl.innerHTML = '';
-  speedButtonEls = speeds.map(option => {
+  speedButtonEls = speedOptions.map((option, index) => {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'segment-button';
+    button.setAttribute('role', 'radio');
     button.textContent = option.label;
-    button.setAttribute('aria-pressed', String(Number(option.value) === currentSpeed));
+    button.setAttribute('aria-checked', String(Number(option.value) === currentSpeed));
+    button.setAttribute('aria-label', `${option.label}, ${option.value} times speed`);
     button.addEventListener('click', () => setSpeed(Number(option.value)));
+    button.addEventListener('keydown', event => handleSegmentKeydown(event, speedButtonEls, index));
     speedControlEl.appendChild(button);
     return button;
   });
 
   verbosityControlEl.innerHTML = '';
-  verbosityButtonEls = verbosity.map(option => {
+  verbosityButtonEls = verbosityOptions.map((option, index) => {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'segment-button';
+    button.setAttribute('role', 'radio');
     button.textContent = option.label;
-    button.setAttribute('aria-pressed', String(option.value === currentVerbosity));
+    button.setAttribute('aria-checked', String(option.value === currentVerbosity));
+    button.setAttribute('aria-label', `${option.label} verbosity`);
     button.addEventListener('click', () => setVerbosity(option.value));
+    button.addEventListener('keydown', event => handleSegmentKeydown(event, verbosityButtonEls, index));
     verbosityControlEl.appendChild(button);
     return button;
   });
@@ -103,21 +121,36 @@ function renderSettings() {
 }
 
 function updateSettingButtons() {
-  const settings = voiceContent.settings || {};
-  const speeds = settings.speeds || [];
-  const verbosity = settings.verbosity || [];
-
   speedButtonEls.forEach((button, index) => {
-    const active = Number(speeds[index]?.value) === currentSpeed;
+    const active = Number(speedOptions[index]?.value) === currentSpeed;
     button.classList.toggle('is-active', active);
-    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    button.setAttribute('aria-checked', active ? 'true' : 'false');
+    button.tabIndex = active ? 0 : -1;
   });
 
   verbosityButtonEls.forEach((button, index) => {
-    const active = verbosity[index]?.value === currentVerbosity;
+    const active = verbosityOptions[index]?.value === currentVerbosity;
     button.classList.toggle('is-active', active);
-    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    button.setAttribute('aria-checked', active ? 'true' : 'false');
+    button.tabIndex = active ? 0 : -1;
   });
+}
+
+function handleSegmentKeydown(event, buttons, index) {
+  const forwardKeys = ['ArrowRight', 'ArrowDown'];
+  const backKeys = ['ArrowLeft', 'ArrowUp'];
+  if (![...forwardKeys, ...backKeys, 'Home', 'End'].includes(event.key)) return;
+
+  event.preventDefault();
+
+  let nextIndex = index;
+  if (forwardKeys.includes(event.key)) nextIndex = (index + 1) % buttons.length;
+  if (backKeys.includes(event.key)) nextIndex = (index - 1 + buttons.length) % buttons.length;
+  if (event.key === 'Home') nextIndex = 0;
+  if (event.key === 'End') nextIndex = buttons.length - 1;
+
+  buttons[nextIndex].focus();
+  buttons[nextIndex].click();
 }
 
 function restartIfPlaying() {
@@ -145,14 +178,14 @@ function renderSections() {
     const card = document.createElement('button');
     card.type = 'button';
     card.className = 'voice-section-card';
-    card.setAttribute('aria-pressed', index === activeIndex ? 'true' : 'false');
+    card.id = `voice-section-${index}`;
     card.innerHTML = `
       <div class="section-card-top">
-        <span class="section-kicker">${section.kicker || `Section ${index + 1}`}</span>
-        <span class="section-duration">${section.duration || ''}</span>
+        <span class="section-kicker">${escapeHtml(section.kicker || `Section ${index + 1}`)}</span>
+        <span class="section-duration">${escapeHtml(section.duration || '')}</span>
       </div>
-      <h3>${section.title || ''}</h3>
-      <p>${section.summary || ''}</p>
+      <h3>${escapeHtml(section.title || '')}</h3>
+      <p>${escapeHtml(section.summary || '')}</p>
     `;
     card.addEventListener('click', () => selectSection(index, { play: isPlaying, scroll: false }));
     sectionListEl.appendChild(card);
@@ -170,12 +203,18 @@ function updateActiveSection({ scroll = false } = {}) {
   statusTitleEl.textContent = section.title || '';
   statusProgressEl.textContent = `${activeIndex + 1} of ${sections.length}`;
   progressFillEl.style.width = `${((activeIndex + 1) / sections.length) * 100}%`;
+  progressTrackEl.setAttribute('aria-valuemax', String(sections.length));
+  progressTrackEl.setAttribute('aria-valuenow', String(activeIndex + 1));
+  progressTrackEl.setAttribute('aria-valuetext', `Section ${activeIndex + 1} of ${sections.length}: ${section.title || ''}`);
 
   cardEls.forEach((card, index) => {
     const active = index === activeIndex;
     card.classList.toggle('is-active', active);
-    card.setAttribute('aria-pressed', active ? 'true' : 'false');
+    card.setAttribute('aria-current', active ? 'true' : 'false');
+    card.setAttribute('aria-label', `${active ? 'Current section, ' : ''}${index + 1} of ${sections.length}: ${sections[index]?.title || ''}`);
   });
+
+  updateNavButtons();
 
   if (scroll && cardEls[activeIndex]) {
     cardEls[activeIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -224,6 +263,14 @@ function updatePlayButton() {
   const actions = voiceContent.actions || {};
   playLabel.textContent = isPlaying ? (actions.pause || 'Pause') : (actions.play || 'Play');
   playButton.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
+  playButton.setAttribute('aria-label', isPlaying ? 'Pause voice guide' : 'Play voice guide');
+}
+
+function updateNavButtons() {
+  previousButton.disabled = activeIndex === 0;
+  nextButton.disabled = activeIndex === sections.length - 1;
+  previousButton.setAttribute('aria-label', activeIndex === 0 ? 'Previous section unavailable' : `Previous section: ${sections[activeIndex - 1]?.title || ''}`);
+  nextButton.setAttribute('aria-label', activeIndex === sections.length - 1 ? 'Next section unavailable' : `Next section: ${sections[activeIndex + 1]?.title || ''}`);
 }
 
 function play() {
@@ -275,6 +322,7 @@ replayButton.addEventListener('click', () => {
 document.addEventListener('keydown', event => {
   const tag = document.activeElement?.tagName;
   if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+  if (document.activeElement?.closest('.segmented-control')) return;
 
   if (event.code === 'Space') {
     event.preventDefault();

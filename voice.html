@@ -11,6 +11,7 @@
 </head>
 <body>
   <a class="skip-link" href="#voice-sections">Skip to sections</a>
+  <a class="skip-link skip-link-secondary" href="#transcript-heading">Skip to current transcript</a>
 
   <header class="voice-topbar">
     <a class="voice-brand" href="index.html" aria-label="FinSight standard site">
@@ -26,14 +27,15 @@
       <p class="voice-intro" id="voice-intro"></p>
     </section>
 
-    <section class="player-shell" aria-label="Voice guide player">
+    <section class="player-shell" aria-labelledby="player-heading">
+      <h2 class="sr-only" id="player-heading">Voice guide player</h2>
       <div class="player-status" aria-live="polite">
         <span id="status-kicker"></span>
         <strong id="status-title"></strong>
         <span id="status-progress"></span>
       </div>
 
-      <div class="progress-track" aria-hidden="true">
+      <div class="progress-track" id="progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="9" aria-valuenow="1" aria-label="Voice guide progress">
         <div class="progress-fill" id="progress-fill"></div>
       </div>
 
@@ -50,24 +52,26 @@
         <button class="text-button" type="button" id="replay-button">Replay</button>
       </div>
 
-      <div class="voice-settings" aria-label="Voice settings">
+      <div class="voice-settings" aria-labelledby="voice-settings-heading">
+        <h3 class="sr-only" id="voice-settings-heading">Voice settings</h3>
         <fieldset class="setting-group">
           <legend id="speed-label">Speed</legend>
-          <div class="segmented-control" id="speed-control"></div>
+          <div class="segmented-control" id="speed-control" role="radiogroup" aria-labelledby="speed-label"></div>
         </fieldset>
         <fieldset class="setting-group">
           <legend id="verbosity-label">Verbosity</legend>
-          <div class="segmented-control" id="verbosity-control"></div>
+          <div class="segmented-control" id="verbosity-control" role="radiogroup" aria-labelledby="verbosity-label"></div>
         </fieldset>
       </div>
 
       <p class="speech-warning" id="speech-warning" hidden></p>
     </section>
 
-    <section class="reader-layout" aria-label="Voice guided content">
-      <div class="section-list" id="voice-sections" aria-label="Voice guide sections"></div>
+    <section class="reader-layout" aria-labelledby="voice-content-heading">
+      <h2 class="sr-only" id="voice-content-heading">Voice guided content</h2>
+      <nav class="section-list" id="voice-sections" aria-label="Voice guide sections"></nav>
 
-      <aside class="transcript-panel" aria-labelledby="transcript-heading">
+      <aside class="transcript-panel" aria-labelledby="transcript-heading" aria-live="off">
         <p class="panel-label">Now Reading</p>
         <h2 id="transcript-heading"></h2>
         <p class="transcript-text" id="transcript-text"></p>
