@@ -85,7 +85,7 @@ window.addEventListener('scroll', () => {
     let maxW = 0;
     words.forEach(w => { tmp.textContent = w; maxW = Math.max(maxW, tmp.getBoundingClientRect().width); });
     document.body.removeChild(tmp);
-    wrapper.style.width = Math.ceil(maxW + 8) + 'px';
+    wrapper.style.width = Math.ceil(maxW + 44) + 'px';
   }
   setWrapperWidth();
   window.addEventListener('resize', setWrapperWidth);

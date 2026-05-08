@@ -123,21 +123,23 @@ body {
 }
 .hero-headline-line2 {
   display: block;
-  min-height: 1.09em;
+  min-height: 1.26em;
   position: relative;
 }
 .cycling-word-wrapper {
   display: inline-block;
   position: relative;
   overflow: hidden;
-  height: 1.09em;
+  height: 1.26em;
   vertical-align: top;
 }
 .cycling-word {
   display: block;
   color: #2A62F1;
+  line-height: 1.18;
   position: absolute;
   left: 0;
+  top: 0;
   width: 100%;
   text-align: center;
   transform: translateY(0);
