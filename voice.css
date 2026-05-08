@@ -293,7 +293,7 @@ a:focus-visible {
   align-items: start;
   display: grid;
   gap: 28px;
-  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+  grid-template-columns: minmax(280px, 1fr) minmax(0, 2fr);
 }
 
 .transcript-panel {
@@ -328,6 +328,8 @@ a:focus-visible {
 .section-list {
   display: grid;
   gap: 16px;
+  position: sticky;
+  top: calc(var(--nav-h) + 190px);
 }
 
 .voice-section-card {
@@ -397,12 +399,17 @@ a:focus-visible {
   }
 
   .player-shell,
+  .section-list,
   .transcript-panel {
     position: static;
   }
 
   .reader-layout {
     grid-template-columns: 1fr;
+  }
+
+  .transcript-panel {
+    order: -1;
   }
 }
 
