@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinSight Voice Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="voice.css" />
+</head>
+<body>
+  <a class="skip-link" href="#voice-sections">Skip to sections</a>
+
+  <header class="voice-topbar">
+    <a class="voice-brand" href="index.html" aria-label="FinSight standard site">
+      <img src="assets/logo.jpeg" alt="FinSight" class="voice-logo" />
+    </a>
+    <a class="standard-link" href="index.html" data-action-label="exit">Standard site</a>
+  </header>
+
+  <main class="voice-page">
+    <section class="voice-hero" aria-labelledby="voice-title">
+      <p class="voice-eyebrow" id="voice-eyebrow"></p>
+      <h1 id="voice-title"></h1>
+      <p class="voice-intro" id="voice-intro"></p>
+    </section>
+
+    <section class="player-shell" aria-label="Voice guide player">
+      <div class="player-status" aria-live="polite">
+        <span id="status-kicker"></span>
+        <strong id="status-title"></strong>
+        <span id="status-progress"></span>
+      </div>
+
+      <div class="progress-track" aria-hidden="true">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <div class="player-controls" id="player-controls" aria-label="Voice guide controls">
+        <button class="icon-button" type="button" id="previous-button" aria-label="Previous section" title="Previous section">
+          <span aria-hidden="true">←</span>
+        </button>
+        <button class="primary-button" type="button" id="play-button">
+          <span id="play-label">Play</span>
+        </button>
+        <button class="icon-button" type="button" id="next-button" aria-label="Next section" title="Next section">
+          <span aria-hidden="true">→</span>
+        </button>
+        <button class="text-button" type="button" id="replay-button">Replay</button>
+      </div>
+
+      <p class="speech-warning" id="speech-warning" hidden></p>
+    </section>
+
+    <section class="reader-layout" aria-label="Voice guided content">
+      <aside class="transcript-panel" aria-labelledby="transcript-heading">
+        <p class="panel-label">Now Reading</p>
+        <h2 id="transcript-heading"></h2>
+        <p class="transcript-text" id="transcript-text"></p>
+      </aside>
+
+      <div class="section-list" id="voice-sections" aria-label="Voice guide sections"></div>
+    </section>
+  </main>
+
+  <script src="./content.js?v=2"></script>
+  <script src="./voice.js?v=1"></script>
+</body>
+</html>

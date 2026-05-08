@@ -54,6 +54,25 @@ body {
 .navbar.scrolled { box-shadow: 0 4px 24px rgba(42, 98, 241, 0.08); }
 .nav-brand { display: flex; align-items: center; }
 .nav-logo  { height: 34px; width: auto; }
+.voice-mode-link {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--blue);
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 9px 16px;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.voice-mode-link:hover {
+  background: var(--blue-light);
+  border-color: rgba(42, 98, 241, 0.35);
+  color: var(--blue-dark);
+}
+.voice-mode-link:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
 .nav-links {
   list-style: none;
   display: flex;
