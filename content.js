@@ -147,11 +147,11 @@ window.FINSIGHT_CONTENT = {
   team: {
     heading: 'Meet the Team',
     members: [
-      { initials: 'TM', name: 'Team Member 1', role: 'Role / Focus Area', linkedinText: 'LinkedIn ->', linkedinUrl: '#' },
-      { initials: 'TM', name: 'Team Member 2', role: 'Role / Focus Area', linkedinText: 'LinkedIn ->', linkedinUrl: '#' },
-      { initials: 'TM', name: 'Team Member 3', role: 'Role / Focus Area', linkedinText: 'LinkedIn ->', linkedinUrl: '#' },
-      { initials: 'TM', name: 'Team Member 4', role: 'Role / Focus Area', linkedinText: 'LinkedIn ->', linkedinUrl: '#' },
-      { initials: 'TM', name: 'Team Member 5', role: 'Role / Focus Area', linkedinText: 'LinkedIn ->', linkedinUrl: '#' },
+      { image: 'assets/teammembers/j.jpeg', imageAlt: 'Team member portrait', name: 'Jessie Deng', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/jwdeng/' },
+      { image: 'assets/teammembers/m.jpeg', imageAlt: 'Team member portrait', name: 'Michelle Lin', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/michellelin4111/' },
+      { image: 'assets/teammembers/sa.jpeg', imageAlt: 'Team member portrait', name: 'Sarah Algashgari', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/sarah-algashgari-699961195/' },
+      { image: 'assets/teammembers/d.jpg', imageAlt: 'Team member portrait', name: 'Devi Sivakumar', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/devi-sivakumar/' },
+      { image: 'assets/teammembers/se.jpeg', imageAlt: 'Team member portrait', name: 'Sejin Kim', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/jin-sejin-kim/' },
     ],
     processHeading: 'Our Process',
     photoCount: 14,

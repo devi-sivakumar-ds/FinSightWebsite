@@ -958,16 +958,15 @@ body {
   margin-bottom: 52px;
 }
 
-/* 5-member single-row grid */
 .team-cards-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
 }
 .team-member-card {
   background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 28px 20px;
+  border-radius: var(--radius);
+  padding: 12px 12px 18px;
   text-align: center;
   border: 1px solid var(--border);
   box-shadow: 0 2px 12px rgba(42, 98, 241, 0.06);
@@ -975,33 +974,31 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.team-avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: var(--blue-light);
-  display: flex;
+.team-member-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  display: block;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+.team-member-photo-placeholder {
   align-items: center;
-  justify-content: center;
-  margin: 0 auto 16px;
-  font-weight: 700;
-  font-size: 1rem;
+  background: var(--blue-light);
   color: var(--blue);
-  flex-shrink: 0;
+  display: flex;
+  font-size: 1.25rem;
+  font-weight: 700;
+  justify-content: center;
 }
 .member-name {
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 4px;
-}
-.member-role {
-  font-size: 0.8rem;
-  color: var(--text-light);
   margin-bottom: 8px;
 }
 .member-linkedin {
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   color: var(--blue);
   text-decoration: none;
   transition: opacity 0.2s;
@@ -1096,11 +1093,11 @@ body {
     width: 216px;
   }
   .team-cards-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 16px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .team-cards-grid { grid-template-columns: repeat(2, 1fr); }
 }

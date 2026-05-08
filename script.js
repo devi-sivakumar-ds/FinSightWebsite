@@ -267,10 +267,12 @@ glCards.forEach(card => glObserver.observe(card));
     const card = document.createElement('div');
     card.className = 'team-member-card';
     card.innerHTML = `
-      <div class="team-avatar">${member.initials || ''}</div>
+      ${member.image
+        ? `<img class="team-member-photo" src="${member.image}" alt="${member.imageAlt || member.name || ''}" loading="lazy">`
+        : `<div class="team-member-photo team-member-photo-placeholder" aria-label="${member.imageAlt || ''}">${member.initials || ''}</div>`
+      }
       <div class="member-name">${member.name || ''}</div>
-      <div class="member-role">${member.role || ''}</div>
-      <a href="${member.linkedinUrl || '#'}" class="member-linkedin">${member.linkedinText || ''}</a>
+      <a href="${member.linkedinUrl || '#'}" class="member-linkedin" target="_blank" rel="noopener noreferrer">${member.linkedinText || ''}</a>
     `;
     grid.appendChild(card);
   });
