@@ -13,7 +13,7 @@ window.FINSIGHT_CONTENT = {
 
   challenge: {
     phone: {
-      bankName: 'Chase',
+      bankName: 'YourBank',
       time: '9:41',
       balanceLabel: 'Total Balance',
       balance: '$2,450.00',
@@ -24,7 +24,12 @@ window.FINSIGHT_CONTENT = {
         { name: 'Starbucks', amount: '-$6.50' },
       ],
       depositTitle: '<- Deposit Check',
+      screenReaderOutputHtml: 'Unlabeled button.<br>Unlabeled button.<br>Image.',
       cameraHint: 'Position front of check in frame',
+      problemDepositAction: 'Deposit',
+      imageTooDarkError: 'Image too dark - Try again',
+      checkNotInFrameError: 'Check not in frame',
+      checkCaptured: 'Check captured',
       processingTitle: 'Processing',
       processingLabel: 'Analyzing check...',
       processingSub: 'This may take a moment',

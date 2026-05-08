@@ -228,23 +228,33 @@ body {
 /* Phone */
 .phone-wrap { display: flex; justify-content: center; }
 .phone-frame {
-  width: 224px;
+  width: 212px;
   background: #18192A;
-  border-radius: 38px;
-  padding: 14px;
+  border-radius: 32px;
+  padding: 8px;
   box-shadow:
-    0 0 0 2px #2E2F44,
-    0 40px 100px rgba(0, 0, 0, 0.45),
+    0 0 0 1px #2E2F44,
+    0 28px 70px rgba(0, 0, 0, 0.32),
     inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   position: relative;
   display: flex;
   flex-direction: column;
 }
+.challenge-phone-frame.shake {
+  animation: phoneShake 0.5s ease;
+}
+@keyframes phoneShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-7px); }
+  40% { transform: translateX(7px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
 .phone-notch {
-  width: 76px;
-  height: 22px;
+  width: 66px;
+  height: 16px;
   background: #18192A;
-  border-radius: 0 0 14px 14px;
+  border-radius: 0 0 12px 12px;
   position: absolute;
   top: 0;
   left: 50%;
@@ -253,17 +263,17 @@ body {
 }
 .phone-screen-wrap {
   background: var(--white);
-  border-radius: 27px;
-  height: 420px;
+  border-radius: 25px;
+  height: 400px;
   overflow: hidden;
   position: relative;
 }
 .phone-home-bar {
-  width: 72px;
-  height: 4px;
+  width: 58px;
+  height: 3px;
   background: rgba(255, 255, 255, 0.18);
   border-radius: 2px;
-  margin: 10px auto 0;
+  margin: 7px auto 0;
 }
 
 /* Screens */
@@ -357,9 +367,60 @@ body {
 .tx-name { color: var(--text-mid); font-weight: 500; }
 .tx-amt  { color: var(--text); font-weight: 600; }
 
-/* S2 — Camera */
+/* S2+ — Problem flow */
 .s2 .app-header, .s3 .app-header { padding: 22px 16px 12px; font-size: 0.75rem; font-weight: 600; color: var(--text); border-bottom: 1px solid var(--border); }
 .s2-header { color: var(--blue) !important; }
+.screen-reader-problem {
+  align-items: center;
+  background: #fff;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 18px;
+}
+.sr-terminal {
+  background: #1a1a1a;
+  border-radius: 6px;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  font-size: 0.62rem;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+}
+.problem-deposit-button {
+  background: var(--blue);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  padding: 8px 14px;
+}
+.problem-form-screen {
+  background: #fff;
+}
+.problem-form-fields {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  padding: 24px 18px;
+}
+.problem-field {
+  background: var(--off-white);
+  border-radius: 6px;
+  height: 34px;
+}
+.problem-field.short {
+  background: var(--border);
+  height: 24px;
+}
 .camera-area {
   flex: 1;
   display: flex;
@@ -404,6 +465,54 @@ body {
   color: rgba(255, 255, 255, 0.4);
   text-align: center;
   line-height: 1.5;
+}
+.problem-camera-screen {
+  background: #000;
+}
+.problem-camera-stage {
+  align-items: center;
+  background: #000;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  padding: 18px;
+  position: relative;
+}
+.problem-camera-outline {
+  align-items: center;
+  aspect-ratio: 3 / 4;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+.problem-camera-outline.is-misaligned {
+  transform: translateX(18px) rotate(3deg);
+}
+.problem-check-shape {
+  aspect-ratio: 2 / 1;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 5px;
+  width: 58%;
+}
+.problem-banner {
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  left: 0;
+  padding: 7px 8px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+}
+.problem-banner.error { background: #C62828; }
+.problem-banner.success { background: #2E7D32; }
+.problem-camera-stage.is-success {
+  box-shadow: inset 0 0 0 3px #2E7D32;
 }
 
 /* S3 — Processing */

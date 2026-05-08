@@ -40,7 +40,7 @@
     <div class="challenge-inner container">
 
       <div class="phone-wrap">
-        <div class="phone-frame">
+        <div class="phone-frame challenge-phone-frame" id="challengePhoneFrame">
           <div class="phone-notch"></div>
           <div class="phone-screen-wrap">
 
@@ -71,6 +71,25 @@
               <div class="app-header s2-header">
                 <span data-content="challenge.phone.depositTitle"></span>
               </div>
+              <div class="screen-reader-problem">
+                <div class="sr-terminal" data-html="challenge.phone.screenReaderOutputHtml"></div>
+                <button class="problem-deposit-button" data-content="challenge.phone.problemDepositAction"></button>
+              </div>
+            </div>
+
+            <div class="screen s3 problem-form-screen">
+              <div class="app-header">
+                <span data-content="challenge.phone.depositTitle"></span>
+              </div>
+              <div class="problem-form-fields" aria-hidden="true">
+                <div class="problem-field short"></div>
+                <div class="problem-field"></div>
+                <div class="problem-field"></div>
+                <div class="problem-field"></div>
+              </div>
+            </div>
+
+            <div class="screen s4 problem-camera-screen">
               <div class="camera-area">
                 <div class="camera-frame">
                   <div class="corner tl"></div>
@@ -83,27 +102,30 @@
               </div>
             </div>
 
-            <div class="screen s3">
-              <div class="app-header">
-                <span class="app-bank-name" data-content="challenge.phone.processingTitle"></span>
-              </div>
-              <div class="processing-wrap">
-                <div class="spinner-ring"></div>
-                <p class="processing-label" data-content="challenge.phone.processingLabel"></p>
-                <p class="processing-sub" data-content="challenge.phone.processingSub"></p>
+            <div class="screen s5 problem-camera-screen problem-error-screen">
+              <div class="problem-camera-stage">
+                <div class="problem-camera-outline">
+                  <div class="problem-check-shape"></div>
+                </div>
+                <div class="problem-banner error" data-content="challenge.phone.imageTooDarkError"></div>
               </div>
             </div>
 
-            <div class="screen s4">
-              <div class="app-header success-header">
-                <span data-content="challenge.phone.successTitle"></span>
+            <div class="screen s6 problem-camera-screen problem-error-screen">
+              <div class="problem-camera-stage">
+                <div class="problem-camera-outline is-misaligned">
+                  <div class="problem-check-shape"></div>
+                </div>
+                <div class="problem-banner error" data-content="challenge.phone.checkNotInFrameError"></div>
               </div>
-              <div class="success-wrap">
-                <div class="success-icon">✓</div>
-                <div class="success-amount" data-content="challenge.phone.successAmount"></div>
-                <p class="success-label" data-content="challenge.phone.successLabel"></p>
-                <p class="success-sub" data-content="challenge.phone.successSub"></p>
-                <div class="success-ref" data-content="challenge.phone.successRef"></div>
+            </div>
+
+            <div class="screen s7 problem-camera-screen">
+              <div class="problem-camera-stage is-success">
+                <div class="problem-camera-outline">
+                  <div class="problem-check-shape"></div>
+                </div>
+                <div class="problem-banner success" data-content="challenge.phone.checkCaptured"></div>
               </div>
             </div>
 

@@ -117,23 +117,37 @@ window.addEventListener('scroll', () => {
 })();
 
 // ── Phone screen cycler ──
-const screens = document.querySelectorAll('.screen');
-let currentScreen = 0;
+(function() {
+  const screens = document.querySelectorAll('.phone-screen-wrap .screen');
+  const phoneFrame = document.getElementById('challengePhoneFrame');
+  if (!screens.length) return;
 
-function cycleScreen() {
-  const prev = currentScreen;
-  currentScreen = (currentScreen + 1) % screens.length;
+  let currentScreen = 0;
+  const timings = [2400, 2200, 1900, 2200, 2100, 2100, 1800];
+  const errorStates = new Set([4, 5]);
 
-  screens[prev].classList.remove('active');
-  screens[prev].classList.add('exit');
+  function cycleScreen() {
+    const prev = currentScreen;
+    currentScreen = (currentScreen + 1) % screens.length;
 
-  setTimeout(() => {
-    screens[prev].classList.remove('exit');
-    screens[currentScreen].classList.add('active');
-  }, 420);
-}
+    screens[prev].classList.remove('active');
+    screens[prev].classList.add('exit');
 
-setInterval(cycleScreen, 2600);
+    setTimeout(() => {
+      screens[prev].classList.remove('exit');
+      screens[currentScreen].classList.add('active');
+
+      if (phoneFrame && errorStates.has(currentScreen)) {
+        phoneFrame.classList.add('shake');
+        setTimeout(() => phoneFrame.classList.remove('shake'), 500);
+      }
+    }, 420);
+
+    setTimeout(cycleScreen, timings[currentScreen] || 2200);
+  }
+
+  setTimeout(cycleScreen, timings[0]);
+})();
 
 // ── Stats counter and visualization animation ──
 (function() {
