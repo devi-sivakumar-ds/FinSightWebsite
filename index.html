@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>finSight — Accessible Banking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500&family=Playfair+Display:ital@1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="#hero" class="nav-brand">
+      <img src="assets/logo.jpeg" alt="finSight" class="nav-logo" />
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero" aria-labelledby="hero-headline">
+    <div class="container hero-inner">
+
+      <h1 class="hero-headline fade-up delay-1" id="hero-headline">
+        Banking built for your<br>
+        <span class="hero-headline-line2">
+          <span class="cycling-word-wrapper" id="cyclingWrapper" aria-live="polite">
+            <span class="cycling-word" id="cyclingWord">Independence</span>
+          </span>
+        </span>
+      </h1>
+
+      <p class="hero-sub fade-up delay-2">Voice-first mobile banking, built for BLV users.</p>
+    </div>
+  </section>
+
+  <!-- CHALLENGE -->
+  <section class="challenge-section" id="problem">
+    <div class="challenge-inner container">
+
+      <div class="phone-wrap">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen-wrap">
+
+            <div class="screen s1 active">
+              <div class="app-header">
+                <span class="app-bank-name">Chase</span>
+                <span class="app-time">9:41</span>
+              </div>
+              <div class="app-balance-label">Total Balance</div>
+              <div class="app-balance">$2,450.00</div>
+              <div class="app-actions-row">
+                <button class="app-action">Send</button>
+                <button class="app-action primary">Deposit</button>
+                <button class="app-action">Pay</button>
+              </div>
+              <div class="app-recent-label">Recent</div>
+              <div class="app-tx">
+                <span class="tx-name">Netflix</span>
+                <span class="tx-amt">−$15.99</span>
+              </div>
+              <div class="app-tx">
+                <span class="tx-name">Starbucks</span>
+                <span class="tx-amt">−$6.50</span>
+              </div>
+            </div>
+
+            <div class="screen s2">
+              <div class="app-header s2-header">
+                <span>← Deposit Check</span>
+              </div>
+              <div class="camera-area">
+                <div class="camera-frame">
+                  <div class="corner tl"></div>
+                  <div class="corner tr"></div>
+                  <div class="corner bl"></div>
+                  <div class="corner br"></div>
+                  <div class="scan-line"></div>
+                </div>
+                <p class="camera-hint">Position front of check in frame</p>
+              </div>
+            </div>
+
+            <div class="screen s3">
+              <div class="app-header">
+                <span class="app-bank-name">Processing</span>
+              </div>
+              <div class="processing-wrap">
+                <div class="spinner-ring"></div>
+                <p class="processing-label">Analyzing check...</p>
+                <p class="processing-sub">This may take a moment</p>
+              </div>
+            </div>
+
+            <div class="screen s4">
+              <div class="app-header success-header">
+                <span>Deposit Submitted</span>
+              </div>
+              <div class="success-wrap">
+                <div class="success-icon">✓</div>
+                <div class="success-amount">$150.00</div>
+                <p class="success-label">Check deposit received</p>
+                <p class="success-sub">Available in 1–2 business days</p>
+                <div class="success-ref">Ref #2847561</div>
+              </div>
+            </div>
+
+          </div>
+          <div class="phone-home-bar"></div>
+        </div>
+      </div>
+
+      <div class="challenge-text">
+        <h2 class="challenge-heading">Can you do this with your eyes closed?</h2>
+        <p class="challenge-body">
+          Imagine navigating this flow without being able to see the screen.
+          For millions of blind Americans, this is the daily reality of using
+          financial apps that were never designed with them in mind.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section" id="stats" aria-labelledby="stats-label">
+    <div class="container">
+      <p class="section-label" id="stats-label">The Reality</p>
+      <div class="stats-grid">
+        <div class="stat-block fade-up">
+          <div class="stat-number" data-count="78" data-suffix="%">0%</div>
+          <p class="stat-label">rely on workarounds just to do basic banking</p>
+          <div class="stat-viz" aria-hidden="true">
+            <div class="figures-row" id="figuresRow"></div>
+          </div>
+        </div>
+
+        <div class="stat-block fade-up delay-1">
+          <div class="stat-number" data-count="68" data-suffix="%">0%</div>
+          <p class="stat-label">say check deposit is their most frustrating banking task</p>
+          <div class="stat-viz bar-chart" aria-hidden="true">
+            <div class="bar-row">
+              <span class="bar-row-label">Check deposit</span>
+              <div class="bar-track">
+                <div class="bar-fill is-primary" data-target-width="88%"></div>
+              </div>
+            </div>
+            <div class="bar-row">
+              <span class="bar-row-label">Transfers</span>
+              <div class="bar-track">
+                <div class="bar-fill" data-target-width="55%"></div>
+              </div>
+            </div>
+            <div class="bar-row">
+              <span class="bar-row-label">Balance check</span>
+              <div class="bar-track">
+                <div class="bar-fill" data-target-width="35%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-block fade-up delay-2">
+          <div class="stat-number" data-count="29" data-suffix="%">0%</div>
+          <p class="stat-label">actually attempt mobile check deposit regularly</p>
+          <div class="stat-viz" aria-hidden="true">
+            <div class="arcs-wrap">
+              <div class="arc-item">
+                <svg width="90" height="56" viewBox="0 0 90 56">
+                  <path d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--border)" stroke-width="8" stroke-linecap="round"/>
+                  <path class="arc-path-frustrated" d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--blue)" stroke-width="8" stroke-linecap="round" stroke-dasharray="126" stroke-dashoffset="126"/>
+                </svg>
+                <div class="arc-caption-text">68% frustrated</div>
+              </div>
+              <div class="arc-divider">→</div>
+              <div class="arc-item">
+                <svg width="90" height="56" viewBox="0 0 90 56">
+                  <path d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--border)" stroke-width="8" stroke-linecap="round"/>
+                  <path class="arc-path-attempts" d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--text-light)" stroke-width="8" stroke-linecap="round" stroke-dasharray="126" stroke-dashoffset="126"/>
+                </svg>
+                <div class="arc-caption-text">29% attempt</div>
+              </div>
+            </div>
+            <p class="arc-note">"68% frustrated. Only 29% even try."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREEN READERS -->
+  <section class="screen-readers" aria-labelledby="sr-headline">
+    <div class="container">
+      <div class="sr-grid">
+        <div class="fade-up">
+          <div class="sr-app-icons" aria-label="Existing accessibility tools: VoiceOver, TalkBack, Be My Eyes">
+            <div class="app-icon-item">
+              <div class="app-icon-placeholder" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <circle cx="14" cy="14" r="8" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M10 14 Q14 9 18 14" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                  <circle cx="14" cy="14" r="2" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="app-icon-label">VoiceOver</div>
+            </div>
+            <div class="app-icon-item">
+              <div class="app-icon-placeholder" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect x="8" y="6" width="12" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="14" cy="18" r="1.5" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="app-icon-label">TalkBack</div>
+            </div>
+            <div class="app-icon-item">
+              <div class="app-icon-placeholder" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <circle cx="14" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M9 20 Q14 16 19 20" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="app-icon-label">Be My Eyes</div>
+            </div>
+          </div>
+          <h2 class="heading-lg sr-headline" id="sr-headline">Screen readers<br>aren't enough?</h2>
+        </div>
+
+        <div class="fade-up delay-1">
+          <h3 class="heading-lg sr-answer">Yes, but no.</h3>
+          <div class="sr-stat-boxes">
+            <div class="sr-stat-box">
+              <div class="sr-stat-num">73%</div>
+              <p class="sr-stat-text">of real accessibility barriers are invisible to standard compliance audits</p>
+            </div>
+            <div class="sr-stat-box">
+              <div class="sr-stat-num">85%</div>
+              <p class="sr-stat-text">of BLV users can't tell if their check is positioned correctly in the camera frame</p>
+            </div>
+            <div class="sr-stat-box">
+              <div class="sr-stat-num">Only 29%</div>
+              <p class="sr-stat-text">attempt mobile check deposit regularly &mdash; not by choice, but because repeated failures made it unreliable</p>
+            </div>
+          </div>
+          <blockquote class="sr-quote">
+            <p class="sr-quote-text">"It didn't give you any directions as to where to position the check in the frame. You just kind of... hope."</p>
+            <cite class="sr-quote-attr">&mdash; BLV user interview participant</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET FINSIGHT -->
+  <section class="meet-finsight" aria-labelledby="meet-headline">
+    <div class="container">
+      <h2 class="display-heading fade-up" id="meet-headline">Meet FinSight.</h2>
+      <p class="body-lg fade-up delay-1">Voice-first banking, built for BLV users.</p>
+
+      <div class="phone-rings-wrap fade-up delay-2" aria-hidden="true">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+        <div class="ring ring-4"></div>
+        <div class="phone-portrait">
+          <div class="meet-phone-notch"></div>
+          <div class="phone-portrait-screen">
+            <video class="phone-demo-video" autoplay muted loop playsinline>
+              <source src="assets/finsightAppVideo.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRIDGE -->
+  <section class="bridge-section">
+    <div class="container">
+      <p class="bridge-text">What we can do to give better audio guidance</p>
+    </div>
+  </section>
+
+  <!-- DESIGN GUIDELINES -->
+  <section class="guidelines-section" id="guidelines">
+    <div class="guidelines-layout">
+      <div class="guidelines-sticky">
+        <h2 class="gl-heading">Design<br>Guidelines</h2>
+        <nav class="gl-nav" aria-label="Guidelines navigation"></nav>
+      </div>
+      <div class="guidelines-scroll" id="guidelinesScroll"></div>
+    </div>
+  </section>
+
+  <!-- PROTOTYPE -->
+  <section class="prototype-section" id="prototype">
+    <div class="container">
+      <h2 class="proto-heading">The Prototype</h2>
+      <p class="proto-sub">Explore how finSight reimagines the banking experience for blind users.</p>
+      <div class="proto-embed">
+        <p class="proto-placeholder">[ Prototype embed or video goes here ]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-section" id="team">
+    <div class="container">
+      <h2 class="team-heading">Meet the Team</h2>
+      <div class="team-cards-grid">
+
+        <div class="team-member-card">
+          <div class="team-avatar">TM</div>
+          <div class="member-name">Team Member 1</div>
+          <div class="member-role">Role / Focus Area</div>
+          <a href="#" class="member-linkedin">LinkedIn →</a>
+        </div>
+
+        <div class="team-member-card">
+          <div class="team-avatar">TM</div>
+          <div class="member-name">Team Member 2</div>
+          <div class="member-role">Role / Focus Area</div>
+          <a href="#" class="member-linkedin">LinkedIn →</a>
+        </div>
+
+        <div class="team-member-card">
+          <div class="team-avatar">TM</div>
+          <div class="member-name">Team Member 3</div>
+          <div class="member-role">Role / Focus Area</div>
+          <a href="#" class="member-linkedin">LinkedIn →</a>
+        </div>
+
+        <div class="team-member-card">
+          <div class="team-avatar">TM</div>
+          <div class="member-name">Team Member 4</div>
+          <div class="member-role">Role / Focus Area</div>
+          <a href="#" class="member-linkedin">LinkedIn →</a>
+        </div>
+
+        <div class="team-member-card">
+          <div class="team-avatar">TM</div>
+          <div class="member-name">Team Member 5</div>
+          <div class="member-role">Role / Focus Area</div>
+          <a href="#" class="member-linkedin">LinkedIn →</a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="photos-marquee-wrap">
+      <p class="marquee-section-heading">Our Process</p>
+      <div class="marquee-overflow">
+        <div class="marquee-scroll-track" id="teamMarqueeTrack"></div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
