@@ -1,3 +1,53 @@
+const content = window.FINSIGHT_CONTENT || {};
+
+function getContent(path) {
+  return path.split('.').reduce((value, key) => {
+    if (value == null) return undefined;
+    return value[key];
+  }, content);
+}
+
+function applyStaticContent() {
+  if (content.pageTitle) document.title = content.pageTitle;
+
+  document.querySelectorAll('[data-content]').forEach(el => {
+    const value = getContent(el.dataset.content);
+    if (value !== undefined) el.textContent = value;
+  });
+
+  document.querySelectorAll('[data-html]').forEach(el => {
+    const value = getContent(el.dataset.html);
+    if (value !== undefined) el.innerHTML = value;
+  });
+
+  document.querySelectorAll('[data-aria-label]').forEach(el => {
+    const value = getContent(el.dataset.ariaLabel);
+    if (value !== undefined) el.setAttribute('aria-label', value);
+  });
+
+  document.querySelectorAll('[data-alt]').forEach(el => {
+    const value = getContent(el.dataset.alt);
+    if (value !== undefined) el.setAttribute('alt', value);
+  });
+
+  const stats = content.stats?.items || [];
+  document.querySelectorAll('.stat-number[data-stat-index]').forEach(el => {
+    const stat = stats[Number(el.dataset.statIndex)];
+    if (!stat) return;
+    el.dataset.count = stat.value;
+    el.dataset.suffix = stat.suffix || '';
+    el.textContent = `0${stat.suffix || ''}`;
+  });
+
+  const bars = stats[1]?.bars || [];
+  document.querySelectorAll('.bar-fill[data-bar-index]').forEach(el => {
+    const bar = bars[Number(el.dataset.barIndex)];
+    if (bar) el.dataset.targetWidth = bar.width;
+  });
+}
+
+applyStaticContent();
+
 // ── Navbar shadow on scroll ──
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
@@ -5,10 +55,11 @@ window.addEventListener('scroll', () => {
 
 // ── Cycling headline word ──
 (function() {
-  const words = ['Independence', 'Confidence', 'Autonomy'];
+  const words = content.hero?.cyclingWords || [];
   const wrapper = document.getElementById('cyclingWrapper');
   const el = document.getElementById('cyclingWord');
-  if (!wrapper || !el) return;
+  if (!wrapper || !el || !words.length) return;
+  el.textContent = words[0];
 
   let current = 0;
 
@@ -158,41 +209,7 @@ setInterval(cycleScreen, 2600);
 })();
 
 // ── Design Guidelines ──
-const guidelines = [
-  {
-    title: 'Action-first button labels',
-    body: 'Every interactive element should announce what it does before what it is. Screen readers read labels verbatim — make every word purposeful.',
-    image: 'assets/insight-1.svg',
-  },
-  {
-    title: 'Announce state changes immediately',
-    body: 'When UI state changes (loading, error, success), announce it right away via ARIA live regions. Blind users cannot see visual feedback — don\'t leave them guessing.',
-  },
-  {
-    title: 'Audio confirmation for every transaction',
-    body: 'Every financial action needs a clear spoken confirmation. Never rely on color changes or subtle animations as the sole signal.',
-  },
-  {
-    title: 'Group related context together',
-    body: 'Screen reader users navigate linearly. Scatter information and the mental model breaks. Keep related content — label, value, action — in a single, logical group.',
-  },
-  {
-    title: 'Warn before time limits expire',
-    body: 'If a session or action has a time limit, announce the warning early and give users a keyboard- or swipe-accessible way to extend it.',
-  },
-  {
-    title: 'Single-swipe navigation paths',
-    body: 'Design flows so every action is reachable with a single swipe or tab. Avoid nested menus that require multiple gestures to traverse.',
-  },
-  {
-    title: 'Vocalize all progress indicators',
-    body: 'Spinners and progress bars are invisible to screen readers. Always pair loading states with a text announcement: "Processing your deposit, please wait."',
-  },
-  {
-    title: 'Pair haptic and audio feedback',
-    body: 'Combine haptic feedback with audio cues for critical moments — confirmations, errors, and warnings. Multiple sensory channels reinforce clarity.',
-  },
-];
+const guidelines = content.guidelines?.items || [];
 
 const glNav    = document.querySelector('.gl-nav');
 const glScroll = document.getElementById('guidelinesScroll');
@@ -237,19 +254,39 @@ const glObserver = new IntersectionObserver((entries) => {
 
 glCards.forEach(card => glObserver.observe(card));
 
+// ── Team Cards ──
+(function() {
+  const grid = document.getElementById('teamCardsGrid');
+  const members = content.team?.members || [];
+  if (!grid) return;
+
+  members.forEach(member => {
+    const card = document.createElement('div');
+    card.className = 'team-member-card';
+    card.innerHTML = `
+      <div class="team-avatar">${member.initials || ''}</div>
+      <div class="member-name">${member.name || ''}</div>
+      <div class="member-role">${member.role || ''}</div>
+      <a href="${member.linkedinUrl || '#'}" class="member-linkedin">${member.linkedinText || ''}</a>
+    `;
+    grid.appendChild(card);
+  });
+})();
+
 // ── Team Photos Marquee ──
 (function() {
   const track = document.getElementById('teamMarqueeTrack');
   if (!track) return;
 
-  const photoCount = 14;
+  const photoCount = content.team?.photoCount || 14;
+  const photoAltPrefix = content.team?.photoAltPrefix || '';
   const srcs = Array.from({ length: photoCount }, (_, i) => `assets/teampictures/${i + 1}.png`);
   // duplicate for seamless infinite loop
   [...srcs, ...srcs].forEach((src, i) => {
     const img = document.createElement('img');
     img.className = 'marquee-scroll-photo';
     img.src = src;
-    img.alt = `Team photo ${(i % photoCount) + 1}`;
+    img.alt = `${photoAltPrefix} ${(i % photoCount) + 1}`.trim();
     img.loading = 'lazy';
     track.appendChild(img);
   });

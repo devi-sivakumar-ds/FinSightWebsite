@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>finSight — Accessible Banking</title>
+  <title></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500&family=Playfair+Display:ital@1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <a href="#hero" class="nav-brand">
-      <img src="assets/logo.jpeg" alt="finSight" class="nav-logo" />
+      <img src="assets/logo.jpeg" alt="" class="nav-logo" data-alt="nav.logoAlt" />
     </a>
   </nav>
 
@@ -23,15 +23,15 @@
     <div class="container hero-inner">
 
       <h1 class="hero-headline fade-up delay-1" id="hero-headline">
-        Banking built for your<br>
+        <span data-content="hero.headlinePrefix"></span><br>
         <span class="hero-headline-line2">
           <span class="cycling-word-wrapper" id="cyclingWrapper" aria-live="polite">
-            <span class="cycling-word" id="cyclingWord">Independence</span>
+            <span class="cycling-word" id="cyclingWord"></span>
           </span>
         </span>
       </h1>
 
-      <p class="hero-sub fade-up delay-2">Voice-first mobile banking, built for BLV users.</p>
+      <p class="hero-sub fade-up delay-2" data-content="hero.subtitle"></p>
     </div>
   </section>
 
@@ -46,30 +46,30 @@
 
             <div class="screen s1 active">
               <div class="app-header">
-                <span class="app-bank-name">Chase</span>
-                <span class="app-time">9:41</span>
+                <span class="app-bank-name" data-content="challenge.phone.bankName"></span>
+                <span class="app-time" data-content="challenge.phone.time"></span>
               </div>
-              <div class="app-balance-label">Total Balance</div>
-              <div class="app-balance">$2,450.00</div>
+              <div class="app-balance-label" data-content="challenge.phone.balanceLabel"></div>
+              <div class="app-balance" data-content="challenge.phone.balance"></div>
               <div class="app-actions-row">
-                <button class="app-action">Send</button>
-                <button class="app-action primary">Deposit</button>
-                <button class="app-action">Pay</button>
+                <button class="app-action" data-content="challenge.phone.actions.0"></button>
+                <button class="app-action primary" data-content="challenge.phone.actions.1"></button>
+                <button class="app-action" data-content="challenge.phone.actions.2"></button>
               </div>
-              <div class="app-recent-label">Recent</div>
+              <div class="app-recent-label" data-content="challenge.phone.recentLabel"></div>
               <div class="app-tx">
-                <span class="tx-name">Netflix</span>
-                <span class="tx-amt">−$15.99</span>
+                <span class="tx-name" data-content="challenge.phone.transactions.0.name"></span>
+                <span class="tx-amt" data-content="challenge.phone.transactions.0.amount"></span>
               </div>
               <div class="app-tx">
-                <span class="tx-name">Starbucks</span>
-                <span class="tx-amt">−$6.50</span>
+                <span class="tx-name" data-content="challenge.phone.transactions.1.name"></span>
+                <span class="tx-amt" data-content="challenge.phone.transactions.1.amount"></span>
               </div>
             </div>
 
             <div class="screen s2">
               <div class="app-header s2-header">
-                <span>← Deposit Check</span>
+                <span data-content="challenge.phone.depositTitle"></span>
               </div>
               <div class="camera-area">
                 <div class="camera-frame">
@@ -79,31 +79,31 @@
                   <div class="corner br"></div>
                   <div class="scan-line"></div>
                 </div>
-                <p class="camera-hint">Position front of check in frame</p>
+                <p class="camera-hint" data-content="challenge.phone.cameraHint"></p>
               </div>
             </div>
 
             <div class="screen s3">
               <div class="app-header">
-                <span class="app-bank-name">Processing</span>
+                <span class="app-bank-name" data-content="challenge.phone.processingTitle"></span>
               </div>
               <div class="processing-wrap">
                 <div class="spinner-ring"></div>
-                <p class="processing-label">Analyzing check...</p>
-                <p class="processing-sub">This may take a moment</p>
+                <p class="processing-label" data-content="challenge.phone.processingLabel"></p>
+                <p class="processing-sub" data-content="challenge.phone.processingSub"></p>
               </div>
             </div>
 
             <div class="screen s4">
               <div class="app-header success-header">
-                <span>Deposit Submitted</span>
+                <span data-content="challenge.phone.successTitle"></span>
               </div>
               <div class="success-wrap">
                 <div class="success-icon">✓</div>
-                <div class="success-amount">$150.00</div>
-                <p class="success-label">Check deposit received</p>
-                <p class="success-sub">Available in 1–2 business days</p>
-                <div class="success-ref">Ref #2847561</div>
+                <div class="success-amount" data-content="challenge.phone.successAmount"></div>
+                <p class="success-label" data-content="challenge.phone.successLabel"></p>
+                <p class="success-sub" data-content="challenge.phone.successSub"></p>
+                <div class="success-ref" data-content="challenge.phone.successRef"></div>
               </div>
             </div>
 
@@ -113,12 +113,8 @@
       </div>
 
       <div class="challenge-text">
-        <h2 class="challenge-heading">Can you do this with your eyes closed?</h2>
-        <p class="challenge-body">
-          Imagine navigating this flow without being able to see the screen.
-          For millions of blind Americans, this is the daily reality of using
-          financial apps that were never designed with them in mind.
-        </p>
+        <h2 class="challenge-heading" data-content="challenge.heading"></h2>
+        <p class="challenge-body" data-content="challenge.body"></p>
       </div>
 
     </div>
@@ -127,44 +123,44 @@
   <!-- STATS -->
   <section class="stats-section" id="stats" aria-labelledby="stats-label">
     <div class="container">
-      <p class="section-label" id="stats-label">The Reality</p>
+      <p class="section-label" id="stats-label" data-content="stats.label"></p>
       <div class="stats-grid">
         <div class="stat-block fade-up">
-          <div class="stat-number" data-count="78" data-suffix="%">0%</div>
-          <p class="stat-label">rely on workarounds just to do basic banking</p>
+          <div class="stat-number" data-stat-index="0">0%</div>
+          <p class="stat-label" data-content="stats.items.0.label"></p>
           <div class="stat-viz" aria-hidden="true">
             <div class="figures-row" id="figuresRow"></div>
           </div>
         </div>
 
         <div class="stat-block fade-up delay-1">
-          <div class="stat-number" data-count="68" data-suffix="%">0%</div>
-          <p class="stat-label">say check deposit is their most frustrating banking task</p>
+          <div class="stat-number" data-stat-index="1">0%</div>
+          <p class="stat-label" data-content="stats.items.1.label"></p>
           <div class="stat-viz bar-chart" aria-hidden="true">
             <div class="bar-row">
-              <span class="bar-row-label">Check deposit</span>
+              <span class="bar-row-label" data-content="stats.items.1.bars.0.label"></span>
               <div class="bar-track">
-                <div class="bar-fill is-primary" data-target-width="88%"></div>
+                <div class="bar-fill is-primary" data-bar-index="0"></div>
               </div>
             </div>
             <div class="bar-row">
-              <span class="bar-row-label">Transfers</span>
+              <span class="bar-row-label" data-content="stats.items.1.bars.1.label"></span>
               <div class="bar-track">
-                <div class="bar-fill" data-target-width="55%"></div>
+                <div class="bar-fill" data-bar-index="1"></div>
               </div>
             </div>
             <div class="bar-row">
-              <span class="bar-row-label">Balance check</span>
+              <span class="bar-row-label" data-content="stats.items.1.bars.2.label"></span>
               <div class="bar-track">
-                <div class="bar-fill" data-target-width="35%"></div>
+                <div class="bar-fill" data-bar-index="2"></div>
               </div>
             </div>
           </div>
         </div>
 
         <div class="stat-block fade-up delay-2">
-          <div class="stat-number" data-count="29" data-suffix="%">0%</div>
-          <p class="stat-label">actually attempt mobile check deposit regularly</p>
+          <div class="stat-number" data-stat-index="2">0%</div>
+          <p class="stat-label" data-content="stats.items.2.label"></p>
           <div class="stat-viz" aria-hidden="true">
             <div class="arcs-wrap">
               <div class="arc-item">
@@ -172,7 +168,7 @@
                   <path d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--border)" stroke-width="8" stroke-linecap="round"/>
                   <path class="arc-path-frustrated" d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--blue)" stroke-width="8" stroke-linecap="round" stroke-dasharray="126" stroke-dashoffset="126"/>
                 </svg>
-                <div class="arc-caption-text">68% frustrated</div>
+                <div class="arc-caption-text" data-content="stats.items.2.captions.0"></div>
               </div>
               <div class="arc-divider">→</div>
               <div class="arc-item">
@@ -180,10 +176,10 @@
                   <path d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--border)" stroke-width="8" stroke-linecap="round"/>
                   <path class="arc-path-attempts" d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--text-light)" stroke-width="8" stroke-linecap="round" stroke-dasharray="126" stroke-dashoffset="126"/>
                 </svg>
-                <div class="arc-caption-text">29% attempt</div>
+                <div class="arc-caption-text" data-content="stats.items.2.captions.1"></div>
               </div>
             </div>
-            <p class="arc-note">"68% frustrated. Only 29% even try."</p>
+            <p class="arc-note" data-content="stats.items.2.note"></p>
           </div>
         </div>
       </div>
@@ -195,7 +191,7 @@
     <div class="container">
       <div class="sr-grid">
         <div class="fade-up">
-          <div class="sr-app-icons" aria-label="Existing accessibility tools: VoiceOver, TalkBack, Be My Eyes">
+          <div class="sr-app-icons" data-aria-label="screenReaders.toolsLabel">
             <div class="app-icon-item">
               <div class="app-icon-placeholder" aria-hidden="true">
                 <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
@@ -204,7 +200,7 @@
                   <circle cx="14" cy="14" r="2" fill="currentColor"/>
                 </svg>
               </div>
-              <div class="app-icon-label">VoiceOver</div>
+              <div class="app-icon-label" data-content="screenReaders.tools.0"></div>
             </div>
             <div class="app-icon-item">
               <div class="app-icon-placeholder" aria-hidden="true">
@@ -213,7 +209,7 @@
                   <circle cx="14" cy="18" r="1.5" fill="currentColor"/>
                 </svg>
               </div>
-              <div class="app-icon-label">TalkBack</div>
+              <div class="app-icon-label" data-content="screenReaders.tools.1"></div>
             </div>
             <div class="app-icon-item">
               <div class="app-icon-placeholder" aria-hidden="true">
@@ -222,31 +218,31 @@
                   <path d="M9 20 Q14 16 19 20" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
                 </svg>
               </div>
-              <div class="app-icon-label">Be My Eyes</div>
+              <div class="app-icon-label" data-content="screenReaders.tools.2"></div>
             </div>
           </div>
-          <h2 class="heading-lg sr-headline" id="sr-headline">Screen readers<br>aren't enough?</h2>
+          <h2 class="heading-lg sr-headline" id="sr-headline" data-html="screenReaders.headingHtml"></h2>
         </div>
 
         <div class="fade-up delay-1">
-          <h3 class="heading-lg sr-answer">Yes, but no.</h3>
+          <h3 class="heading-lg sr-answer" data-content="screenReaders.answer"></h3>
           <div class="sr-stat-boxes">
             <div class="sr-stat-box">
-              <div class="sr-stat-num">73%</div>
-              <p class="sr-stat-text">of real accessibility barriers are invisible to standard compliance audits</p>
+              <div class="sr-stat-num" data-content="screenReaders.statBoxes.0.number"></div>
+              <p class="sr-stat-text" data-content="screenReaders.statBoxes.0.text"></p>
             </div>
             <div class="sr-stat-box">
-              <div class="sr-stat-num">85%</div>
-              <p class="sr-stat-text">of BLV users can't tell if their check is positioned correctly in the camera frame</p>
+              <div class="sr-stat-num" data-content="screenReaders.statBoxes.1.number"></div>
+              <p class="sr-stat-text" data-content="screenReaders.statBoxes.1.text"></p>
             </div>
             <div class="sr-stat-box">
-              <div class="sr-stat-num">Only 29%</div>
-              <p class="sr-stat-text">attempt mobile check deposit regularly &mdash; not by choice, but because repeated failures made it unreliable</p>
+              <div class="sr-stat-num" data-content="screenReaders.statBoxes.2.number"></div>
+              <p class="sr-stat-text" data-content="screenReaders.statBoxes.2.text"></p>
             </div>
           </div>
           <blockquote class="sr-quote">
-            <p class="sr-quote-text">"It didn't give you any directions as to where to position the check in the frame. You just kind of... hope."</p>
-            <cite class="sr-quote-attr">&mdash; BLV user interview participant</cite>
+            <p class="sr-quote-text" data-content="screenReaders.quote"></p>
+            <cite class="sr-quote-attr" data-content="screenReaders.quoteAttr"></cite>
           </blockquote>
         </div>
       </div>
@@ -256,8 +252,8 @@
   <!-- MEET FINSIGHT -->
   <section class="meet-finsight" aria-labelledby="meet-headline">
     <div class="container">
-      <h2 class="display-heading fade-up" id="meet-headline">Meet FinSight.</h2>
-      <p class="body-lg fade-up delay-1">Voice-first banking, built for BLV users.</p>
+      <h2 class="display-heading fade-up" id="meet-headline" data-content="meet.heading"></h2>
+      <p class="body-lg fade-up delay-1" data-content="meet.subtitle"></p>
 
       <div class="phone-rings-wrap fade-up delay-2" aria-hidden="true">
         <div class="ring ring-1"></div>
@@ -279,7 +275,7 @@
   <!-- BRIDGE -->
   <section class="bridge-section">
     <div class="container">
-      <p class="bridge-text">What we can do to give better audio guidance</p>
+      <p class="bridge-text" data-content="bridge.text"></p>
     </div>
   </section>
 
@@ -287,8 +283,8 @@
   <section class="guidelines-section" id="guidelines">
     <div class="guidelines-layout">
       <div class="guidelines-sticky">
-        <h2 class="gl-heading">Design<br>Guidelines</h2>
-        <nav class="gl-nav" aria-label="Guidelines navigation"></nav>
+        <h2 class="gl-heading" data-html="guidelines.headingHtml"></h2>
+        <nav class="gl-nav" data-aria-label="guidelines.navLabel"></nav>
       </div>
       <div class="guidelines-scroll" id="guidelinesScroll"></div>
     </div>
@@ -297,10 +293,10 @@
   <!-- PROTOTYPE -->
   <section class="prototype-section" id="prototype">
     <div class="container">
-      <h2 class="proto-heading">The Prototype</h2>
-      <p class="proto-sub">Explore how finSight reimagines the banking experience for blind users.</p>
+      <h2 class="proto-heading" data-content="prototype.heading"></h2>
+      <p class="proto-sub" data-content="prototype.subtitle"></p>
       <div class="proto-embed">
-        <p class="proto-placeholder">[ Prototype embed or video goes here ]</p>
+        <p class="proto-placeholder" data-content="prototype.placeholder"></p>
       </div>
     </div>
   </section>
@@ -308,49 +304,12 @@
   <!-- TEAM -->
   <section class="team-section" id="team">
     <div class="container">
-      <h2 class="team-heading">Meet the Team</h2>
-      <div class="team-cards-grid">
-
-        <div class="team-member-card">
-          <div class="team-avatar">TM</div>
-          <div class="member-name">Team Member 1</div>
-          <div class="member-role">Role / Focus Area</div>
-          <a href="#" class="member-linkedin">LinkedIn →</a>
-        </div>
-
-        <div class="team-member-card">
-          <div class="team-avatar">TM</div>
-          <div class="member-name">Team Member 2</div>
-          <div class="member-role">Role / Focus Area</div>
-          <a href="#" class="member-linkedin">LinkedIn →</a>
-        </div>
-
-        <div class="team-member-card">
-          <div class="team-avatar">TM</div>
-          <div class="member-name">Team Member 3</div>
-          <div class="member-role">Role / Focus Area</div>
-          <a href="#" class="member-linkedin">LinkedIn →</a>
-        </div>
-
-        <div class="team-member-card">
-          <div class="team-avatar">TM</div>
-          <div class="member-name">Team Member 4</div>
-          <div class="member-role">Role / Focus Area</div>
-          <a href="#" class="member-linkedin">LinkedIn →</a>
-        </div>
-
-        <div class="team-member-card">
-          <div class="team-avatar">TM</div>
-          <div class="member-name">Team Member 5</div>
-          <div class="member-role">Role / Focus Area</div>
-          <a href="#" class="member-linkedin">LinkedIn →</a>
-        </div>
-
-      </div>
+      <h2 class="team-heading" data-content="team.heading"></h2>
+      <div class="team-cards-grid" id="teamCardsGrid"></div>
     </div>
 
     <div class="photos-marquee-wrap">
-      <p class="marquee-section-heading">Our Process</p>
+      <p class="marquee-section-heading" data-content="team.processHeading"></p>
       <div class="marquee-overflow">
         <div class="marquee-scroll-track" id="teamMarqueeTrack"></div>
       </div>
@@ -359,6 +318,7 @@
 
   
 
+  <script src="content.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
