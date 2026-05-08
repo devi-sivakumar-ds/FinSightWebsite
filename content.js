@@ -168,6 +168,7 @@ window.FINSIGHT_CONTENT = {
       {
         title: 'Announce state changes immediately',
         body: "When UI state changes (loading, error, success), announce it right away via ARIA live regions. Blind users cannot see visual feedback - don't leave them guessing.",
+        image: 'assets/insight-2.svg',
       },
       {
         title: 'Audio confirmation for every transaction',
