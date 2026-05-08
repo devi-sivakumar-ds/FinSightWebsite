@@ -15,7 +15,10 @@ function applyStaticContent() {
 
   document.querySelectorAll('[data-content]').forEach(el => {
     const value = getContent(el.dataset.content);
-    if (value !== undefined) el.textContent = value;
+    if (value !== undefined) {
+      el.textContent = value;
+      if (value === '') el.hidden = true;
+    }
   });
 
   document.querySelectorAll('[data-html]').forEach(el => {

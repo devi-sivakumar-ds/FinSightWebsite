@@ -615,7 +615,7 @@ body {
 
 /* ── SCREEN READERS ── */
 .screen-readers {
-  padding: 120px 0;
+  padding: 110px 0 34px;
 }
 .sr-grid {
   align-items: start;
@@ -658,71 +658,41 @@ body {
 }
 .sr-answer {
   color: var(--blue);
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
-.sr-stat-boxes {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 28px;
-}
-.sr-stat-box {
-  background: var(--off-white);
-  border-radius: 10px;
-  padding: 20px 24px;
-}
-.sr-stat-num {
-  color: var(--text);
-  font-size: 23px;
-  font-weight: 500;
-  letter-spacing: -0.44px;
-  margin-bottom: 4px;
-}
-.sr-stat-text {
+.sr-body-text {
   color: var(--text-mid);
-  font-size: 0.88rem;
-  letter-spacing: -0.18px;
-  line-height: 1.5;
-}
-.sr-quote {
-  border-left: 3px solid var(--blue);
-  padding-left: 20px;
-}
-.sr-quote-text {
-  color: var(--text-mid);
-  font-size: 0.94rem;
-  font-style: italic;
+  font-size: 1rem;
   letter-spacing: -0.2px;
-  line-height: 1.47;
-  margin-bottom: 8px;
+  line-height: 1.75;
+  max-width: 520px;
 }
-.sr-quote-attr {
+.sr-body-muted {
   color: var(--text-light);
-  font-size: 0.75rem;
-  letter-spacing: -0.14px;
+  margin-top: 16px;
 }
 
 /* ── QUOTES ── */
 .quotes-section {
   background: var(--white);
   overflow: hidden;
-  padding: 110px 0;
+  padding: 0 0 110px;
 }
 .quotes-header {
-  margin-bottom: 48px;
+  margin-bottom: 26px;
   text-align: center;
 }
 .quotes-heading {
   color: var(--text);
-  font-family: var(--font-display);
-  font-size: clamp(2.25rem, 5vw, 4.25rem);
-  font-weight: 500;
-  letter-spacing: -2px;
-  line-height: 1.08;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
   margin: 0 auto;
   max-width: 760px;
 }
 .quote-marquee {
+  --quote-card-width: clamp(360px, 34vw, 560px);
   display: grid;
   gap: 14px;
   margin-top: 34px;
@@ -771,7 +741,7 @@ body {
 .quote-track {
   animation: quoteMarqueeLeft 42s linear infinite;
   display: flex;
-  gap: 18px;
+  gap: clamp(12px, 1.4vw, 18px);
   padding: 2px 0;
   width: max-content;
 }
@@ -786,15 +756,16 @@ body {
   border: 1px solid rgba(224, 230, 255, 0.9);
   border-radius: 16px;
   box-shadow: 0 12px 40px rgba(10, 14, 26, 0.05);
-  flex: 0 0 460px;
-  padding: 26px 28px;
+  flex: 0 0 var(--quote-card-width);
+  min-height: 150px;
+  padding: clamp(16px, 1.5vw, 22px) clamp(22px, 2vw, 30px);
   text-align: left;
 }
 .quote-card-top {
   align-items: center;
   display: flex;
   gap: 14px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 .quote-avatar {
   align-items: center;
@@ -820,8 +791,8 @@ body {
 }
 .quote-card-text {
   color: var(--text-mid);
-  font-size: 1.02rem;
-  line-height: 1.65;
+  font-size: clamp(0.9rem, 1vw, 1.02rem);
+  line-height: 1.5;
 }
 @keyframes quoteMarqueeLeft {
   0% { transform: translateX(0); }
@@ -834,7 +805,7 @@ body {
 
 /* ── MEET FINSIGHT ── */
 .meet-finsight {
-  background: var(--white);
+  background: var(--off-white);
   overflow: hidden;
   padding: 120px 0;
   position: relative;
@@ -1077,7 +1048,7 @@ body {
 
 /* ── TEAM ── */
 .team-section {
-  background: var(--off-white);
+  background: var(--white);
   padding: 110px 0 0;
   text-align: center;
 }
@@ -1210,15 +1181,18 @@ body {
     font-size: clamp(3.75rem, 18vw, 5.5rem);
     letter-spacing: -0.04em;
   }
-  .screen-readers { padding: 88px 0; }
+  .screen-readers { padding: 88px 0 28px; }
   .sr-grid {
     grid-template-columns: 1fr;
     gap: 48px;
   }
-  .quotes-section { padding: 88px 0; }
+  .quotes-section { padding: 0 0 88px; }
+  .quote-marquee {
+    --quote-card-width: min(84vw, 460px);
+  }
   .quote-card {
-    flex-basis: min(380px, calc(100vw - 48px));
-    padding: 22px;
+    min-height: 150px;
+    padding: 18px 22px;
   }
   .quote-marquee-overflow::before,
   .quote-marquee-overflow::after {
@@ -1257,6 +1231,13 @@ body {
 }
 
 @media (max-width: 640px) {
+  .quote-marquee {
+    --quote-card-width: calc(100vw - 56px);
+  }
+  .quote-marquee-overflow::before,
+  .quote-marquee-overflow::after {
+    width: 36px;
+  }
   .team-cards-grid { grid-template-columns: repeat(2, 1fr); }
 }
 

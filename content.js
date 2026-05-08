@@ -71,27 +71,13 @@ window.FINSIGHT_CONTENT = {
     tools: ['VoiceOver', 'TalkBack', 'Be My Eyes'],
     headingHtml: "Screen readers<br>aren't enough?",
     answer: 'Yes, but no.',
-    statBoxes: [
-      {
-        number: '73%',
-        text: 'of real accessibility barriers are invisible to standard compliance audits',
-      },
-      {
-        number: '85%',
-        text: "of BLV users can't tell if their check is positioned correctly in the camera frame",
-      },
-      {
-        number: 'Only 29%',
-        text: 'attempt mobile check deposit regularly - not by choice, but because repeated failures made it unreliable',
-      },
-    ],
-    quote: '"It didn\'t give you any directions as to where to position the check in the frame. You just kind of... hope."',
-    quoteAttr: '- BLV user interview participant',
+    body: 'Screen readers can announce what is on the screen, but they cannot replace missing product guidance. For visual tasks like check deposit, users need real-time direction, clear error recovery, and confirmation that does not depend on sight.',
+    subbody: 'That gap came through in both user interviews and industry conversations.',
   },
 
   quotes: {
-    label: 'Field Notes',
-    heading: 'What we heard from users and banking teams',
+    label: 'What we heard from users and banking teams',
+    heading: '',
     rows: [
       {
         label: 'BLV users',
