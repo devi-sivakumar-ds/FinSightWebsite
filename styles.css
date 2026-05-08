@@ -734,38 +734,38 @@ body {
 .phone-rings-wrap {
   align-items: center;
   display: inline-flex;
-  height: 400px;
+  height: 600px;
   justify-content: center;
   position: relative;
-  width: 400px;
+  width: 600px;
 }
 .ring {
   border: 1px solid var(--border);
   border-radius: 50%;
   position: absolute;
 }
-.ring-1 { height: 220px; width: 220px; }
-.ring-2 { height: 300px; width: 300px; }
-.ring-3 { height: 360px; width: 360px; }
-.ring-4 { height: 420px; width: 420px; }
+.ring-1 { height: 350px; width: 350px; }
+.ring-2 { height: 450px; width: 450px; }
+.ring-3 { height: 540px; width: 540px; }
+.ring-4 { height: 630px; width: 630px; }
 .phone-portrait {
   align-items: center;
   background: #1c1c1c;
-  border-radius: 28px;
+  border-radius: 38px;
   box-shadow: rgba(0, 0, 0, 0.5) 0 32px 64px;
   display: flex;
   flex-direction: column;
-  height: 360px;
+  height: 540px;
   justify-content: center;
   overflow: hidden;
   position: relative;
-  width: 190px;
+  width: 284px;
   z-index: 2;
 }
 .phone-portrait-screen {
   align-items: center;
   background: #2a2a2a;
-  border-radius: 22px;
+  border-radius: 32px;
   display: flex;
   flex-direction: column;
   height: calc(100% - 12px);
@@ -1083,16 +1083,17 @@ body {
     letter-spacing: -1.5px;
   }
   .phone-rings-wrap {
-    height: 320px;
-    width: 320px;
+    height: 430px;
+    width: min(430px, 100%);
   }
-  .ring-1 { height: 180px; width: 180px; }
-  .ring-2 { height: 240px; width: 240px; }
-  .ring-3 { height: 300px; width: 300px; }
-  .ring-4 { height: 340px; width: 340px; }
+  .ring-1 { height: 250px; width: 250px; }
+  .ring-2 { height: 320px; width: 320px; }
+  .ring-3 { height: 390px; width: 390px; }
+  .ring-4 { height: 450px; width: 450px; }
   .phone-portrait {
-    height: 300px;
-    width: 158px;
+    border-radius: 32px;
+    height: 410px;
+    width: 216px;
   }
   .team-cards-grid {
     grid-template-columns: repeat(3, 1fr);
