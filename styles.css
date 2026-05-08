@@ -702,6 +702,136 @@ body {
   letter-spacing: -0.14px;
 }
 
+/* ── QUOTES ── */
+.quotes-section {
+  background: var(--white);
+  overflow: hidden;
+  padding: 110px 0;
+}
+.quotes-header {
+  margin-bottom: 48px;
+  text-align: center;
+}
+.quotes-heading {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 4.25rem);
+  font-weight: 500;
+  letter-spacing: -2px;
+  line-height: 1.08;
+  margin: 0 auto;
+  max-width: 760px;
+}
+.quote-marquee {
+  display: grid;
+  gap: 14px;
+  margin-top: 34px;
+}
+.quote-row-label {
+  align-items: center;
+  color: var(--text-light);
+  display: flex;
+  font-size: 0.76rem;
+  font-weight: 700;
+  gap: 10px;
+  justify-content: center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.quote-row-label::before,
+.quote-row-label::after {
+  background: var(--border);
+  content: '';
+  height: 1px;
+  max-width: 120px;
+  width: 10vw;
+}
+.quote-marquee-overflow {
+  overflow: hidden;
+  position: relative;
+}
+.quote-marquee-overflow::before,
+.quote-marquee-overflow::after {
+  bottom: 0;
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 140px;
+  z-index: 2;
+}
+.quote-marquee-overflow::before {
+  background: linear-gradient(90deg, var(--white), transparent);
+  left: 0;
+}
+.quote-marquee-overflow::after {
+  background: linear-gradient(270deg, var(--white), transparent);
+  right: 0;
+}
+.quote-track {
+  animation: quoteMarqueeLeft 42s linear infinite;
+  display: flex;
+  gap: 18px;
+  padding: 2px 0;
+  width: max-content;
+}
+.quote-track-right {
+  animation-name: quoteMarqueeRight;
+}
+.quote-track:hover {
+  animation-play-state: paused;
+}
+.quote-card {
+  background: var(--white);
+  border: 1px solid rgba(224, 230, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(10, 14, 26, 0.05);
+  flex: 0 0 460px;
+  padding: 26px 28px;
+  text-align: left;
+}
+.quote-card-top {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.quote-avatar {
+  align-items: center;
+  background: var(--blue-light);
+  border-radius: 50%;
+  color: var(--blue);
+  display: flex;
+  flex: 0 0 46px;
+  height: 46px;
+  justify-content: center;
+  width: 46px;
+}
+.quote-person {
+  color: var(--text);
+  font-size: 0.96rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.quote-type {
+  color: var(--text-light);
+  font-size: 0.78rem;
+  margin-top: 3px;
+}
+.quote-card-text {
+  color: var(--text-mid);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+@keyframes quoteMarqueeLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes quoteMarqueeRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
 /* ── MEET FINSIGHT ── */
 .meet-finsight {
   background: var(--white);
@@ -1008,13 +1138,12 @@ body {
 
 /* ── PHOTOS MARQUEE ── */
 .photos-marquee-wrap {
-  margin-top: 72px;
-  background: var(--dark);
-  padding: 60px 0;
+  margin-top: 96px;
+  padding: 48px 0 0;
 }
 .marquee-section-heading {
   text-align: center;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-light);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -1023,7 +1152,27 @@ body {
 }
 .marquee-overflow {
   overflow: hidden;
+  padding-top: 8px;
+  position: relative;
   width: 100%;
+}
+.marquee-overflow::before,
+.marquee-overflow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee-overflow::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--off-white), transparent);
+}
+.marquee-overflow::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--off-white), transparent);
 }
 .marquee-scroll-track {
   display: flex;
@@ -1042,12 +1191,12 @@ body {
   border-radius: var(--radius);
   flex-shrink: 0;
   object-fit: contain;
-  background: var(--dark-2);
+  background: var(--off-white);
   cursor: pointer;
-  filter: brightness(0.85);
+  filter: none;
   transition: filter 0.3s ease;
 }
-.marquee-scroll-photo:hover { filter: brightness(1); }
+.marquee-scroll-photo:hover { filter: brightness(0.96); }
 
 @media (max-width: 768px) {
   .container { padding: 0 24px; }
@@ -1065,6 +1214,15 @@ body {
   .sr-grid {
     grid-template-columns: 1fr;
     gap: 48px;
+  }
+  .quotes-section { padding: 88px 0; }
+  .quote-card {
+    flex-basis: min(380px, calc(100vw - 48px));
+    padding: 22px;
+  }
+  .quote-marquee-overflow::before,
+  .quote-marquee-overflow::after {
+    width: 64px;
   }
   .heading-lg {
     font-size: 32px;
@@ -1100,4 +1258,11 @@ body {
 
 @media (max-width: 640px) {
   .team-cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quote-track,
+  .marquee-scroll-track {
+    animation: none;
+  }
 }

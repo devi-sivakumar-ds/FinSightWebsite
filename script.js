@@ -257,6 +257,54 @@ const glObserver = new IntersectionObserver((entries) => {
 
 glCards.forEach(card => glObserver.observe(card));
 
+// ── Quote Marquees ──
+(function() {
+  const rows = content.quotes?.rows || [];
+  const tracks = [
+    document.getElementById('blvQuoteTrack'),
+    document.getElementById('expertQuoteTrack'),
+  ];
+
+  function iconSvg(type) {
+    if (type === 'building') {
+      return `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 21V8l8-5 8 5v13" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M9 21v-7h6v7M8 10h.01M12 10h.01M16 10h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      `;
+    }
+
+    return `
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M4.5 21a7.5 7.5 0 0 1 15 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    `;
+  }
+
+  rows.forEach((row, rowIndex) => {
+    const track = tracks[rowIndex];
+    if (!track) return;
+
+    [...row.items, ...row.items].forEach(item => {
+      const card = document.createElement('article');
+      card.className = 'quote-card';
+      card.innerHTML = `
+        <div class="quote-card-top">
+          <div class="quote-avatar">${iconSvg(row.icon)}</div>
+          <div>
+            <div class="quote-person">${item.name}</div>
+            <div class="quote-type">${row.label}</div>
+          </div>
+        </div>
+        <p class="quote-card-text">"${item.quote}"</p>
+      `;
+      track.appendChild(card);
+    });
+  });
+})();
+
 // ── Team Cards ──
 (function() {
   const grid = document.getElementById('teamCardsGrid');

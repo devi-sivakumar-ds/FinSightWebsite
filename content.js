@@ -89,6 +89,57 @@ window.FINSIGHT_CONTENT = {
     quoteAttr: '- BLV user interview participant',
   },
 
+  quotes: {
+    label: 'Field Notes',
+    heading: 'What we heard from users and banking teams',
+    rows: [
+      {
+        label: 'BLV users',
+        icon: 'user',
+        items: [
+          {
+            name: 'Anonymous User A',
+            quote: 'I usually have to ask someone sighted to confirm if the check is even inside the camera frame.',
+          },
+          {
+            name: 'Anonymous User B',
+            quote: 'The app says there is an error, but it does not tell me what changed or what I should do next.',
+          },
+          {
+            name: 'Anonymous User C',
+            quote: 'I want to do my banking privately. Needing help for a deposit makes a simple task feel exposed.',
+          },
+          {
+            name: 'Anonymous User D',
+            quote: 'When feedback is visual only, I am just guessing and repeating the same step over and over.',
+          },
+        ],
+      },
+      {
+        label: 'Industry experts',
+        icon: 'building',
+        items: [
+          {
+            name: 'Accessibility Lead, XX Bank',
+            quote: 'Compliance gets teams to the baseline, but complex financial flows need guidance that is built into the experience.',
+          },
+          {
+            name: 'Digital Banking Manager, Redwood Credit Union',
+            quote: 'Members need confidence at every step, especially when the task involves money movement or document capture.',
+          },
+          {
+            name: 'Product Strategist, YY Financial',
+            quote: 'The biggest gap is not whether a button has a label. It is whether the customer knows what is happening next.',
+          },
+          {
+            name: 'Innovation Lead, Community Banking',
+            quote: 'Voice-first guidance can reduce support burden while giving customers more independence in high-stakes tasks.',
+          },
+        ],
+      },
+    ],
+  },
+
   meet: {
     heading: 'Meet FinSight.',
     subtitle: 'Voice-first banking, built for BLV users.',
