@@ -23,6 +23,10 @@ const speedLabelEl = document.getElementById('speed-label');
 const verbosityLabelEl = document.getElementById('verbosity-label');
 const speedControlEl = document.getElementById('speed-control');
 const verbosityControlEl = document.getElementById('verbosity-control');
+const fullTranscriptEl = document.getElementById('full-transcript');
+const transcriptSearchEl = document.getElementById('transcript-search');
+const transcriptSearchStatusEl = document.getElementById('transcript-search-status');
+const fullTranscriptListEl = document.getElementById('full-transcript-list');
 
 let activeIndex = 0;
 let isPlaying = false;
@@ -32,6 +36,7 @@ let currentSpeed = 1;
 let currentVerbosity = 'medium';
 let speedButtonEls = [];
 let verbosityButtonEls = [];
+let transcriptItemEls = [];
 let speedOptions = [];
 let verbosityOptions = [];
 
@@ -172,6 +177,15 @@ function announcePlayback(message) {
   }, 0);
 }
 
+function updateTranscriptSearchStatus(matchCount, query) {
+  if (!transcriptSearchStatusEl) return;
+  if (!query) {
+    transcriptSearchStatusEl.textContent = `${sections.length} transcript sections shown.`;
+    return;
+  }
+  transcriptSearchStatusEl.textContent = `${matchCount} transcript ${matchCount === 1 ? 'section' : 'sections'} match "${query}".`;
+}
+
 function setSpeed(speed) {
   currentSpeed = speed;
   updateSettingButtons();
@@ -182,6 +196,7 @@ function setVerbosity(verbosity) {
   currentVerbosity = verbosity;
   updateSettingButtons();
   updateActiveSection();
+  renderFullTranscript();
   restartIfPlaying();
 }
 
@@ -208,6 +223,42 @@ function renderSections() {
     sectionListEl.appendChild(card);
     return card;
   });
+}
+
+function renderFullTranscript() {
+  if (!fullTranscriptListEl) return;
+
+  const query = transcriptSearchEl?.value.trim().toLowerCase() || '';
+  fullTranscriptListEl.innerHTML = '';
+  transcriptItemEls = sections.map((section, index) => {
+    const narration = getNarration(section);
+    const searchableText = [
+      section.kicker,
+      section.title,
+      section.duration,
+      section.summary,
+      narration,
+    ].join(' ').toLowerCase();
+    const isMatch = !query || searchableText.includes(query);
+    const item = document.createElement('article');
+    item.className = 'full-transcript-item';
+    item.hidden = !isMatch;
+    item.innerHTML = `
+      <div class="section-card-top">
+        <span class="section-kicker">${escapeHtml(section.kicker || `Section ${index + 1}`)}</span>
+        <span class="section-duration" aria-label="${escapeAttr(section.duration ? `Duration ${section.duration}` : '')}">${escapeHtml(section.duration || '')}</span>
+      </div>
+      <h3>${escapeHtml(section.title || '')}</h3>
+      <p>${escapeHtml(narration)}</p>
+      <button class="text-button transcript-jump-button" type="button" data-transcript-index="${index}" aria-label="${escapeAttr(`Jump to section ${index + 1}: ${section.title || ''}`)}">Jump to section</button>
+    `;
+    fullTranscriptListEl.appendChild(item);
+    return item;
+  });
+
+  const matchCount = transcriptItemEls.filter(item => !item.hidden).length;
+  fullTranscriptListEl.toggleAttribute('data-empty', matchCount === 0);
+  updateTranscriptSearchStatus(matchCount, query);
 }
 
 function updateActiveSection({ scroll = false, announce = false } = {}) {
@@ -344,6 +395,20 @@ replayButton.addEventListener('click', () => {
   play();
 });
 
+if (transcriptSearchEl) {
+  transcriptSearchEl.addEventListener('input', renderFullTranscript);
+}
+
+if (fullTranscriptListEl) {
+  fullTranscriptListEl.addEventListener('click', event => {
+    const button = event.target.closest('[data-transcript-index]');
+    if (!button) return;
+    if (!fullTranscriptEl.open) fullTranscriptEl.open = true;
+    selectSection(Number(button.dataset.transcriptIndex), { play: false, scroll: true });
+    transcriptHeadingEl.focus?.();
+  });
+}
+
 document.addEventListener('keydown', event => {
   const tag = document.activeElement?.tagName;
   if (['A', 'BUTTON', 'INPUT', 'TEXTAREA', 'SELECT'].includes(tag)) return;
@@ -378,4 +443,5 @@ if (speech) {
 setStaticContent();
 renderSettings();
 renderSections();
+renderFullTranscript();
 updateActiveSection();

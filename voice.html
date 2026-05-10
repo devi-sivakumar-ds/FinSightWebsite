@@ -75,10 +75,20 @@
 
       <aside class="transcript-panel" aria-labelledby="transcript-heading" aria-live="off">
         <p class="panel-label">Now Reading</p>
-        <h2 id="transcript-heading"></h2>
+        <h2 id="transcript-heading" tabindex="-1"></h2>
         <p class="transcript-text" id="transcript-text"></p>
       </aside>
     </section>
+
+    <details class="full-transcript" id="full-transcript">
+      <summary>Full transcript</summary>
+      <div class="full-transcript-body">
+        <label class="transcript-search-label" for="transcript-search">Search transcript</label>
+        <input class="transcript-search" id="transcript-search" type="search" autocomplete="off" placeholder="Search transcript" />
+        <p class="sr-only" id="transcript-search-status" aria-live="polite" aria-atomic="true"></p>
+        <div class="full-transcript-list" id="full-transcript-list"></div>
+      </div>
+    </details>
   </main>
 
   <script src="./content.js?v=2"></script>
