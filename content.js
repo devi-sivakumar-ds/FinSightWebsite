@@ -2,7 +2,7 @@ window.FINSIGHT_CONTENT = {
   pageTitle: 'finSight - Accessible Banking',
 
   nav: {
-    logoAlt: 'finSight',
+    logoAlt: 'FinSight logo',
   },
 
   hero: {
@@ -18,6 +18,7 @@ window.FINSIGHT_CONTENT = {
       balanceLabel: 'Total Balance',
       balance: '$2,450.00',
       actions: ['Send', 'Deposit', 'Pay'],
+      actionLabels: ['Send money', 'Deposit a check', 'Pay a bill'],
       recentLabel: 'Recent',
       transactions: [
         { name: 'Netflix', amount: '-$15.99' },
@@ -27,9 +28,18 @@ window.FINSIGHT_CONTENT = {
       screenReaderOutputHtml: 'Unlabeled button.<br>Unlabeled button.<br>Image.',
       cameraHint: 'Position front of check in frame',
       problemDepositAction: 'Deposit',
+      problemDepositActionLabel: 'Deposit a check',
       imageTooDarkError: 'Image too dark - Try again',
       checkNotInFrameError: 'Check not in frame',
       checkCaptured: 'Check captured',
+      mockupLabel: 'Animated mobile banking mockup showing how an inaccessible check deposit flow creates uncertainty for screen reader users.',
+      balanceScreenLabel: 'Banking app balance screen with send, deposit, and pay actions.',
+      unlabeledScreenLabel: 'Screen reader output example announcing unlabeled buttons and an image.',
+      formScreenLabel: 'Deposit check form with unlabeled visual fields.',
+      cameraScreenLabel: 'Camera capture screen asking the user to position the front of a check in frame.',
+      darkErrorScreenLabel: 'Camera capture error saying the image is too dark.',
+      frameErrorScreenLabel: 'Camera capture error saying the check is not in frame.',
+      successScreenLabel: 'Camera capture success message saying the check was captured.',
       processingTitle: 'Processing',
       processingLabel: 'Analyzing check...',
       processingSub: 'This may take a moment',
@@ -50,18 +60,21 @@ window.FINSIGHT_CONTENT = {
         value: 84,
         suffix: '%',
         label: 'rely on workarounds just to do basic banking',
+        accessibleLabel: '84 percent of users rely on workarounds just to do basic banking.',
       },
       {
         value: 68,
         suffix: '%',
         label: 'say check deposit is their most frustrating banking task',
         arcCaption: '68% frustrated',
+        accessibleLabel: '68 percent of users say check deposit is their most frustrating banking task.',
       },
       {
         value: 29,
         suffix: '%',
         label: 'actually attempt mobile check deposit regularly',
         arcCaption: '29% attempt',
+        accessibleLabel: '29 percent of users actually attempt mobile check deposit regularly.',
       },
     ],
   },
@@ -130,6 +143,7 @@ window.FINSIGHT_CONTENT = {
             label: 'VP of Digital Services, Credit Union',
             icon: 'building',
             logo: 'assets/industryexpertslogo/redwoodcreditunion.png',
+            logoAlt: 'Redwood Credit Union logo',
             quote: 'Accessibility does not equal operability.',
           },
           {
@@ -159,6 +173,7 @@ window.FINSIGHT_CONTENT = {
     heading: 'Meet FinSight.',
     subtitle: 'Voice-first banking, built for BLV users.',
     app: {
+      mockupLabel: 'Animated FinSight app preview showing a voice-first check deposit flow.',
       frames: [
         { src: 'assets/finsight-video-frames/screen-01.jpg', alt: 'FinSight welcome screen' },
         { src: 'assets/finsight-video-frames/screen-02-home.jpg', alt: 'FinSight home screen with voice banking tasks' },
@@ -234,11 +249,11 @@ window.FINSIGHT_CONTENT = {
   team: {
     heading: 'Meet the Team',
     members: [
-      { image: 'assets/teammembers/j.jpeg', imageAlt: 'Team member portrait', name: 'Jessie Deng', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/jwdeng/' },
-      { image: 'assets/teammembers/m.jpeg', imageAlt: 'Team member portrait', name: 'Michelle Lin', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/michellelin4111/' },
-      { image: 'assets/teammembers/sa.jpeg', imageAlt: 'Team member portrait', name: 'Sarah Algashgari', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/sarah-algashgari-699961195/' },
-      { image: 'assets/teammembers/d.jpeg', imageAlt: 'Team member portrait', name: 'Devi Sivakumar', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/devi-sivakumar/' },
-      { image: 'assets/teammembers/se.jpeg', imageAlt: 'Team member portrait', name: 'Sejin Kim', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/jin-sejin-kim/' },
+      { image: 'assets/teammembers/j.jpeg', imageAlt: 'Portrait of Jessie Deng', name: 'Jessie Deng', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/jwdeng/' },
+      { image: 'assets/teammembers/m.jpeg', imageAlt: 'Portrait of Michelle Lin', name: 'Michelle Lin', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/michellelin4111/' },
+      { image: 'assets/teammembers/sa.jpeg', imageAlt: 'Portrait of Sarah Algashgari', name: 'Sarah Algashgari', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/sarah-algashgari-699961195/' },
+      { image: 'assets/teammembers/d.jpeg', imageAlt: 'Portrait of Devi Sivakumar', name: 'Devi Sivakumar', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/devi-sivakumar/' },
+      { image: 'assets/teammembers/se.jpeg', imageAlt: 'Portrait of Sejin Kim', name: 'Sejin Kim', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/jin-sejin-kim/' },
     ],
     processHeading: 'Our Process',
     photoCount: 14,

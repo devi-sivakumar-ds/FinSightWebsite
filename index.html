@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title></title>
+  <title>FinSight - Accessible Banking</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500&family=Playfair+Display:ital@1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,9 +12,9 @@
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <a href="#hero" class="nav-brand">
-      <img src="assets/logo.jpeg" alt="" class="nav-logo" data-alt="nav.logoAlt" />
+  <nav class="navbar" id="navbar" aria-label="Main navigation">
+    <a href="#hero" class="nav-brand" aria-label="FinSight home">
+      <img src="assets/logo.jpeg" alt="FinSight logo" class="nav-logo" data-alt="nav.logoAlt" />
     </a>
     <a href="voice.html" class="voice-mode-link" aria-label="Open Voice Guided mode">
       Voice Guided
@@ -39,15 +39,15 @@
   </section>
 
   <!-- CHALLENGE -->
-  <section class="challenge-section" id="problem">
+  <section class="challenge-section" id="problem" aria-labelledby="challenge-heading">
     <div class="challenge-inner container">
 
       <div class="phone-wrap">
-        <div class="phone-frame challenge-phone-frame" id="challengePhoneFrame">
-          <div class="phone-notch"></div>
+        <div class="phone-frame challenge-phone-frame" id="challengePhoneFrame" role="group" data-aria-label="challenge.phone.mockupLabel">
+          <div class="phone-notch" aria-hidden="true"></div>
           <div class="phone-screen-wrap">
 
-            <div class="screen s1 active">
+            <div class="screen s1 active" data-aria-label="challenge.phone.balanceScreenLabel">
               <div class="app-header">
                 <span class="app-bank-name" data-content="challenge.phone.bankName"></span>
                 <span class="app-time" data-content="challenge.phone.time"></span>
@@ -55,9 +55,9 @@
               <div class="app-balance-label" data-content="challenge.phone.balanceLabel"></div>
               <div class="app-balance" data-content="challenge.phone.balance"></div>
               <div class="app-actions-row">
-                <button class="app-action" data-content="challenge.phone.actions.0"></button>
-                <button class="app-action primary" data-content="challenge.phone.actions.1"></button>
-                <button class="app-action" data-content="challenge.phone.actions.2"></button>
+                <button class="app-action" data-content="challenge.phone.actions.0" data-aria-label="challenge.phone.actionLabels.0"></button>
+                <button class="app-action primary" data-content="challenge.phone.actions.1" data-aria-label="challenge.phone.actionLabels.1"></button>
+                <button class="app-action" data-content="challenge.phone.actions.2" data-aria-label="challenge.phone.actionLabels.2"></button>
               </div>
               <div class="app-recent-label" data-content="challenge.phone.recentLabel"></div>
               <div class="app-tx">
@@ -70,17 +70,17 @@
               </div>
             </div>
 
-            <div class="screen s2">
+            <div class="screen s2" data-aria-label="challenge.phone.unlabeledScreenLabel">
               <div class="app-header s2-header">
                 <span data-content="challenge.phone.depositTitle"></span>
               </div>
               <div class="screen-reader-problem">
                 <div class="sr-terminal" data-html="challenge.phone.screenReaderOutputHtml"></div>
-                <button class="problem-deposit-button" data-content="challenge.phone.problemDepositAction"></button>
+                <button class="problem-deposit-button" data-content="challenge.phone.problemDepositAction" data-aria-label="challenge.phone.problemDepositActionLabel"></button>
               </div>
             </div>
 
-            <div class="screen s3 problem-form-screen">
+            <div class="screen s3 problem-form-screen" data-aria-label="challenge.phone.formScreenLabel">
               <div class="app-header">
                 <span data-content="challenge.phone.depositTitle"></span>
               </div>
@@ -92,7 +92,7 @@
               </div>
             </div>
 
-            <div class="screen s4 problem-camera-screen">
+            <div class="screen s4 problem-camera-screen" data-aria-label="challenge.phone.cameraScreenLabel">
               <div class="camera-area">
                 <div class="camera-frame">
                   <div class="corner tl"></div>
@@ -105,7 +105,7 @@
               </div>
             </div>
 
-            <div class="screen s5 problem-camera-screen problem-error-screen">
+            <div class="screen s5 problem-camera-screen problem-error-screen" data-aria-label="challenge.phone.darkErrorScreenLabel">
               <div class="problem-camera-stage">
                 <div class="problem-camera-outline">
                   <div class="problem-check-shape"></div>
@@ -114,7 +114,7 @@
               </div>
             </div>
 
-            <div class="screen s6 problem-camera-screen problem-error-screen">
+            <div class="screen s6 problem-camera-screen problem-error-screen" data-aria-label="challenge.phone.frameErrorScreenLabel">
               <div class="problem-camera-stage">
                 <div class="problem-camera-outline is-misaligned">
                   <div class="problem-check-shape"></div>
@@ -123,7 +123,7 @@
               </div>
             </div>
 
-            <div class="screen s7 problem-camera-screen">
+            <div class="screen s7 problem-camera-screen" data-aria-label="challenge.phone.successScreenLabel">
               <div class="problem-camera-stage is-success">
                 <div class="problem-camera-outline">
                   <div class="problem-check-shape"></div>
@@ -133,12 +133,12 @@
             </div>
 
           </div>
-          <div class="phone-home-bar"></div>
+          <div class="phone-home-bar" aria-hidden="true"></div>
         </div>
       </div>
 
       <div class="challenge-text">
-        <h2 class="challenge-heading" data-content="challenge.heading"></h2>
+        <h2 class="challenge-heading" id="challenge-heading" data-content="challenge.heading"></h2>
         <p class="challenge-body" data-content="challenge.body"></p>
       </div>
 
@@ -150,7 +150,7 @@
     <div class="container">
       <p class="section-label" id="stats-label" data-content="stats.label"></p>
       <div class="stats-grid">
-        <div class="stat-block fade-up">
+        <div class="stat-block fade-up" role="group" data-aria-label="stats.items.0.accessibleLabel">
           <div class="stat-number" data-stat-index="0">0%</div>
           <p class="stat-label" data-content="stats.items.0.label"></p>
           <div class="stat-viz" aria-hidden="true">
@@ -158,7 +158,7 @@
           </div>
         </div>
 
-        <div class="stat-block fade-up delay-1">
+        <div class="stat-block fade-up delay-1" role="group" data-aria-label="stats.items.1.accessibleLabel">
           <div class="stat-number" data-stat-index="1">0%</div>
           <p class="stat-label" data-content="stats.items.1.label"></p>
           <div class="stat-viz" aria-hidden="true">
@@ -174,7 +174,7 @@
           </div>
         </div>
 
-        <div class="stat-block fade-up delay-2">
+        <div class="stat-block fade-up delay-2" role="group" data-aria-label="stats.items.2.accessibleLabel">
           <div class="stat-number" data-stat-index="2">0%</div>
           <p class="stat-label" data-content="stats.items.2.label"></p>
           <div class="stat-viz" aria-hidden="true">
@@ -241,9 +241,9 @@
   </section>
 
   <!-- QUOTES -->
-  <section class="quotes-section" aria-labelledby="quotes-headline">
+  <section class="quotes-section" aria-labelledby="quotes-label">
     <div class="container quotes-header">
-      <p class="section-label" data-content="quotes.label"></p>
+      <p class="section-label" id="quotes-label" data-content="quotes.label"></p>
       <h2 class="quotes-heading" id="quotes-headline" data-content="quotes.heading"></h2>
     </div>
 
@@ -268,13 +268,13 @@
       <h2 class="display-heading fade-up" id="meet-headline" data-content="meet.heading"></h2>
       <p class="body-lg fade-up delay-1" data-content="meet.subtitle"></p>
 
-      <div class="phone-rings-wrap fade-up delay-2" aria-hidden="true">
+      <div class="phone-rings-wrap fade-up delay-2" role="img" data-aria-label="meet.app.mockupLabel">
         <div class="ring ring-1"></div>
         <div class="ring ring-2"></div>
         <div class="ring ring-3"></div>
         <div class="ring ring-4"></div>
         <div class="phone-portrait">
-          <div class="meet-phone-notch"></div>
+          <div class="meet-phone-notch" aria-hidden="true"></div>
           <div class="phone-portrait-screen">
             <div class="finsight-frame-demo" id="finsightFrameDemo"></div>
           </div>
@@ -284,17 +284,17 @@
   </section>
 
   <!-- BRIDGE -->
-  <section class="bridge-section">
+  <section class="bridge-section" aria-label="Audio guidance transition">
     <div class="container">
       <p class="bridge-text" data-content="bridge.text"></p>
     </div>
   </section>
 
   <!-- DESIGN GUIDELINES -->
-  <section class="guidelines-section" id="guidelines">
+  <section class="guidelines-section" id="guidelines" aria-labelledby="guidelines-heading">
     <div class="guidelines-layout">
       <div class="guidelines-sticky">
-        <h2 class="gl-heading" data-html="guidelines.headingHtml"></h2>
+        <h2 class="gl-heading" id="guidelines-heading" data-html="guidelines.headingHtml"></h2>
         <nav class="gl-nav" data-aria-label="guidelines.navLabel"></nav>
       </div>
       <div class="guidelines-scroll" id="guidelinesScroll"></div>
@@ -302,9 +302,9 @@
   </section>
 
   <!-- PROTOTYPE -->
-  <section class="prototype-section" id="prototype">
+  <section class="prototype-section" id="prototype" aria-labelledby="prototype-heading">
     <div class="container">
-      <h2 class="proto-heading" data-content="prototype.heading"></h2>
+      <h2 class="proto-heading" id="prototype-heading" data-content="prototype.heading"></h2>
       <p class="proto-sub" data-content="prototype.subtitle"></p>
       <div class="proto-embed">
         <p class="proto-placeholder" data-content="prototype.placeholder"></p>
@@ -313,9 +313,9 @@
   </section>
 
   <!-- TEAM -->
-  <section class="team-section" id="team">
+  <section class="team-section" id="team" aria-labelledby="team-heading">
     <div class="container">
-      <h2 class="team-heading" data-content="team.heading"></h2>
+      <h2 class="team-heading" id="team-heading" data-content="team.heading"></h2>
       <div class="team-cards-grid" id="teamCardsGrid"></div>
       <div class="marquee-overflow">
         <div class="marquee-scroll-track" id="teamMarqueeTrack"></div>

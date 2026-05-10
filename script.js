@@ -10,6 +10,19 @@ function getContent(path) {
   }, content);
 }
 
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function escapeAttr(value) {
+  return escapeHtml(value);
+}
+
 function applyStaticContent() {
   if (content.pageTitle) document.title = content.pageTitle;
 
@@ -121,6 +134,14 @@ window.addEventListener('scroll', () => {
   const timings = [2400, 2200, 1900, 2200, 2100, 2100, 1800];
   const errorStates = new Set([4, 5]);
 
+  function updateScreenAccessibility() {
+    screens.forEach((screen, index) => {
+      screen.setAttribute('aria-hidden', index === currentScreen ? 'false' : 'true');
+    });
+  }
+
+  updateScreenAccessibility();
+
   function cycleScreen() {
     const prev = currentScreen;
     currentScreen = (currentScreen + 1) % screens.length;
@@ -131,6 +152,7 @@ window.addEventListener('scroll', () => {
     setTimeout(() => {
       screens[prev].classList.remove('exit');
       screens[currentScreen].classList.add('active');
+      updateScreenAccessibility();
 
       if (phoneFrame && errorStates.has(currentScreen)) {
         phoneFrame.classList.add('shake');
@@ -235,17 +257,19 @@ const glScroll = document.getElementById('guidelinesScroll');
 function renderGuidelineMedia(g) {
   if (g.video) {
     const type = g.video.endsWith('.mov') ? 'video/quicktime' : 'video/mp4';
+    const label = g.mediaLabel || `${g.title} example video`;
     return `
       <div class="gl-card-media">
-        <video autoplay muted loop playsinline preload="metadata">
-          <source src="${g.video}" type="${type}">
+        <video autoplay muted loop playsinline preload="metadata" aria-label="${escapeAttr(label)}">
+          <source src="${escapeAttr(g.video)}" type="${escapeAttr(type)}">
         </video>
       </div>
     `;
   }
 
   if (g.image) {
-    return `<div class="gl-card-media"><img src="${g.image}" alt="" loading="lazy"></div>`;
+    const alt = g.imageAlt || `${g.title} illustration`;
+    return `<div class="gl-card-media"><img src="${escapeAttr(g.image)}" alt="${escapeAttr(alt)}" loading="lazy"></div>`;
   }
 
   return '';
@@ -257,16 +281,20 @@ guidelines.forEach((g, i) => {
   const navItem = document.createElement('a');
   navItem.className = 'gl-nav-item' + (i === 0 ? ' active' : '');
   navItem.href = `#gl-${i}`;
-  navItem.innerHTML = `<span class="gl-num">${i + 1}</span><span>${g.title}</span>`;
+  navItem.setAttribute('aria-label', `Go to guideline ${i + 1}: ${g.title}`);
+  if (i === 0) navItem.setAttribute('aria-current', 'true');
+  navItem.innerHTML = `<span class="gl-num">${i + 1}</span><span>${escapeHtml(g.title)}</span>`;
   glNav.appendChild(navItem);
 
   const card = document.createElement('div');
   card.className = 'gl-card';
   card.id = `gl-${i}`;
+  card.setAttribute('role', 'group');
+  card.setAttribute('aria-labelledby', `gl-${i}-title`);
   card.innerHTML = `
-    <div class="gl-card-num">${num}</div>
-    <h3 class="gl-card-title">${g.title}</h3>
-    <p class="gl-card-body">${g.body}</p>
+    <div class="gl-card-num" aria-hidden="true">${num}</div>
+    <h3 class="gl-card-title" id="gl-${i}-title">${escapeHtml(g.title)}</h3>
+    <p class="gl-card-body">${escapeHtml(g.body)}</p>
     ${renderGuidelineMedia(g)}
   `;
   glScroll.appendChild(card);
@@ -280,8 +308,14 @@ const glObserver = new IntersectionObserver((entries) => {
     if (e.isIntersecting) {
       e.target.classList.add('visible');
       const idx = [...glCards].indexOf(e.target);
-      glNavItems.forEach(n => n.classList.remove('active'));
-      if (glNavItems[idx]) glNavItems[idx].classList.add('active');
+      glNavItems.forEach(n => {
+        n.classList.remove('active');
+        n.removeAttribute('aria-current');
+      });
+      if (glNavItems[idx]) {
+        glNavItems[idx].classList.add('active');
+        glNavItems[idx].setAttribute('aria-current', 'true');
+      }
     }
   });
 }, {
@@ -310,10 +344,19 @@ glCards.forEach(card => glObserver.observe(card));
   let current = 0;
   const duration = 2200;
 
+  function updateFrameAccessibility() {
+    frameEls.forEach((frame, index) => {
+      frame.setAttribute('aria-hidden', index === current ? 'false' : 'true');
+    });
+  }
+
+  updateFrameAccessibility();
+
   function nextState() {
     frameEls[current].classList.remove('active');
     current = (current + 1) % frameEls.length;
     frameEls[current].classList.add('active');
+    updateFrameAccessibility();
   }
 
   setInterval(nextState, duration);
@@ -349,23 +392,29 @@ glCards.forEach(card => glObserver.observe(card));
     const track = tracks[rowIndex];
     if (!track) return;
 
-    [...row.items, ...row.items].forEach(item => {
+    [...row.items, ...row.items].forEach((item, itemIndex) => {
       const cardIcon = item.icon || row.icon;
       const cardLabel = item.label || row.label;
+      const isDuplicate = itemIndex >= row.items.length;
       const cardAvatar = item.logo
-        ? `<img class="quote-logo" src="${item.logo}" alt="" width="72" height="30" loading="lazy">`
+        ? `<img class="quote-logo" src="${escapeAttr(item.logo)}" alt="${escapeAttr(item.logoAlt || `${item.name} logo`)}" width="72" height="30" loading="lazy">`
         : iconSvg(cardIcon);
       const card = document.createElement('article');
       card.className = 'quote-card';
+      if (isDuplicate) {
+        card.setAttribute('aria-hidden', 'true');
+      } else {
+        card.setAttribute('aria-label', `${item.name}, ${cardLabel}: ${item.quote}`);
+      }
       card.innerHTML = `
         <div class="quote-card-top">
           <div class="quote-avatar${item.logo ? ' quote-avatar-logo' : ''}">${cardAvatar}</div>
           <div>
-            <div class="quote-person">${item.name}</div>
-            <div class="quote-type">${cardLabel}</div>
+            <div class="quote-person">${escapeHtml(item.name)}</div>
+            <div class="quote-type">${escapeHtml(cardLabel)}</div>
           </div>
         </div>
-        <p class="quote-card-text">"${item.quote}"</p>
+        <p class="quote-card-text">"${escapeHtml(item.quote)}"</p>
       `;
       track.appendChild(card);
     });
@@ -381,13 +430,15 @@ glCards.forEach(card => glObserver.observe(card));
   members.forEach(member => {
     const card = document.createElement('div');
     card.className = 'team-member-card';
+    card.setAttribute('role', 'group');
+    card.setAttribute('aria-label', member.name || 'Team member');
     card.innerHTML = `
       ${member.image
-        ? `<img class="team-member-photo" src="${member.image}" alt="${member.imageAlt || member.name || ''}" loading="lazy">`
-        : `<div class="team-member-photo team-member-photo-placeholder" aria-label="${member.imageAlt || ''}">${member.initials || ''}</div>`
+        ? `<img class="team-member-photo" src="${escapeAttr(member.image)}" alt="${escapeAttr(member.imageAlt || `${member.name || 'Team member'} portrait`)}" loading="lazy">`
+        : `<div class="team-member-photo team-member-photo-placeholder" role="img" aria-label="${escapeAttr(member.imageAlt || `${member.name || 'Team member'} portrait placeholder`)}">${escapeHtml(member.initials || '')}</div>`
       }
-      <div class="member-name">${member.name || ''}</div>
-      <a href="${member.linkedinUrl || '#'}" class="member-linkedin" target="_blank" rel="noopener noreferrer">${member.linkedinText || ''}</a>
+      <div class="member-name">${escapeHtml(member.name || '')}</div>
+      <a href="${escapeAttr(member.linkedinUrl || '#')}" class="member-linkedin" target="_blank" rel="noopener noreferrer" aria-label="${escapeAttr(`Open ${member.name || 'team member'} LinkedIn profile`)}">${escapeHtml(member.linkedinText || '')}</a>
     `;
     grid.appendChild(card);
   });
@@ -403,11 +454,16 @@ glCards.forEach(card => glObserver.observe(card));
   const srcs = Array.from({ length: photoCount }, (_, i) => `assets/teampictures/${i + 1}.png`);
   // duplicate for seamless infinite loop
   [...srcs, ...srcs].forEach((src, i) => {
+    const isDuplicate = i >= photoCount;
     const img = document.createElement('img');
     img.className = 'marquee-scroll-photo';
     img.src = src;
     img.alt = `${photoAltPrefix} ${(i % photoCount) + 1}`.trim();
     img.loading = 'lazy';
+    if (isDuplicate) {
+      img.alt = '';
+      img.setAttribute('aria-hidden', 'true');
+    }
     track.appendChild(img);
   });
 })();
