@@ -1027,8 +1027,8 @@ body {
 .guidelines-section { padding: 0 0 140px; }
 .guidelines-layout {
   display: grid;
-  grid-template-columns: 300px 1fr;
-  max-width: 1100px;
+  grid-template-columns: 280px minmax(0, 1fr);
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 48px;
 }
@@ -1088,7 +1088,7 @@ body {
 /* Guideline Cards */
 .guidelines-scroll { padding-top: 72px; }
 .gl-card {
-  padding: 56px 0 56px 64px;
+  padding: 56px 0 56px 48px;
   border-bottom: 1px solid var(--border);
   opacity: 0;
   transform: translateY(24px);
@@ -1101,10 +1101,11 @@ body {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   margin-top: 28px;
-  max-width: 560px;
+  max-width: 760px;
   overflow: hidden;
 }
-.gl-card-media img {
+.gl-card-media img,
+.gl-card-media video {
   display: block;
   height: auto;
   width: 100%;
@@ -1201,11 +1202,14 @@ body {
   aspect-ratio: 1;
   border-radius: var(--radius);
   display: block;
+  height: auto;
   margin-bottom: 12px;
   object-fit: cover;
+  object-position: center top;
 }
 .team-member-photo-placeholder {
   align-items: center;
+  aspect-ratio: 1;
   background: var(--blue-light);
   color: var(--blue);
   display: flex;
@@ -1243,10 +1247,12 @@ body {
   margin-bottom: 32px;
 }
 .marquee-overflow {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   overflow: hidden;
   padding-top: 8px;
   position: relative;
-  width: 100%;
+  width: 100vw;
 }
 .marquee-overflow::before,
 .marquee-overflow::after {
@@ -1280,10 +1286,10 @@ body {
 .marquee-scroll-photo {
   width: 220px;
   height: 180px;
-  border-radius: var(--radius);
+  border-radius: 0;
   flex-shrink: 0;
   object-fit: contain;
-  background: var(--off-white);
+  background: transparent;
   cursor: pointer;
   filter: none;
   transition: filter 0.3s ease;

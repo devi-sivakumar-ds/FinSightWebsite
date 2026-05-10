@@ -232,6 +232,25 @@ const guidelines = content.guidelines?.items || [];
 const glNav    = document.querySelector('.gl-nav');
 const glScroll = document.getElementById('guidelinesScroll');
 
+function renderGuidelineMedia(g) {
+  if (g.video) {
+    const type = g.video.endsWith('.mov') ? 'video/quicktime' : 'video/mp4';
+    return `
+      <div class="gl-card-media">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="${g.video}" type="${type}">
+        </video>
+      </div>
+    `;
+  }
+
+  if (g.image) {
+    return `<div class="gl-card-media"><img src="${g.image}" alt="" loading="lazy"></div>`;
+  }
+
+  return '';
+}
+
 guidelines.forEach((g, i) => {
   const num = String(i + 1).padStart(2, '0');
 
@@ -248,7 +267,7 @@ guidelines.forEach((g, i) => {
     <div class="gl-card-num">${num}</div>
     <h3 class="gl-card-title">${g.title}</h3>
     <p class="gl-card-body">${g.body}</p>
-    ${g.image ? `<div class="gl-card-media"><img src="${g.image}" alt="" loading="lazy"></div>` : ''}
+    ${renderGuidelineMedia(g)}
   `;
   glScroll.appendChild(card);
 });

@@ -158,24 +158,27 @@ window.FINSIGHT_CONTENT = {
       {
         title: 'Action-first button labels',
         body: 'Every interactive element should announce what it does before what it is. Screen readers read labels verbatim - make every word purposeful.',
-        image: 'assets/insight-1.svg',
+        image: 'assets/insights/insight-1.svg',
       },
       {
         title: 'Announce state changes immediately',
         body: "When UI state changes (loading, error, success), announce it right away via ARIA live regions. Blind users cannot see visual feedback - don't leave them guessing.",
-        image: 'assets/insight-2.svg',
+        image: 'assets/insights/insight-2.svg',
       },
       {
         title: 'Audio confirmation for every transaction',
         body: 'Every financial action needs a clear spoken confirmation. Never rely on color changes or subtle animations as the sole signal.',
+        image: 'assets/insights/insight-3.svg',
       },
       {
         title: 'Group related context together',
         body: 'Screen reader users navigate linearly. Scatter information and the mental model breaks. Keep related content - label, value, action - in a single, logical group.',
+        video: 'assets/insights/insight-4.mp4',
       },
       {
         title: 'Warn before time limits expire',
         body: 'If a session or action has a time limit, announce the warning early and give users a keyboard- or swipe-accessible way to extend it.',
+        image: 'assets/insights/insight-5.svg',
       },
       {
         title: 'Single-swipe navigation paths',
@@ -204,7 +207,7 @@ window.FINSIGHT_CONTENT = {
       { image: 'assets/teammembers/j.jpeg', imageAlt: 'Team member portrait', name: 'Jessie Deng', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/jwdeng/' },
       { image: 'assets/teammembers/m.jpeg', imageAlt: 'Team member portrait', name: 'Michelle Lin', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/michellelin4111/' },
       { image: 'assets/teammembers/sa.jpeg', imageAlt: 'Team member portrait', name: 'Sarah Algashgari', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/sarah-algashgari-699961195/' },
-      { image: 'assets/teammembers/d.jpg', imageAlt: 'Team member portrait', name: 'Devi Sivakumar', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/devi-sivakumar/' },
+      { image: 'assets/teammembers/d.jpeg', imageAlt: 'Team member portrait', name: 'Devi Sivakumar', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/devi-sivakumar/' },
       { image: 'assets/teammembers/se.jpeg', imageAlt: 'Team member portrait', name: 'Sejin Kim', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/jin-sejin-kim/' },
     ],
     processHeading: 'Our Process',
