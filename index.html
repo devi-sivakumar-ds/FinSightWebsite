@@ -161,23 +161,14 @@
         <div class="stat-block fade-up delay-1">
           <div class="stat-number" data-stat-index="1">0%</div>
           <p class="stat-label" data-content="stats.items.1.label"></p>
-          <div class="stat-viz bar-chart" aria-hidden="true">
-            <div class="bar-row">
-              <span class="bar-row-label" data-content="stats.items.1.bars.0.label"></span>
-              <div class="bar-track">
-                <div class="bar-fill is-primary" data-bar-index="0"></div>
-              </div>
-            </div>
-            <div class="bar-row">
-              <span class="bar-row-label" data-content="stats.items.1.bars.1.label"></span>
-              <div class="bar-track">
-                <div class="bar-fill" data-bar-index="1"></div>
-              </div>
-            </div>
-            <div class="bar-row">
-              <span class="bar-row-label" data-content="stats.items.1.bars.2.label"></span>
-              <div class="bar-track">
-                <div class="bar-fill" data-bar-index="2"></div>
+          <div class="stat-viz" aria-hidden="true">
+            <div class="arcs-wrap">
+              <div class="arc-item">
+                <svg width="90" height="56" viewBox="0 0 90 56">
+                  <path d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--border)" stroke-width="8" stroke-linecap="round"/>
+                  <path class="arc-path-frustrated" d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--blue)" stroke-width="8" stroke-linecap="round" stroke-dasharray="126" stroke-dashoffset="126"/>
+                </svg>
+                <div class="arc-caption-text" data-content="stats.items.1.arcCaption"></div>
               </div>
             </div>
           </div>
@@ -191,20 +182,11 @@
               <div class="arc-item">
                 <svg width="90" height="56" viewBox="0 0 90 56">
                   <path d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--border)" stroke-width="8" stroke-linecap="round"/>
-                  <path class="arc-path-frustrated" d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--blue)" stroke-width="8" stroke-linecap="round" stroke-dasharray="126" stroke-dashoffset="126"/>
+                  <path class="arc-path-attempts" d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--text-mid)" stroke-width="8" stroke-linecap="round" stroke-dasharray="126" stroke-dashoffset="126"/>
                 </svg>
-                <div class="arc-caption-text" data-content="stats.items.2.captions.0"></div>
-              </div>
-              <div class="arc-divider">→</div>
-              <div class="arc-item">
-                <svg width="90" height="56" viewBox="0 0 90 56">
-                  <path d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--border)" stroke-width="8" stroke-linecap="round"/>
-                  <path class="arc-path-attempts" d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--text-light)" stroke-width="8" stroke-linecap="round" stroke-dasharray="126" stroke-dashoffset="126"/>
-                </svg>
-                <div class="arc-caption-text" data-content="stats.items.2.captions.1"></div>
+                <div class="arc-caption-text" data-content="stats.items.2.arcCaption"></div>
               </div>
             </div>
-            <p class="arc-note" data-content="stats.items.2.note"></p>
           </div>
         </div>
       </div>

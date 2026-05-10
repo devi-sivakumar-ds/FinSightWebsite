@@ -707,36 +707,6 @@ body {
   height: 36px;
   width: 22px;
 }
-.bar-chart { text-align: left; }
-.bar-row {
-  align-items: center;
-  display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-.bar-row-label {
-  color: var(--text-light);
-  flex-shrink: 0;
-  font-size: 0.72rem;
-  width: 88px;
-}
-.bar-track {
-  background: var(--border);
-  border-radius: 4px;
-  flex: 1;
-  height: 8px;
-  overflow: hidden;
-}
-.bar-fill {
-  background: var(--blue-light);
-  border-radius: 4px;
-  height: 100%;
-  transition: width 1.2s ease;
-  width: 0;
-}
-.bar-fill.is-primary {
-  background: var(--blue);
-}
 .arcs-wrap {
   align-items: center;
   display: flex;
@@ -748,18 +718,6 @@ body {
   color: var(--text-light);
   font-size: 0.72rem;
   margin-top: 6px;
-}
-.arc-divider {
-  color: var(--text-light);
-  font-size: 1.25rem;
-  font-weight: 300;
-  margin-top: -20px;
-}
-.arc-note {
-  color: var(--text-light);
-  font-size: 0.78rem;
-  font-style: italic;
-  margin-top: 16px;
 }
 
 /* ── SCREEN READERS ── */

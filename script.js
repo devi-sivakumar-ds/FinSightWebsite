@@ -45,11 +45,6 @@ function applyStaticContent() {
     el.textContent = `0${stat.suffix || ''}`;
   });
 
-  const bars = stats[1]?.bars || [];
-  document.querySelectorAll('.bar-fill[data-bar-index]').forEach(el => {
-    const bar = bars[Number(el.dataset.barIndex)];
-    if (bar) el.dataset.targetWidth = bar.width;
-  });
 }
 
 applyStaticContent();
@@ -152,7 +147,6 @@ window.addEventListener('scroll', () => {
 // ── Stats counter and visualization animation ──
 (function() {
   const statEls = document.querySelectorAll('.stat-number[data-count]');
-  const barFills = document.querySelectorAll('.bar-fill[data-target-width]');
   const arcFrustrated = document.querySelector('.arc-path-frustrated');
   const arcAttempts = document.querySelector('.arc-path-attempts');
   const figuresRow = document.getElementById('figuresRow');
@@ -221,12 +215,6 @@ window.addEventListener('scroll', () => {
       statEls.forEach(el => {
         animateCount(el, parseInt(el.dataset.count, 10), el.dataset.suffix || '', 1200);
       });
-
-      setTimeout(() => {
-        barFills.forEach(fill => {
-          fill.style.width = fill.dataset.targetWidth;
-        });
-      }, 100);
 
       if (arcFrustrated) animateArc(arcFrustrated, 68, 1200);
       if (arcAttempts) animateArc(arcAttempts, 29, 1200);
