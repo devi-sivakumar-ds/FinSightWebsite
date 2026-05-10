@@ -466,20 +466,18 @@ glCards.forEach(card => glObserver.observe(card));
   if (!track) return;
 
   const photoCount = content.team?.photoCount || 14;
-  const photoAltPrefix = content.team?.photoAltPrefix || '';
+  const photosMarqueeLabel = content.team?.photosMarqueeLabel || 'Decorative carousel of team process photos moving in a continuous loop.';
   const srcs = Array.from({ length: photoCount }, (_, i) => `assets/teampictures/${i + 1}.png`);
+  track.setAttribute('role', 'img');
+  track.setAttribute('aria-label', photosMarqueeLabel);
   // duplicate for seamless infinite loop
-  [...srcs, ...srcs].forEach((src, i) => {
-    const isDuplicate = i >= photoCount;
+  [...srcs, ...srcs].forEach(src => {
     const img = document.createElement('img');
     img.className = 'marquee-scroll-photo';
     img.src = src;
-    img.alt = `${photoAltPrefix} ${(i % photoCount) + 1}`.trim();
+    img.alt = '';
+    img.setAttribute('aria-hidden', 'true');
     img.loading = 'lazy';
-    if (isDuplicate) {
-      img.alt = '';
-      img.setAttribute('aria-hidden', 'true');
-    }
     track.appendChild(img);
   });
 })();
