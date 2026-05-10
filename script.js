@@ -350,14 +350,16 @@ glCards.forEach(card => glObserver.observe(card));
     if (!track) return;
 
     [...row.items, ...row.items].forEach(item => {
+      const cardIcon = item.icon || row.icon;
+      const cardLabel = item.label || row.label;
       const card = document.createElement('article');
       card.className = 'quote-card';
       card.innerHTML = `
         <div class="quote-card-top">
-          <div class="quote-avatar">${iconSvg(row.icon)}</div>
+          <div class="quote-avatar">${iconSvg(cardIcon)}</div>
           <div>
             <div class="quote-person">${item.name}</div>
-            <div class="quote-type">${row.label}</div>
+            <div class="quote-type">${cardLabel}</div>
           </div>
         </div>
         <p class="quote-card-text">"${item.quote}"</p>

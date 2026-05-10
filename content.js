@@ -80,53 +80,73 @@ window.FINSIGHT_CONTENT = {
     heading: '',
     rows: [
       {
-        label: 'BLV users',
+        label: 'BLV user',
         icon: 'user',
         items: [
           {
-            name: 'BLV Expert User / Design Consultant',
+            name: 'Anonymous V',
+            label: 'BLV Expert User / Design Consultant',
+            icon: 'user',
             quote: "There is no uniform standard and design across cash apps - they are each doing their own thing. Some require checks to be positioned directly on a grid, which makes it harder for BLV users.",
           },
           {
-            name: 'BLV user, Android, Bank of America',
+            name: 'Anonymous X',
+            label: 'BLV user, Android, Bank of America',
+            icon: 'user',
             quote: "There are a lot of headings and a lot of links once you are inside the app - get a credit card, take a loan, different offers. The screen reader reads them line by line, so it takes a while to reach recent activities.",
           },
           {
-            name: 'BLV/low-vision user, Android, desktop preferred',
+            name: 'Anonymous Y',
+            label: 'BLV/low-vision user, Android, desktop preferred',
+            icon: 'user',
             quote: 'There are moments where the screen reader would freeze if there was too much information - too many tables and grids.',
           },
           {
-            name: 'BLV user, Android, Bank of America',
+            name: 'Anonymous Z',
+            label: 'BLV user, Android, Bank of America',
+            icon: 'user',
             quote: "When the screen reader freezes or the app is confusing, I take a screenshot and ask an AI to describe what is on the screen. It tells me what is there but does not fix the problem.",
           },
           {
-            name: 'BLV user, Android, Bank of America',
+            name: 'Anonymous W',
+            label: 'BLV user, Android, Bank of America',
+            icon: 'user',
             quote: "The menu at the top is inconvenient - the screen reader reads it first before I can get to anything useful. I would prefer most recent activity to be at the top.",
           },
+          {
+            name: 'Anonymous U',
+            label: 'BLV Expert User / Design Consultant',
+            icon: 'user',
+            quote: 'Once you acquire a BLV customer, it is very hard for them to move on to another app - the cost of relearning everything is very, very high. Stickiness is extremely strong in this community.',
+          }
         ],
       },
       {
-        label: 'Industry experts',
+        label: 'Industry expert',
         icon: 'building',
         items: [
           {
-            name: 'Industry Expert B - VP of Digital Services, Credit Union',
+            name: 'Industry Expert B',
+            label: 'VP of Digital Services, Credit Union',
+            icon: 'building',
             quote: 'Accessibility does not equal operability.',
           },
           {
-            name: 'Industry Expert A - Digital Banking PM',
+            name: 'Industry Expert A',
+            label: 'Digital Banking PM',
+            icon: 'building',
             quote: 'The rest of the services you showed me - balance checks, transfers - already have solutions in existing banking systems. Your unique contribution is making check capture work independently for BLV users.',
           },
           {
-            name: 'Industry Expert E - Assistive Technology Consultant',
+            name: 'Industry Expert E',
+            label: 'Assistive Technology Consultant',
+            icon: 'building',
             quote: 'A key advantage of AI is reducing the learning curve for BLV users - especially the need to memorize shortcuts and gestures. Desktop is harder to master than mobile, and BLV users increasingly prefer mobile navigation.',
           },
           {
-            name: 'BLV Expert User / Design Consultant',
-            quote: 'Once you acquire a BLV customer, it is very hard for them to move on to another app - the cost of relearning everything is very, very high. Stickiness is extremely strong in this community.',
-          },
-          {
-            name: 'Industry Expert A - Digital Banking PM',
+            name: 'Industry Expert C',
+            label: 'Digital Banking PM',
+            icon: 'building',
             quote: "Passing ADA compliance is not the biggest problem for you. What you are doing - making the scanning process seamless - and the security considerations behind that are what financial institutions will not be as familiar with. That is where you should focus your attention.",
           },
         ],
