@@ -191,6 +191,7 @@ window.FINSIGHT_CONTENT = {
       {
         title: 'Single-swipe navigation paths',
         body: 'Design flows so every action is reachable with a single swipe or tab. Avoid nested menus that require multiple gestures to traverse.',
+        image: 'assets/insights/insight-6.svg',
       },
       {
         title: 'Vocalize all progress indicators',
