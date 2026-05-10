@@ -885,6 +885,27 @@ body {
   justify-content: center;
   width: 46px;
 }
+.quote-avatar-logo {
+  background: var(--white);
+  border-radius: 8px;
+  flex-basis: 88px;
+  overflow: hidden;
+  width: 88px;
+}
+.quote-logo {
+  display: block;
+  height: 30px;
+  max-height: 30px;
+  max-width: 72px;
+  object-fit: contain;
+  width: 72px;
+}
+.quote-avatar-logo .quote-logo {
+  flex: 0 0 auto;
+  min-height: 0;
+  min-width: 0;
+  object-fit: contain;
+}
 .quote-person {
   color: var(--text);
   font-size: 0.96rem;

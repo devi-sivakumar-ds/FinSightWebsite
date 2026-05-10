@@ -129,6 +129,7 @@ window.FINSIGHT_CONTENT = {
             name: 'Industry Expert B',
             label: 'VP of Digital Services, Credit Union',
             icon: 'building',
+            logo: 'assets/industryexpertslogo/redwoodcreditunion.png',
             quote: 'Accessibility does not equal operability.',
           },
           {
