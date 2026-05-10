@@ -84,20 +84,24 @@ window.FINSIGHT_CONTENT = {
         icon: 'user',
         items: [
           {
-            name: 'Anonymous User A',
-            quote: 'I usually have to ask someone sighted to confirm if the check is even inside the camera frame.',
+            name: 'BLV Expert User / Design Consultant',
+            quote: "There is no uniform standard and design across cash apps - they are each doing their own thing. Some require checks to be positioned directly on a grid, which makes it harder for BLV users.",
           },
           {
-            name: 'Anonymous User B',
-            quote: 'The app says there is an error, but it does not tell me what changed or what I should do next.',
+            name: 'BLV user, Android, Bank of America',
+            quote: "There are a lot of headings and a lot of links once you are inside the app - get a credit card, take a loan, different offers. The screen reader reads them line by line, so it takes a while to reach recent activities.",
           },
           {
-            name: 'Anonymous User C',
-            quote: 'I want to do my banking privately. Needing help for a deposit makes a simple task feel exposed.',
+            name: 'BLV/low-vision user, Android, desktop preferred',
+            quote: 'There are moments where the screen reader would freeze if there was too much information - too many tables and grids.',
           },
           {
-            name: 'Anonymous User D',
-            quote: 'When feedback is visual only, I am just guessing and repeating the same step over and over.',
+            name: 'BLV user, Android, Bank of America',
+            quote: "When the screen reader freezes or the app is confusing, I take a screenshot and ask an AI to describe what is on the screen. It tells me what is there but does not fix the problem.",
+          },
+          {
+            name: 'BLV user, Android, Bank of America',
+            quote: "The menu at the top is inconvenient - the screen reader reads it first before I can get to anything useful. I would prefer most recent activity to be at the top.",
           },
         ],
       },
@@ -106,20 +110,24 @@ window.FINSIGHT_CONTENT = {
         icon: 'building',
         items: [
           {
-            name: 'Accessibility Lead, XX Bank',
-            quote: 'Compliance gets teams to the baseline, but complex financial flows need guidance that is built into the experience.',
+            name: 'Industry Expert B - VP of Digital Services, Credit Union',
+            quote: 'Accessibility does not equal operability.',
           },
           {
-            name: 'Digital Banking Manager, Redwood Credit Union',
-            quote: 'Members need confidence at every step, especially when the task involves money movement or document capture.',
+            name: 'Industry Expert A - Digital Banking PM',
+            quote: 'The rest of the services you showed me - balance checks, transfers - already have solutions in existing banking systems. Your unique contribution is making check capture work independently for BLV users.',
           },
           {
-            name: 'Product Strategist, YY Financial',
-            quote: 'The biggest gap is not whether a button has a label. It is whether the customer knows what is happening next.',
+            name: 'Industry Expert E - Assistive Technology Consultant',
+            quote: 'A key advantage of AI is reducing the learning curve for BLV users - especially the need to memorize shortcuts and gestures. Desktop is harder to master than mobile, and BLV users increasingly prefer mobile navigation.',
           },
           {
-            name: 'Innovation Lead, Community Banking',
-            quote: 'Voice-first guidance can reduce support burden while giving customers more independence in high-stakes tasks.',
+            name: 'BLV Expert User / Design Consultant',
+            quote: 'Once you acquire a BLV customer, it is very hard for them to move on to another app - the cost of relearning everything is very, very high. Stickiness is extremely strong in this community.',
+          },
+          {
+            name: 'Industry Expert A - Digital Banking PM',
+            quote: "Passing ADA compliance is not the biggest problem for you. What you are doing - making the scanning process seamless - and the security considerations behind that are what financial institutions will not be as familiar with. That is where you should focus your attention.",
           },
         ],
       },
