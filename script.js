@@ -1,4 +1,5 @@
 const content = window.FINSIGHT_CONTENT || {};
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (!window.FINSIGHT_CONTENT) {
   console.warn('FinSight content.js did not load. Check that content.js is committed and published next to index.html.');
 }
@@ -74,6 +75,9 @@ window.addEventListener('scroll', () => {
   const el = document.getElementById('cyclingWord');
   if (!wrapper || !el || !words.length) return;
   el.textContent = words[0];
+  if (prefersReducedMotion) {
+    wrapper.setAttribute('aria-live', 'off');
+  }
 
   let current = 0;
 
@@ -97,6 +101,7 @@ window.addEventListener('scroll', () => {
   }
   setWrapperWidth();
   window.addEventListener('resize', setWrapperWidth);
+  if (prefersReducedMotion) return;
 
   function cycle() {
     const next = (current + 1) % words.length;
@@ -141,6 +146,7 @@ window.addEventListener('scroll', () => {
   }
 
   updateScreenAccessibility();
+  if (prefersReducedMotion) return;
 
   function cycleScreen() {
     const prev = currentScreen;
@@ -200,6 +206,15 @@ window.addEventListener('scroll', () => {
   }
 
   if (!statsSection) return;
+
+  if (prefersReducedMotion) {
+    statEls.forEach(el => {
+      el.textContent = `${parseInt(el.dataset.count, 10)}${el.dataset.suffix || ''}`;
+    });
+    if (arcFrustrated) arcFrustrated.style.strokeDashoffset = 126 - (68 / 100) * 126;
+    if (arcAttempts) arcAttempts.style.strokeDashoffset = 126 - (29 / 100) * 126;
+    return;
+  }
 
   let animated = false;
   const easeOut = t => 1 - Math.pow(1 - t, 3);
@@ -351,6 +366,7 @@ glCards.forEach(card => glObserver.observe(card));
   }
 
   updateFrameAccessibility();
+  if (prefersReducedMotion) return;
 
   function nextState() {
     frameEls[current].classList.remove('active');
