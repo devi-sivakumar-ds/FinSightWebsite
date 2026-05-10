@@ -148,9 +148,6 @@ a:focus-visible {
   box-shadow: var(--shadow);
   margin: 18px 0 42px;
   padding: 22px;
-  position: sticky;
-  top: calc(var(--nav-h) + 18px);
-  z-index: 10;
 }
 
 .player-status {
@@ -324,7 +321,7 @@ a:focus-visible {
   min-height: 360px;
   padding: 28px;
   position: sticky;
-  top: calc(var(--nav-h) + 190px);
+  top: calc(var(--nav-h) + 24px);
 }
 
 .transcript-panel .panel-label {
@@ -350,7 +347,7 @@ a:focus-visible {
   display: grid;
   gap: 16px;
   position: sticky;
-  top: calc(var(--nav-h) + 190px);
+  top: calc(var(--nav-h) + 24px);
 }
 
 .voice-section-card {
