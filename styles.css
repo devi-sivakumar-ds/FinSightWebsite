@@ -684,6 +684,25 @@ body {
   gap: 4px;
   justify-content: center;
 }
+.figure-glyph {
+  color: var(--text-light);
+  display: inline-block;
+  height: 36px;
+  line-height: 0;
+  position: relative;
+  width: 22px;
+}
+.figure-base,
+.figure-fill {
+  display: block;
+}
+.figure-fill {
+  color: var(--blue);
+  inset: 0;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
 .stick-figure {
   height: 36px;
   width: 22px;

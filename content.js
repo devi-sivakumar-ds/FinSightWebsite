@@ -47,7 +47,7 @@ window.FINSIGHT_CONTENT = {
     label: 'The Reality',
     items: [
       {
-        value: 78,
+        value: 84,
         suffix: '%',
         label: 'rely on workarounds just to do basic banking',
       },
@@ -270,8 +270,8 @@ window.FINSIGHT_CONTENT = {
         title: 'The Numbers Behind the Friction',
         duration: '1:05',
         summary: 'The statistics show how often blind users rely on workarounds for basic banking.',
-        narration: 'The reality section presents three statistics. Seventy eight percent of users rely on workarounds just to do basic banking. Sixty eight percent say check deposit is their most frustrating banking task. Only twenty nine percent actually attempt mobile check deposit regularly. Visually, the page uses large blue numbers, simple charts, and a small comparison graphic. The important story is the gap between need and confidence. Many users want the independence of mobile banking, but the experience asks them to guess during moments where guessing is not acceptable.',
-        narrationHigh: 'The reality section presents three statistics in large blue type. First: seventy eight percent rely on workarounds just to do basic banking. The visual underneath uses a row of simple human figures, most highlighted in blue, to show how common this is. Second: sixty eight percent say check deposit is their most frustrating banking task. A small bar chart compares check deposit, transfers, and balance checks. Third: only twenty nine percent actually attempt mobile check deposit regularly. The paired arc graphic emphasizes the drop from frustration to action. The story is not just that check deposit is hard. It is that uncertainty changes behavior.'
+        narration: 'The reality section presents three statistics. Eighty four percent of users rely on workarounds just to do basic banking. Sixty eight percent say check deposit is their most frustrating banking task. Only twenty nine percent actually attempt mobile check deposit regularly. Visually, the page uses large blue numbers, simple charts, and a small comparison graphic. The important story is the gap between need and confidence. Many users want the independence of mobile banking, but the experience asks them to guess during moments where guessing is not acceptable.',
+        narrationHigh: 'The reality section presents three statistics in large blue type. First: eighty four percent rely on workarounds just to do basic banking. The visual underneath uses a row of simple human figures, most highlighted in blue, to show how common this is. Second: sixty eight percent say check deposit is their most frustrating banking task. A small bar chart compares check deposit, transfers, and balance checks. Third: only twenty nine percent actually attempt mobile check deposit regularly. The paired arc graphic emphasizes the drop from frustration to action. The story is not just that check deposit is hard. It is that uncertainty changes behavior.'
       },
       {
         kicker: 'Accessibility Gap',

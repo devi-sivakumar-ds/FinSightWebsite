@@ -157,18 +157,28 @@ window.addEventListener('scroll', () => {
   const arcAttempts = document.querySelector('.arc-path-attempts');
   const figuresRow = document.getElementById('figuresRow');
   const statsSection = document.querySelector('.stats-section');
+  const figureStat = content.stats?.items?.[0];
 
   if (figuresRow && !figuresRow.children.length) {
-    for (let i = 0; i < 10; i++) {
-      const color = i < 8 ? 'var(--blue)' : 'var(--text-light)';
+    const figureCount = 10;
+    const highlightedFigures = Math.max(0, Math.min(figureCount, (figureStat?.value || 0) / 10));
+    const figureSvg = `
+      <svg class="stick-figure" viewBox="0 0 22 36" aria-hidden="true">
+        <circle cx="11" cy="5" r="4" fill="currentColor"/>
+        <line x1="11" y1="9" x2="11" y2="24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="4" y1="14" x2="18" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="11" y1="24" x2="5" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="11" y1="24" x2="17" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    `;
+
+    for (let i = 0; i < figureCount; i++) {
+      const fillPercent = Math.max(0, Math.min(1, highlightedFigures - i)) * 100;
       figuresRow.insertAdjacentHTML('beforeend', `
-        <svg class="stick-figure" viewBox="0 0 22 36" aria-hidden="true">
-          <circle cx="11" cy="5" r="4" fill="${color}"/>
-          <line x1="11" y1="9" x2="11" y2="24" stroke="${color}" stroke-width="2" stroke-linecap="round"/>
-          <line x1="4" y1="14" x2="18" y2="14" stroke="${color}" stroke-width="2" stroke-linecap="round"/>
-          <line x1="11" y1="24" x2="5" y2="34" stroke="${color}" stroke-width="2" stroke-linecap="round"/>
-          <line x1="11" y1="24" x2="17" y2="34" stroke="${color}" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+        <span class="figure-glyph" aria-hidden="true">
+          <span class="figure-base">${figureSvg}</span>
+          <span class="figure-fill" style="width: ${fillPercent}%;">${figureSvg}</span>
+        </span>
       `);
     }
   }
