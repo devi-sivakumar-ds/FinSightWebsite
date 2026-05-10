@@ -550,8 +550,9 @@ a:focus-visible {
     grid-template-columns: 48px 1fr 48px;
   }
 
-  .text-button {
-    grid-column: 1 / -1;
+  #stop-button,
+  #replay-button {
+    grid-column: span 3;
   }
 
   .voice-settings {

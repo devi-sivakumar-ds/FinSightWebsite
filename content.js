@@ -275,6 +275,7 @@ window.FINSIGHT_CONTENT = {
       previous: 'Previous',
       next: 'Next',
       replay: 'Replay',
+      stop: 'Stop',
       exit: 'Standard site',
     },
     settings: {

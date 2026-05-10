@@ -17,6 +17,7 @@ const playButton = document.getElementById('play-button');
 const playLabel = document.getElementById('play-label');
 const previousButton = document.getElementById('previous-button');
 const nextButton = document.getElementById('next-button');
+const stopButton = document.getElementById('stop-button');
 const replayButton = document.getElementById('replay-button');
 const speechWarning = document.getElementById('speech-warning');
 const speedLabelEl = document.getElementById('speed-label');
@@ -64,6 +65,7 @@ function setStaticContent() {
   const actions = voiceContent.actions || {};
   const settings = voiceContent.settings || {};
   playLabel.textContent = actions.play || 'Play';
+  stopButton.textContent = actions.stop || 'Stop';
   replayButton.textContent = actions.replay || 'Replay';
   speedLabelEl.textContent = settings.speedLabel || 'Speed';
   verbosityLabelEl.textContent = settings.verbosityLabel || 'Verbosity';
@@ -73,6 +75,7 @@ function setStaticContent() {
     speechWarning.hidden = false;
     speechWarning.textContent = voiceContent.unavailable || 'Speech playback is not available in this browser.';
     playButton.disabled = true;
+    stopButton.disabled = true;
     replayButton.disabled = true;
   }
 }
@@ -337,6 +340,7 @@ function updatePlayButton() {
   playLabel.textContent = isPlaying ? (actions.pause || 'Pause') : (actions.play || 'Play');
   playButton.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
   playButton.setAttribute('aria-label', isPlaying ? 'Pause voice guide' : 'Play voice guide');
+  stopButton.disabled = !isPlaying;
 }
 
 function updateNavButtons() {
@@ -393,6 +397,10 @@ replayButton.addEventListener('click', () => {
   updateActiveSection();
   announcePlayback(`Replaying section ${activeIndex + 1} of ${sections.length}: ${sections[activeIndex]?.title || ''}`);
   play();
+});
+
+stopButton.addEventListener('click', () => {
+  pause();
 });
 
 if (transcriptSearchEl) {
