@@ -10,6 +10,7 @@ const transcriptTextEl = document.getElementById('transcript-text');
 const statusKickerEl = document.getElementById('status-kicker');
 const statusTitleEl = document.getElementById('status-title');
 const statusProgressEl = document.getElementById('status-progress');
+const playbackAnnouncementEl = document.getElementById('playback-announcement');
 const progressTrackEl = document.getElementById('progress-track');
 const progressFillEl = document.getElementById('progress-fill');
 const playButton = document.getElementById('play-button');
@@ -43,6 +44,10 @@ function escapeHtml(value) {
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#039;');
+}
+
+function escapeAttr(value) {
+  return escapeHtml(value);
 }
 
 function setStaticContent() {
@@ -159,6 +164,14 @@ function restartIfPlaying() {
   play();
 }
 
+function announcePlayback(message) {
+  if (!playbackAnnouncementEl || !message) return;
+  playbackAnnouncementEl.textContent = '';
+  window.setTimeout(() => {
+    playbackAnnouncementEl.textContent = message;
+  }, 0);
+}
+
 function setSpeed(speed) {
   currentSpeed = speed;
   updateSettingButtons();
@@ -176,16 +189,20 @@ function renderSections() {
   sectionListEl.innerHTML = '';
   cardEls = sections.map((section, index) => {
     const card = document.createElement('button');
+    const titleId = `voice-section-${index}-title`;
+    const summaryId = `voice-section-${index}-summary`;
+    const durationId = `voice-section-${index}-duration`;
     card.type = 'button';
     card.className = 'voice-section-card';
     card.id = `voice-section-${index}`;
+    card.setAttribute('aria-describedby', `${summaryId} ${durationId}`);
     card.innerHTML = `
       <div class="section-card-top">
         <span class="section-kicker">${escapeHtml(section.kicker || `Section ${index + 1}`)}</span>
-        <span class="section-duration">${escapeHtml(section.duration || '')}</span>
+        <span class="section-duration" id="${durationId}" aria-label="${escapeAttr(section.duration ? `Duration ${section.duration}` : '')}">${escapeHtml(section.duration || '')}</span>
       </div>
-      <h3>${escapeHtml(section.title || '')}</h3>
-      <p>${escapeHtml(section.summary || '')}</p>
+      <h3 id="${titleId}">${escapeHtml(section.title || '')}</h3>
+      <p id="${summaryId}">${escapeHtml(section.summary || '')}</p>
     `;
     card.addEventListener('click', () => selectSection(index, { play: isPlaying, scroll: false }));
     sectionListEl.appendChild(card);
@@ -193,7 +210,7 @@ function renderSections() {
   });
 }
 
-function updateActiveSection({ scroll = false } = {}) {
+function updateActiveSection({ scroll = false, announce = false } = {}) {
   const section = sections[activeIndex];
   if (!section) return;
 
@@ -215,6 +232,10 @@ function updateActiveSection({ scroll = false } = {}) {
   });
 
   updateNavButtons();
+
+  if (announce) {
+    announcePlayback(`Moved to section ${activeIndex + 1} of ${sections.length}: ${section.title || ''}`);
+  }
 
   if (scroll && cardEls[activeIndex]) {
     cardEls[activeIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -243,11 +264,12 @@ function speakCurrent() {
     if (!isPlaying) return;
     if (activeIndex < sections.length - 1) {
       activeIndex += 1;
-      updateActiveSection({ scroll: true });
+      updateActiveSection({ scroll: true, announce: true });
       speakCurrent();
     } else {
       isPlaying = false;
       updatePlayButton();
+      announcePlayback('Voice guide complete.');
     }
   };
 
@@ -277,6 +299,7 @@ function play() {
   if (!sections.length || !speech) return;
   isPlaying = true;
   updatePlayButton();
+  announcePlayback(`Playing section ${activeIndex + 1} of ${sections.length}: ${sections[activeIndex]?.title || ''}`);
   speakCurrent();
 }
 
@@ -284,11 +307,12 @@ function pause() {
   isPlaying = false;
   if (speech) speech.cancel();
   updatePlayButton();
+  announcePlayback('Voice guide paused.');
 }
 
 function selectSection(index, options = {}) {
   activeIndex = Math.max(0, Math.min(index, sections.length - 1));
-  updateActiveSection({ scroll: options.scroll });
+  updateActiveSection({ scroll: options.scroll, announce: true });
   if (options.play) play();
 }
 
@@ -316,12 +340,13 @@ replayButton.addEventListener('click', () => {
   const shouldPlay = isPlaying;
   if (shouldPlay) pause();
   updateActiveSection();
+  announcePlayback(`Replaying section ${activeIndex + 1} of ${sections.length}: ${sections[activeIndex]?.title || ''}`);
   play();
 });
 
 document.addEventListener('keydown', event => {
   const tag = document.activeElement?.tagName;
-  if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+  if (['A', 'BUTTON', 'INPUT', 'TEXTAREA', 'SELECT'].includes(tag)) return;
   if (document.activeElement?.closest('.segmented-control')) return;
 
   if (event.code === 'Space') {

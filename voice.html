@@ -34,12 +34,14 @@
         <strong id="status-title"></strong>
         <span id="status-progress"></span>
       </div>
+      <p class="sr-only" id="playback-announcement" aria-live="polite" aria-atomic="true"></p>
 
       <div class="progress-track" id="progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="9" aria-valuenow="1" aria-label="Voice guide progress">
         <div class="progress-fill" id="progress-fill"></div>
       </div>
 
-      <div class="player-controls" id="player-controls" aria-label="Voice guide controls">
+      <p class="sr-only" id="player-shortcuts">Keyboard shortcuts: press Space to play or pause, Left Arrow for the previous section, Right Arrow for the next section, and Escape to stop playback.</p>
+      <div class="player-controls" id="player-controls" aria-label="Voice guide controls" aria-describedby="player-shortcuts">
         <button class="icon-button" type="button" id="previous-button" aria-label="Previous section" title="Previous section">
           <span aria-hidden="true">←</span>
         </button>
