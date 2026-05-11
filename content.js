@@ -238,10 +238,12 @@ window.FINSIGHT_CONTENT = {
       {
         title: 'Vocalize all progress indicators',
         body: 'Spinners and progress bars are invisible to screen readers. Always pair loading states with a text announcement: "Processing your deposit, please wait."',
+        image: 'assets/insights/insight-7.svg',
       },
       {
         title: 'Pair haptic and audio feedback',
         body: 'Combine haptic feedback with audio cues for critical moments - confirmations, errors, and warnings. Multiple sensory channels reinforce clarity.',
+        image: 'assets/insights/insight-8.svg',
       },
     ],
   },
