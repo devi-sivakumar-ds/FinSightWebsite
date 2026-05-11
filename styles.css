@@ -79,7 +79,7 @@ button:focus-visible {
 }
 .navbar.scrolled { box-shadow: 0 4px 24px rgba(42, 98, 241, 0.08); }
 .nav-brand { display: flex; align-items: center; }
-.nav-logo  { height: 34px; width: auto; }
+.nav-logo  { height: 68px; width: auto; }
 .voice-mode-link {
   border: 1px solid var(--border);
   border-radius: 999px;
