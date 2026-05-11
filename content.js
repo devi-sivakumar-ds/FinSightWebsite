@@ -142,8 +142,6 @@ window.FINSIGHT_CONTENT = {
             name: 'Industry Expert B',
             label: 'VP of Digital Services, Credit Union',
             icon: 'building',
-            logo: 'assets/industryexpertslogo/redwoodcreditunion.png',
-            logoAlt: 'Redwood Credit Union logo',
             quote: 'Accessibility does not equal operability.',
           },
           {
@@ -166,6 +164,14 @@ window.FINSIGHT_CONTENT = {
           },
         ],
       },
+    ],
+    organizationsLabel: 'Organizations represented in research conversations',
+    organizationsNote: 'Logos show companies represented in conversations, not attribution for any individual quote.',
+    organizations: [
+      { name: 'HSBC', logo: 'assets/industryexpertslogo/hsbc.png' },
+      { name: 'Be My Eyes', logo: 'assets/industryexpertslogo/bemyeyes.png' },
+      { name: 'Lighthouse', logo: 'assets/industryexpertslogo/lighthouse.png' },
+      { name: 'Redwood Credit Union', logo: 'assets/industryexpertslogo/redwoodcreditunion.png' },
     ],
   },
 

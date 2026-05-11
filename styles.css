@@ -944,6 +944,45 @@ button:focus-visible {
   font-size: clamp(0.9rem, 1vw, 1.02rem);
   line-height: 1.5;
 }
+.quote-logo-band {
+  margin-top: 64px;
+  text-align: center;
+}
+.quote-logo-band-label {
+  color: var(--text-light);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+}
+.quote-logo-band-row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(28px, 5vw, 72px);
+  justify-content: center;
+}
+.quote-logo-band-item {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+}
+.quote-logo-band-item img {
+  display: block;
+  height: auto;
+  max-height: 42px;
+  max-width: 168px;
+  object-fit: contain;
+  width: auto;
+}
+.quote-logo-band-note {
+  color: var(--text-light);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  margin: 26px auto 0;
+  max-width: 560px;
+}
 @keyframes quoteMarqueeLeft {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }

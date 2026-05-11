@@ -412,9 +412,7 @@ glCards.forEach(card => glObserver.observe(card));
       const cardIcon = item.icon || row.icon;
       const cardLabel = item.label || row.label;
       const isDuplicate = itemIndex >= row.items.length;
-      const cardAvatar = item.logo
-        ? `<img class="quote-logo" src="${escapeAttr(item.logo)}" alt="${escapeAttr(item.logoAlt || `${item.name} logo`)}" width="72" height="30" loading="lazy">`
-        : iconSvg(cardIcon);
+      const cardAvatar = iconSvg(cardIcon);
       const card = document.createElement('article');
       card.className = 'quote-card';
       if (isDuplicate) {
@@ -435,6 +433,17 @@ glCards.forEach(card => glObserver.observe(card));
       track.appendChild(card);
     });
   });
+
+  const logoBand = document.getElementById('quoteLogoBand');
+  const organizations = content.quotes?.organizations || [];
+  if (logoBand && organizations.length) {
+    organizations.forEach(org => {
+      const item = document.createElement('div');
+      item.className = 'quote-logo-band-item';
+      item.innerHTML = `<img src="${escapeAttr(org.logo)}" alt="${escapeAttr(org.name)}" loading="lazy">`;
+      logoBand.appendChild(item);
+    });
+  }
 })();
 
 // ── Team Cards ──
