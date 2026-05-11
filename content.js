@@ -206,7 +206,7 @@ window.FINSIGHT_CONTENT = {
   },
 
   guidelines: {
-    headingHtml: 'Design<br>Guidelines',
+    headingHtml: 'Design Guidelines',
     navLabel: 'Guidelines navigation',
     items: [
       {
@@ -304,7 +304,7 @@ window.FINSIGHT_CONTENT = {
     pageTitle: 'FinSight Voice Guide',
     eyebrow: 'Voice Guide Mode',
     title: 'FinSight Voice Guide',
-    intro: 'A calm, audio-first version of the FinSight story. Press play to hear the site narrated with context, visual description, and section-by-section guidance.',
+    intro: 'Press play to hear the site narrated with context, visual description, and section-by-section guidance.',
     unavailable: 'Speech playback is not available in this browser, but the full transcript is still available below.',
     controlsLabel: 'Voice guide controls',
     sectionsLabel: 'Voice guide sections',
@@ -336,74 +336,90 @@ window.FINSIGHT_CONTENT = {
       {
         kicker: 'Opening',
         title: 'Banking Built for Independence',
-        duration: '0:55',
-        summary: 'The site opens with the promise of audio-first banking for blind and low-vision users.',
-        narration: 'Welcome to FinSight. The standard website opens with a simple promise: banking built for independence, confidence, and autonomy. Visually, the page is clean and spacious, with the FinSight logo above a large headline. The message is intentionally direct. This project is not only about making a banking app readable by assistive technology. It is about making financial tasks feel private, guided, and possible without relying on sighted help.',
-        narrationHigh: 'Welcome to FinSight. The standard website opens with a simple promise: banking built for independence, confidence, and autonomy. The visual design is intentionally open and quiet: a white background, the FinSight logo at the top, and a large headline that changes between independence, confidence, and autonomy. Underneath, the subtitle describes the product as audio-first mobile banking for blind and low-vision users. The main point is that accessibility here is not treated as a checklist. It is framed as a feeling of privacy, orientation, and control during financial tasks.'
+        duration: '0:50',
+        summary: 'FinSight opens as a voice-first banking prototype centered on independence, confidence, and autonomy for BLV users.',
+        narration: 'Welcome to FinSight. The homepage introduces a voice-first mobile banking prototype built for blind and low-vision users. Its opening message centers on independence, confidence, and autonomy, framing accessibility as a product experience rather than a feature checklist. The section sets up the project as an effort to make financial tasks feel more private, guided, and self-directed.',
+        narrationHigh: 'Welcome to FinSight. The page opens with a clean, spacious hero section featuring the FinSight logo and a large headline that rotates through the words independence, confidence, and autonomy. Beneath it, the subtitle reads: voice-first mobile banking, built for BLV users. The visual design is quiet and uncluttered, giving the opening statement room to lead. In voice guide mode, the key idea is that FinSight is a banking prototype designed to support blind and low-vision users with more guidance, more privacy, and less dependence on sighted help.'
       },
       {
         kicker: 'Problem',
-        title: 'Can You Do This With Your Eyes Closed?',
-        duration: '1:15',
-        summary: 'A phone mockup shows how ordinary banking flows can become uncertain without visual context.',
-        narration: 'The next section asks: can you do this with your eyes closed? On the page, a phone mockup cycles through a familiar mobile banking flow. First, there is a balance screen with buttons for sending money, depositing a check, and paying a bill. Then the experience becomes less certain. The screen reader output says things like unlabeled button and image. The deposit flow moves into camera capture, where errors appear visually: the image is too dark, or the check is not in frame. For a blind or low-vision user, the problem is not just that the app has buttons. The problem is that the app does not explain what is happening, what changed, or how to recover.',
-        narrationHigh: 'The next section asks a sharp question: can you do this with your eyes closed? The page shows a phone mockup on one side and explanatory text on the other. Inside the phone, the banking flow begins normally, with a balance, recent transactions, and action buttons for sending money, depositing a check, and paying a bill. Then the flow exposes the breakdown. The screen reader-style output becomes vague: unlabeled button, unlabeled button, image. The user moves into check capture, where the most important feedback is visual. One screen says the image is too dark. Another says the check is not in frame. A final screen says the check was captured. The section is showing that the user is not missing effort. The product is missing guidance.'
+        title: 'Mobile Check Deposit Should Work for Everyone',
+        duration: '1:05',
+        summary: 'This section shows a simulated mobile deposit flow and why visual-only feedback makes check deposit difficult for BLV users.',
+        narration: 'The challenge section introduces the core problem FinSight is addressing. It presents a simulated mobile check deposit flow and explains that the app is intended to guide users step by step entirely by voice. The contrast is important: check deposit is often treated as a routine task, but many existing flows rely on visual confirmation, camera framing, and error states that are hard to interpret without sight. The section argues that independent deposit requires more than access to buttons. It requires guidance throughout the task.',
+        narrationHigh: 'This section is anchored by the heading: mobile check deposit should work for everyone. On the page, a phone mockup shows a simulated deposit journey while the surrounding text explains the challenge. The message is direct: FinSight is a voice-first mobile banking app for blind and low-vision users, designed to guide check deposit step by step with no visual feedback required and no one else needed. For listeners, the main point is that check deposit becomes difficult when the most important cues, like framing, lighting, capture status, and error recovery, are communicated visually instead of through guidance.'
       },
       {
         kicker: 'Reality',
-        title: 'The Numbers Behind the Friction',
-        duration: '1:05',
-        summary: 'The statistics show how often blind users rely on workarounds for basic banking.',
-        narration: 'The reality section presents three statistics. Eighty four percent of users rely on workarounds just to do basic banking. Sixty eight percent say check deposit is their most frustrating banking task. Only twenty nine percent actually attempt mobile check deposit regularly. Visually, the page uses large blue numbers, a row of human figures, and curved progress indicators. The important story is the gap between need and confidence. Many users want the independence of mobile banking, but the experience asks them to guess during moments where guessing is not acceptable.',
-        narrationHigh: 'The reality section presents three statistics in large blue type. First: eighty four percent rely on workarounds just to do basic banking. The visual underneath uses a row of simple human figures, most highlighted in blue, to show how common this is. Second: sixty eight percent say check deposit is their most frustrating banking task, shown with a blue curved progress indicator. Third: only twenty nine percent actually attempt mobile check deposit regularly, shown with a smaller gray curved progress indicator. The story is not just that check deposit is hard. It is that uncertainty changes behavior.'
+        title: 'The Reality',
+        duration: '1:10',
+        summary: 'The reality section pairs a large population stat with two survey findings about frustration and workarounds in mobile banking.',
+        narration: 'The reality section presents three statistics that ground the project in both public data and FinSight research. One highlights that more than seven million Americans live with uncorrectable vision loss. Two more findings from the FinSight user survey show that sixty eight percent of BLV users find mobile check deposits frustrating, and fifty four percent rely on workarounds for mobile banking. Together, the section shows that the problem is both widespread and routine. It is not an edge case limited to a few users or a rare task.',
+        narrationHigh: 'The reality section uses a strong visual hierarchy to make the numbers memorable. The first statistic appears as a very large figure: seven million plus Americans live with uncorrectable vision loss. Below that, the next two findings are shown with isotype-style person icons rather than plain text alone. One states that sixty eight percent of BLV users find mobile check deposits frustrating. The other states that fifty four percent rely on workarounds for mobile banking. The layout makes the scale of the issue easy to scan, while the voice guide emphasizes what those numbers mean: frustration and workaround behavior are common, not exceptional.'
       },
       {
         kicker: 'Accessibility Gap',
-        title: 'Why Screen Readers Are Not Enough',
-        duration: '1:05',
-        summary: 'Screen readers announce interface elements, but they do not replace product guidance.',
-        narration: 'A later section says: screen readers are not enough. The answer on the page is: yes, but no. Screen readers are essential, but they mostly report what is on the screen. They cannot always explain the purpose of a flow, interpret visual camera feedback, or guide recovery after an error. For a task like mobile check deposit, the user needs more than labels. They need real-time direction, clear confirmation, and a sense of what to do next. This is the core accessibility gap FinSight is responding to.',
-        narrationHigh: 'A later section says: screen readers are not enough. The layout places accessibility tool icons on one side and the answer on the other: yes, but no. The nuance matters. Screen readers are essential infrastructure. They can announce headings, controls, labels, and state changes when those are implemented correctly. But for complex financial tasks, announcing interface elements is not the same as guiding the user through the task. A screen reader might tell someone that an image or button exists. It may not tell them whether the check is centered, whether the lighting is acceptable, or what exact adjustment will fix the problem. FinSight focuses on that missing layer.'
+        title: 'Screen Readers Are Not Enough',
+        duration: '1:00',
+        summary: 'This section explains that screen readers help, but image-based tasks still need guidance, recovery, and confirmation.',
+        narration: 'The screen readers section makes a careful distinction. Screen readers are valuable and necessary, but they do not solve every part of a visual banking task. For image-based flows like check deposit, users still need help with camera positioning, understanding what went wrong, and knowing when a task is truly complete. The section frames FinSight as a response to that missing layer of support. It is about guidance through the task, not only access to the interface.',
+        narrationHigh: 'This section is titled: screen readers are not enough, with the supporting statement: screen readers help, but. The body text explains that they cannot guide someone through pointing a camera, recovering from an error, or confirming that a deposit went through. Visually, the section balances supportive copy with a clean layout rather than treating screen readers as the problem. The voice guide carries that same nuance forward: screen readers remain essential, but for image-based tasks, users also need guidance, recovery, and confirmation.'
       },
       {
         kicker: 'Research',
         title: 'What Users and Banking Teams Said',
-        duration: '1:20',
-        summary: 'Quotes from users and experts describe the emotional and operational cost of inaccessible flows.',
-        narration: 'The quotes section is presented visually as two horizontal rows. One row represents blind and low-vision users. Another represents banking and accessibility experts. The user quotes describe having to ask a sighted person to check whether a document is inside the camera frame, receiving errors without knowing what changed, and losing privacy during simple financial tasks. The expert quotes make a related point from the product side: compliance can create a baseline, but complex banking flows need guidance built into the experience. Together, these voices show that accessibility is not only technical. It is emotional, private, and operational.',
-        narrationHigh: 'The quotes section uses two moving rows of cards. The first row represents blind and low-vision users. Their comments describe the practical and emotional cost of inaccessible flows: needing a sighted person to confirm whether a check is in frame, seeing an error without knowing what changed, and wanting to bank privately without exposing a routine task to someone else. The second row represents banking and accessibility experts. Their comments point to the product challenge: compliance can establish a baseline, but it does not automatically create confidence. The section broadens the project from one feature problem to a larger service design problem.'
+        duration: '1:15',
+        summary: 'Two quote rows share recurring evidence from BLV users and industry experts about inaccessible banking flows and the need for independent check capture.',
+        narration: 'The quotes section is organized into two groups: BLV users and industry experts. Together, the quotes describe recurring friction in mobile banking, including inaccessible flows, screen reader limitations, confusing errors, and the need for workarounds. They also point to a consistent product opportunity: check capture should be possible independently, without giving up privacy or confidence. The section helps explain why FinSight focuses so closely on one high-stakes task.',
+        narrationHigh: 'This section is labeled: what we heard from users and banking teams. On the page, the evidence appears in two horizontal rows of quote cards, one for BLV users and one for industry experts. The BLV user quotes describe screen reader friction, inaccessible flows, needing help from another person, and the loss of privacy that comes with routine banking tasks. The expert quotes reinforce that independent check capture remains a meaningful challenge for product teams. The voice guide summarizes these patterns as recurring evidence, not isolated anecdotes.'
       },
       {
         kicker: 'Solution',
         title: 'Meet FinSight',
         duration: '1:10',
-        summary: 'The prototype reframes banking as a voice-first guided experience.',
-        narration: 'The site then introduces FinSight as a voice-first banking prototype. Visually, the page centers a phone with rings around it, suggesting audio, attention, and guidance. The app screens show a deposit flow designed around spoken prompts: choosing an account, checking deposit limits, positioning the check, confirming captured details, and receiving confirmation. The experience is not simply reading buttons aloud. It behaves more like a banking assistant that knows the task, watches for uncertainty, and helps the user complete each step with confidence.',
-        narrationHigh: 'The site then introduces FinSight. Visually, this is one of the most product-focused sections: a phone sits in the center with animated rings around it, suggesting sound, attention, and guidance. Inside the phone, the screens move through a check deposit journey. The user starts at a welcome or home screen, chooses deposit check, selects an account, reviews a daily deposit limit, receives positioning guidance, captures the check, reviews details, and reaches confirmation. This is where the project shifts from critique to proposal. FinSight is not presented as a louder screen reader. It is presented as a voice-first banking flow that understands the user’s task.'
+        summary: 'Meet FinSight presents the prototype as a voice-first guided deposit flow for BLV users.',
+        narration: 'The Meet FinSight section introduces the proposed experience. It reframes check deposit as a voice-first flow with spoken prompts, clear task sequencing, positioning support, confirmation, and settings for how guidance is delivered. Instead of expecting users to interpret a visually driven capture process, the prototype is designed to narrate what matters when it matters. The result is a deposit flow intended to feel more understandable and more independent.',
+        narrationHigh: 'This section features the heading Meet FinSight and the subtitle voice-first banking, built for BLV users. Visually, a phone sits at the center of the page with rings around it, while the app screens move through a deposit journey. The prototype shows spoken prompts, account selection, limit review, check positioning support, captured details, confirmation, and settings. In voice guide mode, the section is meant to convey that FinSight treats check deposit as a guided interaction with sequencing, context, and confirmation built into the flow.'
+      },
+      {
+        kicker: 'Transition',
+        title: 'From Research to Guidelines',
+        duration: '0:45',
+        summary: 'This bridge explains that the design guidelines are drawn directly from recurring patterns in research, interviews, and usability testing.',
+        narration: 'Before the guideline cards begin, the site includes a short transition sentence. It explains that FinSight was shaped by recurring barriers identified through research, interviews, and usability testing. This bridge connects the evidence gathered earlier on the site to the design decisions that follow. It positions the guidelines as practical responses to observed problems.',
+        narrationHigh: 'Between the product introduction and the guideline cards, the site places a centered bridge sentence beneath the Design Guidelines heading. The sentence explains that FinSight was shaped by recurring barriers identified through research, interviews, and usability testing, which informed the design guidelines. The layout is simple and centered, giving the transition room to connect research evidence with design action. In voice guide mode, this moment signals that the next section translates findings into principles.'
       },
       {
         kicker: 'Guidelines',
-        title: 'Design Principles for Better Audio Guidance',
-        duration: '1:30',
-        summary: 'The guidelines translate research into practical accessibility patterns.',
-        narration: 'The design guidelines section turns the project into a practical framework. It recommends action-first button labels, immediate announcements for state changes, audio confirmation for every transaction, and grouping related context together. It also calls out time-limit warnings, single-swipe navigation paths, spoken progress indicators, and paired haptic and audio feedback. In the visual site, these guidelines appear as large cards with a sticky navigation list. In voice-guided mode, the point is simpler: accessible banking requires design decisions across the entire flow, not just a final pass for labels.',
-        narrationHigh: 'The design guidelines section turns the research into a practical framework. The visual site shows a sticky list of guideline names on the left and large content cards on the right. The guidelines recommend action-first button labels, so controls announce what they do before what they are. They call for immediate announcements when state changes, especially loading, errors, and success. They require audio confirmation for every transaction and grouping related context together so users do not have to build the mental model from scattered fragments. The later guidelines cover time-limit warnings, single-swipe navigation paths, spoken progress indicators, and paired haptic and audio feedback. The overall lesson is that accessibility has to be designed into the flow from the start.'
+        title: 'Design Guidelines',
+        duration: '1:55',
+        summary: 'The guideline section turns research into eight practical principles for a voice-first check deposit experience.',
+        narration: 'The Design Guidelines section outlines eight principles behind the FinSight prototype. They are: voice guidance rather than dependence on screen readers, easily accessible menu with one voice command, clear communication and notice of privacy, broken down step-by-step interactions, real-time guidance for capturing a check, clear confirmation before submitting, read-aloud post-transaction confirmation, and adjustable verbosity and speed. In plain language, the guidelines argue that users need direct voice support, simple access to tasks, privacy clarity, manageable steps, capture assistance, confirmation before submission, confirmation after submission, and control over how much information they hear. Together, these principles show how research findings become concrete interaction decisions.',
+        narrationHigh: 'The Design Guidelines section is presented as a structured set of cards with navigation alongside them. The eight guideline titles are read in order: voice guidance rather than dependence on screen readers; easily accessible menu with one voice command; clear communication and notice of privacy; broken down step-by-step interactions; real-time guidance for capturing a check; clear confirmation before submitting; read-aloud post-transaction confirmation; and adjustable verbosity and speed. Each one translates a specific barrier into a practical design response. The plain-language meaning is consistent across the set: help users reach tasks quickly, explain privacy clearly, reduce cognitive load, guide camera capture in real time, confirm important actions before and after submission, and let users control how much spoken guidance they receive.'
       },
       {
         kicker: 'Prototype',
-        title: 'The Prototype as a Proof of Concept',
-        duration: '0:55',
-        summary: 'The prototype demonstrates how guidance could reduce uncertainty during high-stakes tasks.',
-        narration: 'The prototype section invites visitors to explore how FinSight reimagines banking for blind users. Even without touching the app, the story is clear. A better banking flow should tell the user what is happening, describe what the system sees, make errors recoverable, and confirm important outcomes in plain language. For check deposit, that means the user should know whether the check is visible, whether the image is acceptable, what amount was detected, and when the deposit has been submitted.',
-        narrationHigh: 'The prototype section is a placeholder for exploring the FinSight app experience. It acts as a proof of concept for the larger argument. In a high-stakes flow like check deposit, the user needs guidance before, during, and after capture. Before capture, the app should explain what will happen and what information is needed. During capture, it should describe what the camera sees and how to adjust the check. After capture, it should confirm the detected amount, account, availability timeline, and submission status. The prototype shows that audio guidance can be a product behavior, not just an accessibility add-on.'
+        title: 'The Prototype',
+        duration: '0:50',
+        summary: 'This section is where visitors can explore or watch the FinSight prototype for the check deposit experience.',
+        narration: 'The prototype section invites visitors to explore how FinSight reimagines check deposit for BLV users. It serves as the main place to watch or review the proposed experience in action. In the context of the site, this section acts as a demonstration of the ideas introduced earlier: guidance, sequencing, capture support, and confirmation. It connects the design principles to a concrete product flow.',
+        narrationHigh: 'This section is titled The Prototype, with the subtitle: explore how FinSight reimagines the check deposit experience for BLV users. The layout centers an embedded demo area where visitors can watch or interact with the prototype experience. For listeners, the key meaning is that this is the proof point of the site: the place where the FinSight deposit flow can be explored as a working concept. It shows how the project’s ideas about voice-first guidance translate into an actual product demonstration.'
       },
       {
-        kicker: 'Closing',
-        title: 'Accessibility as Independence',
-        duration: '0:50',
-        summary: 'The voice guide closes by returning to the project’s central promise: private, confident banking.',
-        narration: 'FinSight is ultimately about independence. The project argues that blind and low-vision users should not have to trade privacy for access, or confidence for convenience. Voice-first guidance can make financial tasks feel more understandable, more recoverable, and more human. This guided version of the website is meant to echo that idea: accessibility is not only about what a system announces. It is about whether the person using it feels oriented, respected, and in control.',
-        narrationHigh: 'FinSight is ultimately about independence. The project argues that blind and low-vision users should not have to trade privacy for access or confidence for convenience. That idea applies to the product, and it also applies to this voice-guided version of the website. The goal is not to imitate a screen reader. It is to model a more human form of guidance: explaining the visual context, naming the purpose of each section, and helping the visitor understand why the work matters. Accessibility is not only about what a system announces. It is about whether the person using it feels oriented, respected, and in control.'
+        kicker: 'Acknowledgments',
+        title: 'Acknowledgments',
+        duration: '0:55',
+        summary: 'The acknowledgments section credits advisors, institutional support, and the BLV participants who shaped the project.',
+        narration: 'The acknowledgments section recognizes the people and support behind FinSight. It names Lucy Greco, Marti Hearst, John Chuang, Jennifer Sturdy, and Steve Fadden, alongside the BLV adults who participated in interviews, surveys, and usability sessions. The section makes clear that the project was shaped by advising, early research guidance, institutional support, and lived experience shared by participants. It situates FinSight as collaborative work rather than a solo concept.',
+        narrationHigh: 'This section is titled Acknowledgments and serves as a formal credit section for the project. It recognizes Lucy Greco, Marti Hearst, John Chuang, Jennifer Sturdy, and Steve Fadden, and it also acknowledges the BLV adults who contributed through interviews, surveys, and usability sessions. Visually, the section is structured as a clean set of acknowledgment blocks followed by a closing note. In voice guide mode, the purpose is to make clear that FinSight was shaped by advisors, institutional support, research guidance, and the time and expertise shared by BLV participants.'
+      },
+      {
+        kicker: 'Team',
+        title: 'Meet the Team',
+        duration: '0:45',
+        summary: 'The final section introduces the FinSight team and shows process photos from the project.',
+        narration: 'The site closes by introducing the FinSight team. This section identifies the people behind the project and pairs that introduction with process photos from the team’s work. It reinforces that FinSight is the result of research, design, testing, and collaboration over time. The closing tone is personal but still connected to the project’s larger purpose.',
+        narrationHigh: 'The final section is titled Meet the Team. On the page, it combines team member profiles with a horizontal collection of process photos that show the group working together, documenting research, and presenting project materials. The layout shifts from product explanation to the people and process behind the work. In voice guide mode, this section closes the site by introducing the FinSight team and acknowledging the collaborative work that shaped the project.'
       }
     ]
   },
