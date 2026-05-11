@@ -675,7 +675,7 @@ button:focus-visible {
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 48px;
+  gap: 36px;
   text-align: center;
 }
 .stat-number {
@@ -695,7 +695,7 @@ button:focus-visible {
   margin: 0 auto 28px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 220px;
+  max-width: 340px;
 }
 .stat-viz {
   margin-top: 24px;
@@ -705,29 +705,33 @@ button:focus-visible {
   flex-wrap: wrap;
   gap: 4px;
   justify-content: center;
+  margin-top: 16px;
 }
 .figure-glyph {
   color: var(--text-light);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   height: 36px;
   line-height: 0;
-  position: relative;
   width: 22px;
 }
-.figure-base,
-.figure-fill {
-  display: block;
-}
-.figure-fill {
+.figure-glyph.figure-filled {
   color: var(--blue);
-  inset: 0;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
 }
 .stick-figure {
   height: 36px;
   width: 22px;
+}
+.stat-viz.isotype-viz {
+  margin-top: 16px;
+}
+.stat-source {
+  color: var(--text-light);
+  font-size: 0.86rem;
+  line-height: 1.4;
+  margin: 16px auto 0;
+  max-width: 260px;
 }
 .arcs-wrap {
   align-items: center;
@@ -1252,6 +1256,79 @@ button:focus-visible {
   display: block;
   height: 100%;
   width: 100%;
+}
+
+/* ── ACKNOWLEDGMENTS ── */
+.acknowledgments-section {
+  background: var(--off-white);
+  padding: 110px 0;
+}
+.acknowledgments-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 24px;
+  text-align: center;
+}
+.acknowledgments-intro {
+  color: var(--text-mid);
+  font-size: 1rem;
+  line-height: 1.65;
+  max-width: 720px;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+.acknowledgments-blocks {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 52px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 1px solid var(--border);
+}
+.acknowledgment-block {
+  display: flex;
+  gap: 40px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  align-items: flex-start;
+}
+.acknowledgment-name {
+  color: var(--blue);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  flex: 0 0 180px;
+  padding-top: 2px;
+}
+.acknowledgment-text {
+  color: var(--text-mid);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+.acknowledgments-final {
+  color: var(--text-mid);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .acknowledgment-block {
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px 0;
+  }
+  .acknowledgment-name {
+    flex: 1;
+    padding-top: 0;
+  }
 }
 
 /* ── TEAM ── */

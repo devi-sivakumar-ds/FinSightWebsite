@@ -50,7 +50,7 @@ window.FINSIGHT_CONTENT = {
       successRef: 'Ref #2847561',
     },
     heading: 'Mobile check deposit should work for everyone.',
-    body: 'FinSight is a voice-first mobile banking app built for blind and low-vision users. It guides users through check deposit step by step entirely by voice. No visual feedback required. No one else needed.',
+    body: 'Most banking apps claim to be accessible. What they call accessibility, BLV users call a workaround.',
   },
 
   stats: {
@@ -60,31 +60,36 @@ window.FINSIGHT_CONTENT = {
         value: 7,
         suffix: 'M+',
         label: 'Americans live with uncorrectable vision loss',
+        source: 'Source: Flaxman A, et al. Prevalence of Vision Loss or Blindness in the US. JAMA Ophthalmology, 2021. Via Prevent Blindness. preventblindness.org',
         accessibleLabel: 'More than 7 million Americans live with uncorrectable vision loss.',
       },
       {
         value: 68,
         suffix: '%',
-        label: 'of BLV users find mobile check deposit frustrating',
-        accessibleLabel: '68 percent of blind and low-vision users find mobile check deposit frustrating.',
+        label: 'of BLV users find mobile check deposits frustrating',
+        source: 'Source: FinSight User Survey, UC Berkeley Capstone, Spring 2026. n=41.',
+        style: 'isotype',
+        arcCaption: '68% highlighted',
+        accessibleLabel: '68 percent of blind and low-vision users find mobile check deposits frustrating.',
       },
       {
         value: 54,
         suffix: '%',
-        label: 'describe mobile banking as workable only through learned workarounds',
-        accessibleLabel: '54 percent of users describe mobile banking as workable only because they learned workarounds.',
+        label: 'of BLV users rely on workarounds for mobile banking',
+        source: 'Source: FinSight User Survey, UC Berkeley Capstone, Spring 2026. n=41.',
+        style: 'isotype',
+        arcCaption: '54% highlighted',
+        accessibleLabel: '54 percent of blind and low-vision users describe mobile banking as workable only because they learned workarounds.',
       },
     ],
   },
 
   screenReaders: {
-    hidden: true,
-    toolsLabel: '',
-    tools: ['', '', ''],
-    headingHtml: '',
-    answer: '',
-    body: '',
-    subbody: '',
+    toolsLabel: 'Existing accessibility tools: VoiceOver, TalkBack, Be My Eyes',
+    tools: ['VoiceOver', 'TalkBack', 'Be My Eyes'],
+    headingHtml: "Screen readers<br>aren't enough?",
+    answer: 'Yes, but no.',
+    body: 'Screen readers help — but they can\'t guide you through pointing a camera, recovering from an error, or confirming a deposit went through. For visual tasks, independence requires more than reading the screen.',
   },
 
   quotes: {
@@ -92,7 +97,7 @@ window.FINSIGHT_CONTENT = {
     heading: '',
     rows: [
       {
-        label: 'BLV user',
+        label: 'BLV users',
         icon: 'user',
         items: [
           {
@@ -134,7 +139,7 @@ window.FINSIGHT_CONTENT = {
         ],
       },
       {
-        label: 'Industry expert',
+        label: 'Industry experts',
         icon: 'building',
         items: [
           {
@@ -205,43 +210,43 @@ window.FINSIGHT_CONTENT = {
     navLabel: 'Guidelines navigation',
     items: [
       {
-        title: 'Voice-first experience',
-        body: 'Traditional banking apps force BLV users to navigate visual interfaces through screen readers. FinSight starts with spoken guidance.',
+        title: 'Voice guidance rather than dependence on screen readers',
+        body: 'When banking apps update or leave elements unlabeled, screen readers break, and BLV users are left without a way forward. Designing around voice from the start means the experience never depends on an interface interpreting itself correctly.',
         image: 'assets/insights/insight-1.svg',
       },
       {
-        title: 'Task-first navigation',
-        body: 'Traditional banking apps bury tasks behind menus and screen-reader traversal. FinSight surfaces core tasks immediately through a single spoken command.',
+        title: 'Easily accessible menu with one voice command',
+        body: 'In major banking apps, reaching a task like check deposit requires navigating through layers of menus, up to 10 steps with a screen reader. Surfacing every task through a single voice command removes that overhead entirely.',
         image: 'assets/insights/insight-2.svg',
       },
       {
-        title: 'Clear, upfront privacy notice',
-        body: 'Traditional banking apps bury privacy details inside long policies and setup flows. FinSight communicates privacy through short, spoken explanations that users can understand in the moment.',
+        title: 'Clear communication and notice of privacy',
+        body: 'Banking apps disclose data practices once, buried in onboarding agreements. Surfacing a plain-language notice at the exact moment data is being processed means users always know what is used and what is never stored, before it happens.',
         image: 'assets/insights/insight-3.svg',
       },
       {
-        title: 'Step-by-step task decomposition',
-        body: 'Traditional check deposit flows ask users to manage multiple steps at once. FinSight separates the workflow into clear stages, guiding users through one step before moving to the next.',
+        title: 'Broken down step-by-step interactions',
+        body: 'Banking apps present all requirements on a single screen. Sighted users skim it. BLV users must listen to all of it. Delivering one action at a time means users always know where they are and what comes next, without having to hold everything in memory at once.',
         video: 'assets/insights/insight-4.mp4',
       },
       {
-        title: 'Real-time guidance for image-based tasks',
-        body: 'Traditional check deposit flows expect users to visually position the check with little real-time guidance. FinSight guides users by voice through positioning, lighting, framing, and confirmation.',
+        title: 'Real-time guidance for capturing a check',
+        body: 'Positioning a camera accurately without visual feedback is a guessing game. Providing continuous audio guidance during capture means users know exactly what to adjust and when the check is ready, without needing to ask for help.',
         image: 'assets/insights/insight-5.svg',
       },
       {
-        title: 'Confirm before irreversible actions',
-        body: 'Traditional banking flows often move directly from review to execution, leaving little room to catch mistakes. FinSight adds a spoken confirmation step, giving users time to verify details before the transaction is finalized.',
+        title: 'Clear confirmation before submitting',
+        body: 'Banking apps execute transactions the moment a button is tapped. For BLV users, that leaves no room to catch a mistake. Reading the amount aloud and pausing for an explicit confirm or cancel puts the decision back in the user\'s hands.',
         image: 'assets/insights/insight-6.svg',
       },
       {
-        title: 'Post-transaction read-back confirmation',
-        body: 'Generic feedback like a checkmark or chime can leave BLV users unsure what happened. FinSight reads back the completed transaction so users can confirm the outcome immediately.',
+        title: 'Read-aloud post-transaction confirmation',
+        body: 'After a transaction, most apps show a confirmation screen that BLV users have to navigate field by field. Reading every detail aloud, digit by digit, means users can verify the outcome without touching the screen.',
         image: 'assets/insights/insight-7.svg',
       },
       {
-        title: 'User-controlled voice speed and verbosity',
-        body: 'FinSight lets users control speech speed and guidance detail directly within the task flow, tailored to individual preferences.',
+        title: 'Adjustable verbosity and speed',
+        body: 'No two users want to hear information the same way. Letting users set their preferred guidance style and voice speed from within the app means the experience fits them from the start, rather than requiring workarounds.',
         image: 'assets/insights/insight-8.svg',
       },
     ],
@@ -251,6 +256,34 @@ window.FINSIGHT_CONTENT = {
     heading: 'The Prototype',
     subtitle: 'Explore how FinSight reimagines the check deposit experience for BLV users.',
     placeholder: '[ Prototype embed or video goes here ]',
+  },
+
+  acknowledgments: {
+    heading: 'Acknowledgments',
+    intro: 'This project would not have been possible without the guidance and generosity of many people.',
+    blocks: [
+      {
+        name: 'Lucy Greco',
+        text: 'Lucy Greco was the original inspiration for FinSight. Early conversations with Lucy about her experience navigating mobile banking as a blind user crystallized the problem this project set out to solve and shaped the research questions that followed.',
+      },
+      {
+        name: 'Marti Hearst',
+        text: 'Marti Hearst served as our primary faculty advisor throughout the project. Her guidance on research design, framing, and the standards of rigorous academic work grounded the team at every stage.',
+      },
+      {
+        name: 'John Chuang',
+        text: 'John Chuang provided early direction on the project’s research orientation and helped the team establish a foundation for the work that followed.',
+      },
+      {
+        name: 'Jennifer Sturdy',
+        text: 'Jennifer Sturdy, Research Director of the Institute for Business and Social Impact at the Haas School of Business, supported the team through the IRB process and helped secure funding through the Haas X-Lab. Her institutional support made the scope of this research possible.',
+      },
+      {
+        name: 'Steve Fadden',
+        text: 'Steve Fadden contributed meaningfully to the early research process, helping the team sharpen its approach before fieldwork began.',
+      },
+    ],
+    finalParagraph: 'Finally, we are grateful to every BLV adult who participated in an interview, completed the survey, or sat with us through a usability session. This project exists because people were willing to share their time, their frustrations, and their expertise.',
   },
 
   team: {
@@ -269,7 +302,7 @@ window.FINSIGHT_CONTENT = {
 
   voiceGuide: {
     pageTitle: 'FinSight Voice Guide',
-    eyebrow: 'Voice Guided Mode',
+    eyebrow: 'Voice Guide Mode',
     title: 'FinSight Voice Guide',
     intro: 'A calm, audio-first version of the FinSight story. Press play to hear the site narrated with context, visual description, and section-by-section guidance.',
     unavailable: 'Speech playback is not available in this browser, but the full transcript is still available below.',
@@ -283,7 +316,7 @@ window.FINSIGHT_CONTENT = {
       next: 'Next',
       replay: 'Replay',
       stop: 'Stop',
-      exit: 'Standard site',
+      exit: 'Exit Voice Guide Mode',
     },
     settings: {
       speedLabel: 'Speed',
