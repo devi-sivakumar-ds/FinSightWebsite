@@ -175,16 +175,11 @@ window.addEventListener('scroll', () => {
 // ── Stats counter and visualization animation ──
 (function() {
   const statEls = document.querySelectorAll('.stat-number[data-count]');
-  const arcFrustrated = document.querySelector('.arc-path-frustrated');
-  const arcAttempts = document.querySelector('.arc-path-attempts');
-  const figuresRow = document.getElementById('figuresRow');
+  const figuresRows = document.querySelectorAll('.figures-row');
   const statsSection = document.querySelector('.stats-section');
-  const figureStat = content.stats?.items?.[0];
 
-  if (figuresRow && !figuresRow.children.length) {
-    const figureCount = 10;
-    const highlightedFigures = Math.max(0, Math.min(figureCount, (figureStat?.value || 0) / 10));
-    const figureSvg = `
+  function createFigureSvg() {
+    return `
       <svg class="stick-figure" viewBox="0 0 22 36" aria-hidden="true">
         <circle cx="11" cy="5" r="4" fill="currentColor"/>
         <line x1="11" y1="9" x2="11" y2="24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -193,16 +188,31 @@ window.addEventListener('scroll', () => {
         <line x1="11" y1="24" x2="17" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
     `;
+  }
+
+  function renderIsotypeRow(rowEl, value) {
+    const figureCount = 10;
+    const highlighted = Math.round((value / 100) * figureCount);
+    const figureSvg = createFigureSvg();
+    rowEl.innerHTML = '';
 
     for (let i = 0; i < figureCount; i++) {
-      const fillPercent = Math.max(0, Math.min(1, highlightedFigures - i)) * 100;
-      figuresRow.insertAdjacentHTML('beforeend', `
-        <span class="figure-glyph" aria-hidden="true">
-          <span class="figure-base">${figureSvg}</span>
-          <span class="figure-fill" style="width: ${fillPercent}%;">${figureSvg}</span>
+      const filled = i < highlighted;
+      rowEl.insertAdjacentHTML('beforeend', `
+        <span class="figure-glyph${filled ? ' figure-filled' : ''}" aria-hidden="true">
+          ${figureSvg}
         </span>
       `);
     }
+  }
+
+  if (figuresRows.length) {
+    figuresRows.forEach((rowEl) => {
+      const index = Number(rowEl.dataset.figureIndex);
+      const stat = content.stats?.items?.[index];
+      if (!stat || stat.style !== 'isotype') return;
+      renderIsotypeRow(rowEl, stat.value);
+    });
   }
 
   if (!statsSection) return;
@@ -211,8 +221,6 @@ window.addEventListener('scroll', () => {
     statEls.forEach(el => {
       el.textContent = `${parseInt(el.dataset.count, 10)}${el.dataset.suffix || ''}`;
     });
-    if (arcFrustrated) arcFrustrated.style.strokeDashoffset = 126 - (68 / 100) * 126;
-    if (arcAttempts) arcAttempts.style.strokeDashoffset = 126 - (29 / 100) * 126;
     return;
   }
 
@@ -231,20 +239,6 @@ window.addEventListener('scroll', () => {
     requestAnimationFrame(tick);
   }
 
-  function animateArc(path, percentage, duration) {
-    const total = 126;
-    const target = (percentage / 100) * total;
-    const start = performance.now();
-
-    function tick(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      path.style.strokeDashoffset = total - easeOut(progress) * target;
-      if (progress < 1) requestAnimationFrame(tick);
-    }
-
-    requestAnimationFrame(tick);
-  }
-
   const statsObserver = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting && !animated) {
       animated = true;
@@ -253,14 +247,28 @@ window.addEventListener('scroll', () => {
         animateCount(el, parseInt(el.dataset.count, 10), el.dataset.suffix || '', 1200);
       });
 
-      if (arcFrustrated) animateArc(arcFrustrated, 68, 1200);
-      if (arcAttempts) animateArc(arcAttempts, 29, 1200);
-
       statsObserver.disconnect();
     }
   }, { threshold: 0.3 });
 
   statsObserver.observe(statsSection);
+})();
+
+// ── Acknowledgments rendering ──
+(function() {
+  const acknowledgementsBlocks = content.acknowledgments?.blocks || [];
+  const blockContainer = document.getElementById('acknowledgementsBlocks');
+  if (!blockContainer || !acknowledgementsBlocks.length) return;
+
+  acknowledgementsBlocks.forEach(block => {
+    const blockEl = document.createElement('div');
+    blockEl.className = 'acknowledgment-block';
+    blockEl.innerHTML = `
+      <h3 class="acknowledgment-name">${escapeHtml(block.name)}</h3>
+      <p class="acknowledgment-text">${escapeHtml(block.text)}</p>
+    `;
+    blockContainer.appendChild(blockEl);
+  });
 })();
 
 // ── Design Guidelines ──

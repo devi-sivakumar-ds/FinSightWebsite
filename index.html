@@ -17,8 +17,8 @@
     <a href="#hero" class="nav-brand" aria-label="FinSight home">
       <img src="assets/logo.jpeg" alt="FinSight logo" class="nav-logo" data-alt="nav.logoAlt" />
     </a>
-    <a href="voice.html" class="voice-mode-link" aria-label="Open Voice Guided mode">
-      Voice Guided
+    <a href="voice.html" class="voice-mode-link" aria-label="Open Voice Guide Mode">
+      Voice Guide Mode
     </a>
   </nav>
 
@@ -155,41 +155,25 @@
         <div class="stat-block fade-up" role="group" data-aria-label="stats.items.0.accessibleLabel">
           <div class="stat-number" data-stat-index="0">0%</div>
           <p class="stat-label" data-content="stats.items.0.label"></p>
-          <div class="stat-viz" aria-hidden="true">
-            <div class="figures-row" id="figuresRow"></div>
-          </div>
+          <p class="stat-source" data-content="stats.items.0.source"></p>
         </div>
 
         <div class="stat-block fade-up delay-1" role="group" data-aria-label="stats.items.1.accessibleLabel">
           <div class="stat-number" data-stat-index="1">0%</div>
           <p class="stat-label" data-content="stats.items.1.label"></p>
-          <div class="stat-viz" aria-hidden="true">
-            <div class="arcs-wrap">
-              <div class="arc-item">
-                <svg width="90" height="56" viewBox="0 0 90 56">
-                  <path d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--border)" stroke-width="8" stroke-linecap="round"/>
-                  <path class="arc-path-frustrated" d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--blue)" stroke-width="8" stroke-linecap="round" stroke-dasharray="126" stroke-dashoffset="126"/>
-                </svg>
-                <div class="arc-caption-text" data-content="stats.items.1.arcCaption"></div>
-              </div>
-            </div>
+          <div class="stat-viz isotype-viz" aria-hidden="true">
+            <div class="figures-row" data-figure-index="1"></div>
           </div>
+          <p class="stat-source" data-content="stats.items.1.source"></p>
         </div>
 
         <div class="stat-block fade-up delay-2" role="group" data-aria-label="stats.items.2.accessibleLabel">
           <div class="stat-number" data-stat-index="2">0%</div>
           <p class="stat-label" data-content="stats.items.2.label"></p>
-          <div class="stat-viz" aria-hidden="true">
-            <div class="arcs-wrap">
-              <div class="arc-item">
-                <svg width="90" height="56" viewBox="0 0 90 56">
-                  <path d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--border)" stroke-width="8" stroke-linecap="round"/>
-                  <path class="arc-path-attempts" d="M 5 55 A 40 40 0 0 1 85 55" fill="none" stroke="var(--text-mid)" stroke-width="8" stroke-linecap="round" stroke-dasharray="126" stroke-dashoffset="126"/>
-                </svg>
-                <div class="arc-caption-text" data-content="stats.items.2.arcCaption"></div>
-              </div>
-            </div>
+          <div class="stat-viz isotype-viz" aria-hidden="true">
+            <div class="figures-row" data-figure-index="2"></div>
           </div>
+          <p class="stat-source" data-content="stats.items.2.source"></p>
         </div>
       </div>
     </div>
@@ -323,6 +307,16 @@
           allowfullscreen
         ></iframe>
       </div>
+    </div>
+    </section>
+
+  <!-- ACKNOWLEDGMENTS -->
+    <section class="acknowledgments-section" id="acknowledgments" aria-labelledby="acknowledgments-heading">
+    <div class="container">
+      <h2 class="acknowledgments-heading" id="acknowledgments-heading" data-content="acknowledgments.heading"></h2>
+      <p class="acknowledgments-intro" data-content="acknowledgments.intro"></p>
+      <div class="acknowledgments-blocks" id="acknowledgementsBlocks"></div>
+      <p class="acknowledgments-final" data-content="acknowledgments.finalParagraph"></p>
     </div>
     </section>
 
