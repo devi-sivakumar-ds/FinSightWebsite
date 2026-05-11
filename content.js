@@ -8,7 +8,7 @@ window.FINSIGHT_CONTENT = {
   hero: {
     headlinePrefix: 'Banking built for your',
     cyclingWords: ['Independence', 'Confidence', 'Autonomy'],
-    subtitle: 'Audio-first mobile banking, built for BLV users.',
+    subtitle: 'Voice-first mobile banking, built for BLV users.',
   },
 
   challenge: {
@@ -49,43 +49,42 @@ window.FINSIGHT_CONTENT = {
       successSub: 'Available in 1-2 business days',
       successRef: 'Ref #2847561',
     },
-    heading: 'Can you do this with your eyes closed?',
-    body: 'Imagine navigating this flow without being able to see the screen. For millions of blind Americans, this is the daily reality of using financial apps that were never designed with them in mind.',
+    heading: 'Mobile check deposit should work for everyone.',
+    body: 'FinSight is a voice-first mobile banking app built for blind and low-vision users. It guides users through check deposit step by step entirely by voice. No visual feedback required. No one else needed.',
   },
 
   stats: {
     label: 'The Reality',
     items: [
       {
-        value: 84,
-        suffix: '%',
-        label: 'rely on workarounds just to do basic banking',
-        accessibleLabel: '84 percent of users rely on workarounds just to do basic banking.',
+        value: 7,
+        suffix: 'M+',
+        label: 'Americans live with uncorrectable vision loss',
+        accessibleLabel: 'More than 7 million Americans live with uncorrectable vision loss.',
       },
       {
         value: 68,
         suffix: '%',
-        label: 'say check deposit is their most frustrating banking task',
-        arcCaption: '68% frustrated',
-        accessibleLabel: '68 percent of users say check deposit is their most frustrating banking task.',
+        label: 'of BLV users find mobile check deposit frustrating',
+        accessibleLabel: '68 percent of blind and low-vision users find mobile check deposit frustrating.',
       },
       {
-        value: 29,
+        value: 54,
         suffix: '%',
-        label: 'actually attempt mobile check deposit regularly',
-        arcCaption: '29% attempt',
-        accessibleLabel: '29 percent of users actually attempt mobile check deposit regularly.',
+        label: 'describe mobile banking as workable only through learned workarounds',
+        accessibleLabel: '54 percent of users describe mobile banking as workable only because they learned workarounds.',
       },
     ],
   },
 
   screenReaders: {
-    toolsLabel: 'Existing accessibility tools: VoiceOver, TalkBack, Be My Eyes',
-    tools: ['VoiceOver', 'TalkBack', 'Be My Eyes'],
-    headingHtml: "Screen readers<br>aren't enough?",
-    answer: 'Yes, but no.',
-    body: 'Screen readers can announce what is on the screen, but they cannot replace missing product guidance. For visual tasks like check deposit, users need real-time direction, clear error recovery, and confirmation that does not depend on sight.',
-    subbody: 'That gap came through in both user interviews and industry conversations.',
+    hidden: true,
+    toolsLabel: '',
+    tools: ['', '', ''],
+    headingHtml: '',
+    answer: '',
+    body: '',
+    subbody: '',
   },
 
   quotes: {
@@ -198,7 +197,7 @@ window.FINSIGHT_CONTENT = {
   },
 
   bridge: {
-    text: 'What we can do to give better audio guidance',
+    text: 'FinSight was shaped by recurring barriers identified through research, interviews, and usability testing, which informed our design guidelines.',
   },
 
   guidelines: {
@@ -206,43 +205,43 @@ window.FINSIGHT_CONTENT = {
     navLabel: 'Guidelines navigation',
     items: [
       {
-        title: 'Action-first button labels',
-        body: 'Every interactive element should announce what it does before what it is. Screen readers read labels verbatim - make every word purposeful.',
+        title: 'Voice-first experience',
+        body: 'Traditional banking apps force BLV users to navigate visual interfaces through screen readers. FinSight starts with spoken guidance.',
         image: 'assets/insights/insight-1.svg',
       },
       {
-        title: 'Announce state changes immediately',
-        body: "When UI state changes (loading, error, success), announce it right away via ARIA live regions. Blind users cannot see visual feedback - don't leave them guessing.",
+        title: 'Task-first navigation',
+        body: 'Traditional banking apps bury tasks behind menus and screen-reader traversal. FinSight surfaces core tasks immediately through a single spoken command.',
         image: 'assets/insights/insight-2.svg',
       },
       {
-        title: 'Audio confirmation for every transaction',
-        body: 'Every financial action needs a clear spoken confirmation. Never rely on color changes or subtle animations as the sole signal.',
+        title: 'Clear, upfront privacy notice',
+        body: 'Traditional banking apps bury privacy details inside long policies and setup flows. FinSight communicates privacy through short, spoken explanations that users can understand in the moment.',
         image: 'assets/insights/insight-3.svg',
       },
       {
-        title: 'Group related context together',
-        body: 'Screen reader users navigate linearly. Scatter information and the mental model breaks. Keep related content - label, value, action - in a single, logical group.',
+        title: 'Step-by-step task decomposition',
+        body: 'Traditional check deposit flows ask users to manage multiple steps at once. FinSight separates the workflow into clear stages, guiding users through one step before moving to the next.',
         video: 'assets/insights/insight-4.mp4',
       },
       {
-        title: 'Warn before time limits expire',
-        body: 'If a session or action has a time limit, announce the warning early and give users a keyboard- or swipe-accessible way to extend it.',
+        title: 'Real-time guidance for image-based tasks',
+        body: 'Traditional check deposit flows expect users to visually position the check with little real-time guidance. FinSight guides users by voice through positioning, lighting, framing, and confirmation.',
         image: 'assets/insights/insight-5.svg',
       },
       {
-        title: 'Single-swipe navigation paths',
-        body: 'Design flows so every action is reachable with a single swipe or tab. Avoid nested menus that require multiple gestures to traverse.',
+        title: 'Confirm before irreversible actions',
+        body: 'Traditional banking flows often move directly from review to execution, leaving little room to catch mistakes. FinSight adds a spoken confirmation step, giving users time to verify details before the transaction is finalized.',
         image: 'assets/insights/insight-6.svg',
       },
       {
-        title: 'Vocalize all progress indicators',
-        body: 'Spinners and progress bars are invisible to screen readers. Always pair loading states with a text announcement: "Processing your deposit, please wait."',
+        title: 'Post-transaction read-back confirmation',
+        body: 'Generic feedback like a checkmark or chime can leave BLV users unsure what happened. FinSight reads back the completed transaction so users can confirm the outcome immediately.',
         image: 'assets/insights/insight-7.svg',
       },
       {
-        title: 'Pair haptic and audio feedback',
-        body: 'Combine haptic feedback with audio cues for critical moments - confirmations, errors, and warnings. Multiple sensory channels reinforce clarity.',
+        title: 'User-controlled voice speed and verbosity',
+        body: 'FinSight lets users control speech speed and guidance detail directly within the task flow, tailored to individual preferences.',
         image: 'assets/insights/insight-8.svg',
       },
     ],
@@ -250,7 +249,7 @@ window.FINSIGHT_CONTENT = {
 
   prototype: {
     heading: 'The Prototype',
-    subtitle: 'Explore how finSight reimagines the banking experience for blind users.',
+    subtitle: 'Explore how FinSight reimagines the check deposit experience for BLV users.',
     placeholder: '[ Prototype embed or video goes here ]',
   },
 
