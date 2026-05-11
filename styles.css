@@ -1289,7 +1289,7 @@ button:focus-visible {
 
 /* ── ACKNOWLEDGMENTS ── */
 .acknowledgments-section {
-  background: var(--off-white);
+  background: var(--white);
   padding: 110px 0;
 }
 .acknowledgments-heading {
@@ -1372,7 +1372,7 @@ button:focus-visible {
 
 /* ── TEAM ── */
 .team-section {
-  background: var(--white);
+  background: var(--off-white);
   padding: 110px 0 0;
   text-align: center;
 }
