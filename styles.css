@@ -79,7 +79,7 @@ button:focus-visible {
 }
 .navbar.scrolled { box-shadow: 0 4px 24px rgba(42, 98, 241, 0.08); }
 .nav-brand { display: flex; align-items: center; }
-.nav-logo  { height: 34px; width: auto; }
+.nav-logo  { height: 68px; width: auto; }
 .voice-mode-link {
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -766,24 +766,31 @@ button:focus-visible {
 .sr-app-icons {
   align-items: flex-end;
   display: flex;
-  gap: 16px;
-  margin-bottom: 32px;
+  gap: 20px;
+  margin-top: 32px;
 }
 .app-icon-item { text-align: center; }
 .app-icon-placeholder {
   align-items: center;
-  background: var(--off-white);
-  border-radius: 14px;
+  background: transparent;
+  border-radius: 13px;
   color: var(--text-light);
   display: flex;
-  height: 52px;
+  height: 46px;
   justify-content: center;
   margin: 0 auto 6px;
-  width: 52px;
+  overflow: hidden;
+  width: 46px;
+}
+.screen-reader-logo {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 .app-icon-label {
   color: var(--text-light);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   letter-spacing: -0.1px;
 }
 .sr-headline {
@@ -1260,7 +1267,7 @@ button:focus-visible {
 
 /* ── ACKNOWLEDGMENTS ── */
 .acknowledgments-section {
-  background: var(--off-white);
+  background: var(--white);
   padding: 110px 0;
 }
 .acknowledgments-heading {
@@ -1333,7 +1340,7 @@ button:focus-visible {
 
 /* ── TEAM ── */
 .team-section {
-  background: var(--white);
+  background: var(--off-white);
   padding: 110px 0 0;
   text-align: center;
 }

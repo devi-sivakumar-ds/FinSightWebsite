@@ -87,7 +87,7 @@ window.FINSIGHT_CONTENT = {
   screenReaders: {
     toolsLabel: 'Existing accessibility tools: VoiceOver, TalkBack, Be My Eyes',
     tools: ['VoiceOver', 'TalkBack', 'Be My Eyes'],
-    headingHtml: "Screen readers<br>aren't enough?",
+    headingHtml: "Are screen readers<br>enough?",
     answer: 'Yes, but no.',
     body: 'Screen readers help — but they can\'t guide you through pointing a camera, recovering from an error, or confirming a deposit went through. For visual tasks, independence requires more than reading the screen.',
   },
