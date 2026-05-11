@@ -798,6 +798,9 @@ button:focus-visible {
 }
 .sr-answer {
   color: var(--blue);
+  font-size: 39px;
+  letter-spacing: -0.96px;
+  line-height: 1.12;
   margin-bottom: 24px;
 }
 .sr-body-text {
@@ -1117,7 +1120,25 @@ button:focus-visible {
 }
 
 /* ── GUIDELINES ── */
-.guidelines-section { padding: 0 0 140px; }
+.guidelines-section { padding: 90px 0 140px; }
+.guidelines-header {
+  margin: 0 auto 52px;
+  text-align: center;
+}
+.guidelines-header .gl-heading {
+  margin-bottom: 20px;
+}
+.gl-bridge {
+  color: var(--text-light);
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: -0.22px;
+  line-height: 1.47;
+  margin: 0 auto;
+  max-width: 960px;
+  opacity: 1;
+  text-wrap: balance;
+}
 .guidelines-layout {
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
@@ -1130,15 +1151,16 @@ button:focus-visible {
   top: calc(var(--nav-h) + 48px);
   align-self: start;
   height: fit-content;
-  padding: 72px 48px 0 0;
+  padding: 0 48px 0 0;
 }
 .gl-heading {
   font-family: var(--font-serif);
-  font-size: 2.4rem;
-  line-height: 1.15;
+  font-size: clamp(3.8rem, 6vw, 4.35rem);
+  line-height: 1.09;
   color: var(--text);
-  margin-bottom: 36px;
   font-style: italic;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
 }
 .gl-nav {
   display: flex;
@@ -1284,6 +1306,16 @@ button:focus-visible {
   max-width: 720px;
   margin: 0 auto 52px;
   text-align: center;
+}
+@media (min-width: 769px) {
+  .proto-sub,
+  .acknowledgments-intro {
+    width: min(100%, 960px);
+    max-width: 960px;
+    padding-inline: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 }
 .acknowledgments-blocks {
   display: flex;
@@ -1468,6 +1500,33 @@ button:focus-visible {
 
 @media (max-width: 768px) {
   .container { padding: 0 24px; }
+  .guidelines-section { padding: 72px 0 110px; }
+  .guidelines-header { margin-bottom: 40px; }
+  .guidelines-header .gl-heading { margin-bottom: 16px; }
+  .guidelines-layout {
+    grid-template-columns: 1fr;
+    padding: 0 24px;
+  }
+  .guidelines-sticky {
+    position: static;
+    padding: 0;
+    margin-bottom: 28px;
+  }
+  .guidelines-scroll { padding-top: 0; }
+  .gl-card { padding: 44px 0; }
+  .gl-heading {
+    font-size: 48px;
+    letter-spacing: -1.5px;
+    white-space: normal;
+  }
+  .gl-bridge {
+    font-size: 16px;
+    max-width: 680px;
+  }
+  .sr-answer {
+    font-size: 30px;
+    letter-spacing: -0.75px;
+  }
 
   .stats-section { padding: 72px 0; }
   .stats-grid {

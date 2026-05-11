@@ -206,7 +206,7 @@ window.FINSIGHT_CONTENT = {
   },
 
   guidelines: {
-    headingHtml: 'Design<br>Guidelines',
+    headingHtml: 'Design Guidelines',
     navLabel: 'Guidelines navigation',
     items: [
       {
