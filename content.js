@@ -296,7 +296,7 @@ window.FINSIGHT_CONTENT = {
       { image: 'assets/teammembers/se.jpeg', imageAlt: 'Portrait of Sejin Kim', name: 'Sejin Kim', linkedinText: 'LinkedIn', linkedinUrl: 'https://www.linkedin.com/in/jin-sejin-kim/' },
     ],
     processHeading: 'Our Process',
-    photoCount: 14,
+    photoCount: 16,
     photosMarqueeLabel: 'Decorative carousel of team process photos moving in a continuous loop. The images show the FinSight team working together, documenting research, and presenting project materials.',
   },
 
