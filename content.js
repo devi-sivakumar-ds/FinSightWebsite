@@ -282,6 +282,10 @@ window.FINSIGHT_CONTENT = {
         name: 'Steve Fadden',
         text: 'Steve Fadden contributed meaningfully to the early research process, helping the team sharpen its approach before fieldwork began.',
       },
+      {
+        name: 'Willie Macharia',
+        text: 'Willie Macharia participated in the project’s early development phases and assisted the team by facilitating access to data tools for Reddit analysis.',
+      },
     ],
     finalParagraph: 'Finally, we are grateful to every BLV adult who participated in an interview, completed the survey, or sat with us through a usability session. This project exists because people were willing to share their time, their frustrations, and their expertise.',
   },
